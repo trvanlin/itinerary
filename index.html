@@ -158,8 +158,8 @@
     .card-badge {
       font-size: 12px;
       font-weight: 600;
-      color: var(--card-accent, var(--flight));
-      background: color-mix(in srgb, var(--card-accent, var(--flight)) 13%, transparent);
+      color: var(--card-type, var(--card-accent, var(--flight)));
+      background: color-mix(in srgb, var(--card-type, var(--card-accent, var(--flight))) 13%, transparent);
       padding: 3px 9px;
       border-radius: 20px;
       white-space: nowrap;
@@ -897,7 +897,7 @@ function renderTripCard(trip) {
     .map(([t,n]) => `<span class="card-pill">${ICONS[t]} ${n}</span>`).join('');
 
   return `
-    <div class="trip-card" style="--card-accent:${accent}" onclick="showTrip('${trip.id}')">
+    <div class="trip-card" style="--card-accent:${accent};--card-type:${TYPE_COLOR[trip.type]||accent}" onclick="showTrip('${trip.id}')">
       <div class="card-stripe"></div>
       <div class="card-body">
         <div class="card-top">
