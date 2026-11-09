@@ -438,6 +438,43 @@
       border-left: 2px solid var(--seg-color, var(--border));
     }
 
+    /* ── Type filter ── */
+    :root {
+      --type-work:     #6366f1;
+      --type-personal: #f97316;
+    }
+    .type-filter {
+      display: flex;
+      gap: 8px;
+      padding: 10px 24px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .type-btn {
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: none;
+      color: var(--text2);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .type-btn.active[data-type="all"]      { color: var(--text); background: var(--bg3); border-color: var(--text3); }
+    .type-btn.active[data-type="work"]     { color: var(--type-work);     background: color-mix(in srgb, var(--type-work)     12%, transparent); border-color: var(--type-work); }
+    .type-btn.active[data-type="personal"] { color: var(--type-personal); background: color-mix(in srgb, var(--type-personal) 12%, transparent); border-color: var(--type-personal); }
+
+    .card-type-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
+
     /* Empty state */
     .empty {
       text-align: center;
@@ -468,6 +505,7 @@
     "id": "la-christmas-dec2026",
     "name": "SFO–BUR",
     "subtitle": "Christmas 2026",
+    "type": "personal",
     "destination": "Burbank, CA",
     "accent": "#dc2626",
     "travelers": [],
@@ -527,9 +565,10 @@
     ]
   },
   {
-    "id": "gso-work-dec2026",
-    "name": "Greensboro",
+    "id": "sfo-gso-dec2026",
+    "name": "SFO–GSO",
     "subtitle": "Work Trip",
+    "type": "work",
     "destination": "Greensboro, NC",
     "accent": "#6366f1",
     "travelers": [],
@@ -565,6 +604,12 @@
 <div class="tab-bar" id="tabBar">
   <button class="tab-btn active" id="tabUpcoming" onclick="switchTab('upcoming')">Upcoming <span class="tab-count" id="countUpcoming"></span></button>
   <button class="tab-btn" id="tabArchive" onclick="switchTab('archive')">Archive <span class="tab-count" id="countArchive"></span></button>
+</div>
+
+<div class="type-filter" id="typeFilter">
+  <button class="type-btn active" data-type="all"      onclick="switchFilter('all')">All</button>
+  <button class="type-btn"        data-type="work"     onclick="switchFilter('work')">Work</button>
+  <button class="type-btn"        data-type="personal" onclick="switchFilter('personal')">Personal</button>
 </div>
 
 <div id="app"></div>
@@ -860,6 +905,7 @@ function renderTripCard(trip) {
             <div class="card-name">${trip.name}</div>
             ${trip.subtitle ? `<div class="card-sub">${trip.subtitle}</div>` : ''}
             <div class="card-dates">${formatDateShort(trip.dates.start)} – ${formatDateShort(trip.dates.end)}</div>
+            ${trip.type ? `<div class="card-type-pill" style="color:${TYPE_COLOR[trip.type]||'var(--text3)'};background:color-mix(in srgb,${TYPE_COLOR[trip.type]||'var(--text3)'} 12%,transparent)">${trip.type === 'work' ? 'Work' : 'Personal'}</div>` : ''}
           </div>
           <div class="card-badge">${badge}</div>
         </div>
@@ -868,7 +914,10 @@ function renderTripCard(trip) {
     </div>`;
 }
 
-let currentTab = 'upcoming';
+let currentTab    = 'upcoming';
+let currentFilter = 'all';
+
+const TYPE_COLOR = { work: 'var(--type-work)', personal: 'var(--type-personal)' };
 
 function switchTab(tab) {
   currentTab = tab;
@@ -877,24 +926,36 @@ function switchTab(tab) {
   renderHome();
 }
 
+function switchFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.type-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.type === f);
+  });
+  renderHome();
+}
+
 function showHome() {
   document.getElementById('backBtn').style.display = 'none';
   document.getElementById('logoEl').style.display = '';
   document.getElementById('headerTripName').style.display = 'none';
   document.getElementById('tabBar').style.display = '';
+  document.getElementById('typeFilter').style.display = '';
   document.title = 'Itinerary';
   renderHome();
   window.scrollTo(0, 0);
 }
 
 function renderHome() {
-  const upcoming = TRIPS.filter(t => !isArchived(t)).sort((a,b) => a.dates.start.localeCompare(b.dates.start));
-  const archive  = TRIPS.filter(t =>  isArchived(t)).sort((a,b) => b.dates.start.localeCompare(a.dates.start));
+  const byTab = {
+    upcoming: TRIPS.filter(t => !isArchived(t)).sort((a,b) => a.dates.start.localeCompare(b.dates.start)),
+    archive:  TRIPS.filter(t =>  isArchived(t)).sort((a,b) => b.dates.start.localeCompare(a.dates.start))
+  };
 
-  document.getElementById('countUpcoming').textContent = upcoming.length;
-  document.getElementById('countArchive').textContent  = archive.length;
+  document.getElementById('countUpcoming').textContent = byTab.upcoming.length;
+  document.getElementById('countArchive').textContent  = byTab.archive.length;
 
-  const list = currentTab === 'upcoming' ? upcoming : archive;
+  const base = byTab[currentTab];
+  const list = currentFilter === 'all' ? base : base.filter(t => t.type === currentFilter);
   document.getElementById('app').innerHTML = list.length
     ? `<div class="trip-list">${list.map(renderTripCard).join('')}</div>`
     : `<div class="empty-tab">${currentTab === 'upcoming' ? 'No upcoming trips.' : 'No archived trips yet.'}</div>`;
@@ -908,6 +969,7 @@ function showTrip(id) {
   document.getElementById('headerTripName').textContent = trip.name + (trip.subtitle ? ' · ' + trip.subtitle : '');
   document.getElementById('headerTripName').style.display = 'block';
   document.getElementById('tabBar').style.display = 'none';
+  document.getElementById('typeFilter').style.display = 'none';
   document.getElementById('app').innerHTML = renderTrip(trip);
   document.title = `${trip.name} · Itinerary`;
   window.scrollTo(0, 0);

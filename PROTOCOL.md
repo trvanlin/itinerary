@@ -46,9 +46,8 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 ## Naming Conventions
 
-**Trip names**
-- Route-style for work/commuter hops: `SFO–BUR` (en-dash, uppercase IATA)
-- City name for leisure/family trips: `Chicago`, `Los Angeles`
+**Trip names** — route-style for all trips: `SFO–BUR`, `SFO–GSO` (en-dash, uppercase IATA)
+- If destination airport is TBD, use city name temporarily until confirmed
 
 **Subtitles:** descriptor or occasion — `Christmas 2026`, `Work Trip`, `Long Weekend`
 
@@ -59,9 +58,13 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 **Travelers:** field kept as empty array `[]` — names are not stored in trip data
 
-**Accent colors**
-- Work trips: indigo `#6366f1`
-- Family/leisure: pick something fitting; SFO–BUR Christmas uses `#dc2626`
+**Trip type** — required field on every trip; drives filter and card pill
+- `"work"` → indigo `#6366f1`
+- `"personal"` → orange `#f97316`
+
+**Accent colors** — trip-specific visual identity (card stripe), independent of type
+- Work trips default to indigo; can vary if needed
+- Personal trips: pick per occasion (SFO–BUR Christmas = `#dc2626`)
 
 ---
 
