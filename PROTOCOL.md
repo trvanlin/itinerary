@@ -72,6 +72,7 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 ## Rendering Rules
 
+- Date ranges show day-of-week: `Mon Dec 14 – Wed Dec 16` (card and hero)
 - `address` on hotel/car segments → auto-linked to Google Maps
 - `flightyUrl` on flight segments → renders "Flighty ↗" link
 - `notes` → renders only if non-empty; keep factual/operational, not editorial
