@@ -52,31 +52,120 @@
       white-space: nowrap;
     }
     .logo span { color: var(--flight); }
-    .trip-select-wrap {
-      position: relative;
-      margin-left: auto;
+
+    /* ── Back button / detail header ── */
+    .back-btn {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: var(--flight);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 0;
+      white-space: nowrap;
     }
-    #tripSelector {
-      appearance: none;
+    .back-btn svg { flex-shrink: 0; }
+    .header-trip-name {
+      display: none;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-left: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* ── Tabs ── */
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+      background: var(--bg);
+      position: sticky;
+      top: 53px;
+      z-index: 90;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text2);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 11px 14px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.15s;
+    }
+    .tab-btn.active { color: var(--text); font-weight: 600; }
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 2px;
+      background: var(--flight);
+      border-radius: 2px 2px 0 0;
+    }
+    .tab-count {
+      display: inline-block;
+      background: var(--bg3);
+      color: var(--text3);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    /* ── Trip cards ── */
+    .trip-list {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px 16px 80px;
+    }
+    .trip-card {
+      display: flex;
       background: var(--bg2);
       border: 1px solid var(--border);
-      color: var(--text);
-      padding: 7px 32px 7px 12px;
-      border-radius: 7px;
-      font-size: 14px;
+      border-radius: var(--radius);
+      margin-bottom: 10px;
       cursor: pointer;
-      outline: none;
-      min-width: 200px;
+      overflow: hidden;
+      transition: border-color 0.15s, transform 0.1s;
+      -webkit-tap-highlight-color: transparent;
     }
-    #tripSelector:hover { border-color: var(--flight); }
-    .select-arrow {
-      position: absolute;
-      right: 10px; top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      color: var(--text2);
-      font-size: 11px;
+    .trip-card:hover { border-color: var(--card-accent, var(--border)); transform: translateY(-1px); }
+    .trip-card:active { transform: translateY(0); opacity: 0.85; }
+    .card-stripe { width: 4px; background: var(--card-accent, var(--flight)); flex-shrink: 0; }
+    .card-body { flex: 1; padding: 14px 16px; min-width: 0; }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 4px;
     }
+    .card-name { font-size: 17px; font-weight: 700; line-height: 1.2; }
+    .card-sub  { font-size: 13px; font-weight: 400; color: var(--text2); }
+    .card-dates { font-size: 13px; color: var(--text2); margin-bottom: 10px; margin-top: 2px; }
+    .card-badge {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--card-accent, var(--flight));
+      background: color-mix(in srgb, var(--card-accent, var(--flight)) 13%, transparent);
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .card-pill  { font-size: 12px; color: var(--text3); display: flex; align-items: center; gap: 3px; }
+
+    .empty-tab { text-align: center; padding: 60px 24px; color: var(--text3); font-size: 14px; }
 
     /* ── Hero ── */
     .trip-hero {
@@ -353,7 +442,6 @@
       .trip-hero h1 { font-size: 26px; }
       .timeline { padding: 24px 16px 60px; }
       .flight-airport .code { font-size: 18px; }
-      #tripSelector { min-width: 150px; }
     }
   </style>
 </head>
@@ -454,12 +542,17 @@
 <!-- ═══════════════════════════════════════════════ -->
 
 <header>
-  <div class="logo">✈ <span>itinerary</span></div>
-  <div class="trip-select-wrap">
-    <select id="tripSelector"></select>
-    <span class="select-arrow">▼</span>
-  </div>
+  <button class="back-btn" id="backBtn" onclick="showHome()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Trips
+  </button>
+  <div class="logo" id="logoEl">✈ <span>itinerary</span></div>
+  <div class="header-trip-name" id="headerTripName"></div>
 </header>
+<div class="tab-bar" id="tabBar">
+  <button class="tab-btn active" id="tabUpcoming" onclick="switchTab('upcoming')">Upcoming <span class="tab-count" id="countUpcoming"></span></button>
+  <button class="tab-btn" id="tabArchive" onclick="switchTab('archive')">Archive <span class="tab-count" id="countArchive"></span></button>
+</div>
 
 <div id="app"></div>
 
@@ -703,33 +796,106 @@ function renderTrip(trip) {
   return heroHTML + `<div class="timeline">${timelineHTML}</div>`;
 }
 
-function init() {
-  const sel = document.getElementById('tripSelector');
+function daysUntil(dateStr) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.ceil((new Date(dateStr + 'T00:00:00') - today) / 86400000);
+}
 
-  if (!TRIPS.length) {
-    document.getElementById('app').innerHTML = `
-      <div class="empty">
-        <h2>No trips yet</h2>
-        <p>Bring Thor a confirmation email and they'll add it here.</p>
+function isArchived(trip) {
+  return new Date(trip.dates.end + 'T23:59:59') < new Date();
+}
+
+function renderTripCard(trip) {
+  const accent = trip.accent || '#3b82f6';
+  const days = daysUntil(trip.dates.start);
+  const past = isArchived(trip);
+
+  let badge;
+  if (past) {
+    const ago = Math.abs(daysUntil(trip.dates.end));
+    badge = ago === 0 ? 'Just ended' : `${ago}d ago`;
+  } else if (days < 0) {
+    badge = 'In progress';
+  } else if (days === 0) {
+    badge = 'Today';
+  } else if (days === 1) {
+    badge = 'Tomorrow';
+  } else {
+    badge = `${days} days`;
+  }
+
+  const counts = {};
+  trip.segments.forEach(s => { if (s.type !== 'note') counts[s.type] = (counts[s.type]||0)+1; });
+  const pills = Object.entries(counts)
+    .map(([t,n]) => `<span class="card-pill">${ICONS[t]} ${n}</span>`).join('');
+
+  return `
+    <div class="trip-card" style="--card-accent:${accent}" onclick="showTrip('${trip.id}')">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div>
+            <div class="card-name">${trip.name}${trip.subtitle ? ` <span class="card-sub">${trip.subtitle}</span>` : ''}</div>
+            <div class="card-dates">${formatDateShort(trip.dates.start)} – ${formatDateShort(trip.dates.end)}</div>
+          </div>
+          <div class="card-badge">${badge}</div>
+        </div>
+        ${pills ? `<div class="card-pills">${pills}</div>` : ''}
       </div>
-    `;
+    </div>`;
+}
+
+let currentTab = 'upcoming';
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById('tabUpcoming').classList.toggle('active', tab === 'upcoming');
+  document.getElementById('tabArchive').classList.toggle('active', tab === 'archive');
+  renderHome();
+}
+
+function showHome() {
+  document.getElementById('backBtn').style.display = 'none';
+  document.getElementById('logoEl').style.display = '';
+  document.getElementById('headerTripName').style.display = 'none';
+  document.getElementById('tabBar').style.display = '';
+  document.title = 'Itinerary';
+  renderHome();
+  window.scrollTo(0, 0);
+}
+
+function renderHome() {
+  const upcoming = TRIPS.filter(t => !isArchived(t)).sort((a,b) => a.dates.start.localeCompare(b.dates.start));
+  const archive  = TRIPS.filter(t =>  isArchived(t)).sort((a,b) => b.dates.start.localeCompare(a.dates.start));
+
+  document.getElementById('countUpcoming').textContent = upcoming.length;
+  document.getElementById('countArchive').textContent  = archive.length;
+
+  const list = currentTab === 'upcoming' ? upcoming : archive;
+  document.getElementById('app').innerHTML = list.length
+    ? `<div class="trip-list">${list.map(renderTripCard).join('')}</div>`
+    : `<div class="empty-tab">${currentTab === 'upcoming' ? 'No upcoming trips.' : 'No archived trips yet.'}</div>`;
+}
+
+function showTrip(id) {
+  const trip = TRIPS.find(t => t.id === id);
+  if (!trip) return;
+  document.getElementById('backBtn').style.display = 'flex';
+  document.getElementById('logoEl').style.display = 'none';
+  document.getElementById('headerTripName').textContent = trip.name + (trip.subtitle ? ' · ' + trip.subtitle : '');
+  document.getElementById('headerTripName').style.display = 'block';
+  document.getElementById('tabBar').style.display = 'none';
+  document.getElementById('app').innerHTML = renderTrip(trip);
+  document.title = `${trip.name} · Itinerary`;
+  window.scrollTo(0, 0);
+}
+
+function init() {
+  if (!TRIPS.length) {
+    document.getElementById('app').innerHTML = `<div class="empty-tab">No trips yet.</div>`;
     return;
   }
-
-  TRIPS.forEach((trip, i) => {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = `${trip.name}${trip.subtitle ? ' · ' + trip.subtitle : ''} (${formatDateShort(trip.dates.start)})`;
-    sel.appendChild(opt);
-  });
-
-  function showTrip(idx) {
-    document.getElementById('app').innerHTML = renderTrip(TRIPS[idx]);
-    document.title = `${TRIPS[idx].name} · Itinerary`;
-  }
-
-  sel.addEventListener('change', e => showTrip(+e.target.value));
-  showTrip(0);
+  showHome();
 }
 
 init();
