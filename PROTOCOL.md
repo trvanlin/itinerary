@@ -51,6 +51,8 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 **Subtitles:** descriptor or occasion — `Christmas 2026`, `Work Trip`, `Long Weekend`
 
+**Icon:** optional, one emoji per trip max — rendered after the name on the card and in the detail hero. Pick something that fits the vibe, not just the destination.
+
 **Seat format:** range only — no names
 ```
 8A–8D
