@@ -35,7 +35,7 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 | type | Key fields |
 |------|-----------|
-| `flight` | airline, flightNumber, from{code,city,terminal,gate,time}, to{...}, duration, class, seat, confirmation, flightyUrl, notes |
+| `flight` | airline, flightNumber, from{code,city,terminal,gate,time}, to{...}, duration, distance_mi, aircraft, class, seat, confirmation, flightyUrl, notes |
 | `hotel` | name, address, phone, checkIn, checkOut, nights, roomType, confirmation, notes |
 | `car` | company, class, pickup{location,address,time}, dropoff{location,address,date,time}, confirmation, notes |
 | `activity` | name, time, address, duration, confirmation, notes |
@@ -49,7 +49,7 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 **Trip names** — route-style for all trips: `SFO–BUR`, `SFO–GSO` (en-dash, uppercase IATA)
 - If destination airport is TBD, use city name temporarily until confirmed
 
-**Subtitles:** descriptor or occasion — `Christmas 2026`, `Work Trip`, `Long Weekend`
+**Subtitles:** descriptor or event name — `Christmas 2026`, `Contracts Council`, `Bora In-Person`. For TripIt imports, use a shortened version of the PDF label.
 
 **Icon:** optional, one emoji per trip max — rendered after the name on the card and in the detail hero. Pick something that fits the vibe, not just the destination.
 
@@ -64,9 +64,11 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 - `"work"` → Packers gold `#FFB612`
 - `"personal"` → Packers green `#2d9e5a`
 
-**Accent colors** — trip-specific visual identity (card stripe), independent of type
+**Accent colors** — used only in the detail hero; card stripe uses type color
 - Work trips default to `#FFB612`; can vary if needed
 - Personal trips: pick per occasion (SFO–BUR Christmas = `#dc2626`)
+
+**Tab labels** — `Current Trips` (upcoming/active) and `Past Trips` (archived). Internal JS values remain `upcoming` / `archive`.
 
 ---
 
@@ -74,6 +76,8 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 - Date ranges show day-of-week: `Mon Dec 14 – Wed Dec 16` (card and hero)
 - `address` on hotel/car segments → auto-linked to Google Maps
+- `distance_mi` on flight segments → stored for future analytics (great circle mi; estimated from route data when not on confirmation)
+- `aircraft` on flight segments → stored when available from TripIt/confirmation (omit if unknown)
 - `flightyUrl` on flight segments → renders "Flighty ↗" link
 - `notes` → renders only if non-empty; keep factual/operational, not editorial
 - `confirmation` → click-to-copy pill
@@ -101,6 +105,23 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 **Trip end dates**
 - Use actual checkout/final day, not the return flight date if they differ
+
+---
+
+## TripIt Import Workflow
+
+TripIt exports trips as PDFs (`File > Print/Export` in TripIt app). PDF format: trip header with dates, then segments (flights, hotel, car) each with confirmation, seat, aircraft, distance, duration.
+
+**Import checklist:**
+1. Trip name: `SFO–XXX` route-style (outbound destination airport code)
+2. Subtitle: shortened PDF label (e.g., "2026.01.22, Contracts Council" → `"Contracts Council"`)
+3. `type: "work"` for all BCD-booked corporate travel
+4. Add `aircraft` and `distance_mi` to each flight segment from PDF; estimate distance if missing (great circle)
+5. Connection flights: one segment per leg (same day, sequential times)
+6. Return from different airport (e.g., BUR vs LAX): use outbound destination for trip name, correct departure code on return segment
+7. Partial hotel data (1 night captured, trip is 5 days): note gaps in `notes` field
+
+**Known routes (mi):** SFO–PHX 650 · SFO–LAX 337 · BUR–SFO 326 · SFO–IAD 2412 · SFO–EWR 2558 · SFO–ORD 1841 · ORD–PWM 897 · SFO–DEN 965 · DEN–SFO 965 · PWM–DEN 1776 · DTW–IAD 382 · SFO–DTW 2073
 
 ---
 
