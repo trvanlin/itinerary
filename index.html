@@ -481,6 +481,7 @@
         "class": "Economy Plus",
         "seat": "8A–8D · Thor, Ali, Madie, Skylar",
         "confirmation": "IV62ZR",
+        "flightyUrl": "https://live.flighty.app/2674a4f26-b35b-4816-856f-2bc4a856a94d",
         "notes": ""
       },
       {
@@ -517,6 +518,7 @@
         "class": "Economy Plus",
         "seat": "11C–11F · Thor, Ali, Madie, Skylar",
         "confirmation": "IV62ZR",
+        "flightyUrl": "https://live.flighty.app/2be44089d-4894-4e40-ac1b-c24e4b09c634",
         "notes": ""
       }
     ]
@@ -617,9 +619,6 @@ function mapsUrl(address) {
   return `https://maps.google.com/?q=${encodeURIComponent(address)}`;
 }
 
-function flightyUrl(flightNumber, date) {
-  return `https://flighty.app/f/${flightNumber.replace(/\s+/g,'')}/${date.replace(/-/g,'')}`;
-}
 
 function copyConfirmation(el, code) {
   navigator.clipboard.writeText(code).then(() => {
@@ -636,7 +635,7 @@ function renderConfirmation(code, color) {
 }
 
 function renderFlight(seg, color) {
-  const fUrl = flightyUrl(seg.flightNumber, seg.date);
+  const fUrl = seg.flightyUrl;
   return `
     <div class="flight-route">
       <div class="flight-airport">
@@ -661,9 +660,7 @@ function renderFlight(seg, color) {
       ${seg.from.terminal ? `<div class="seg-detail"><span class="seg-detail-label">Terminal</span> ${seg.from.terminal}</div>` : ''}
       ${seg.from.gate ? `<div class="seg-detail"><span class="seg-detail-label">Gate</span> ${seg.from.gate}</div>` : ''}
     </div>
-    <div style="margin-top:10px">
-      <a href="${fUrl}" target="_blank" class="ext-link">Flighty ↗</a>
-    </div>
+    ${fUrl ? `<div style="margin-top:10px"><a href="${fUrl}" target="_blank" class="ext-link">Flighty ↗</a></div>` : ''}
   `;
 }
 
