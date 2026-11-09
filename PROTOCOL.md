@@ -52,12 +52,12 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 **Subtitles:** descriptor or occasion — `Christmas 2026`, `Work Trip`, `Long Weekend`
 
-**Seat format:** range + first names only
+**Seat format:** range only — no names
 ```
-8A–8D · Thor, Ali, Madie, Skylar
+8A–8D
 ```
 
-**Traveler names:** short first names — `Thor`, `Ali`, `Madie`, `Skylar` (not Alexy, Madi, Skylara)
+**Travelers:** field kept as empty array `[]` — names are not stored in trip data
 
 **Accent colors**
 - Work trips: indigo `#6366f1`
