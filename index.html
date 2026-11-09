@@ -192,6 +192,17 @@
       color: var(--accent, var(--flight));
       margin-bottom: 8px;
     }
+    .hero-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--type-color, var(--flight));
+      background: color-mix(in srgb, var(--type-color, var(--flight)) 13%, transparent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
     .trip-hero h1 {
       font-size: 32px;
       font-weight: 800;
@@ -839,11 +850,30 @@ function groupByDay(segments) {
 
 function renderTrip(trip) {
   const days = groupByDay(trip.segments);
-  const accent = trip.accent || '#3b82f6';
+  const typeColor = TYPE_COLOR[trip.type] || trip.accent || '#3b82f6';
+
+  const d = daysUntil(trip.dates.start);
+  const past = isArchived(trip);
+  let heroBadge;
+  if (past) {
+    const ago = Math.abs(daysUntil(trip.dates.end));
+    heroBadge = ago === 0 ? 'Just ended' : `${ago}d ago`;
+  } else if (d < 0) {
+    heroBadge = 'In progress';
+  } else if (d === 0) {
+    heroBadge = 'Today!';
+  } else if (d === 1) {
+    heroBadge = 'Tomorrow';
+  } else {
+    heroBadge = `${d} days away`;
+  }
 
   const heroHTML = `
-    <div class="trip-hero" style="border-left: 4px solid ${accent}; padding-left: 28px;">
-      <div class="trip-label" style="--accent:${accent}">${trip.destination || ''}</div>
+    <div class="trip-hero" style="border-left: 4px solid ${typeColor}; padding-left: 28px;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div class="trip-label" style="--accent:${typeColor}">${trip.destination || ''}</div>
+        <div class="hero-badge" style="--type-color:${typeColor}">${heroBadge}</div>
+      </div>
       <h1>${trip.name}${trip.icon ? ` ${trip.icon}` : ''}${trip.subtitle ? ` <span style="font-weight:400;color:var(--text2)">${trip.subtitle}</span>` : ''}</h1>
       <div class="trip-meta">
         <div class="trip-meta-item">
