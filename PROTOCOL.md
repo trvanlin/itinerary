@@ -59,11 +59,11 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 **Travelers:** field kept as empty array `[]` — names are not stored in trip data
 
 **Trip type** — required field on every trip; drives filter and card pill
-- `"work"` → indigo `#6366f1`
-- `"personal"` → orange `#f97316`
+- `"work"` → Packers gold `#FFB612`
+- `"personal"` → Packers green `#2d9e5a`
 
 **Accent colors** — trip-specific visual identity (card stripe), independent of type
-- Work trips default to indigo; can vary if needed
+- Work trips default to `#FFB612`; can vary if needed
 - Personal trips: pick per occasion (SFO–BUR Christmas = `#dc2626`)
 
 ---
