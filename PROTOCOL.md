@@ -104,6 +104,21 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 ---
 
+## Keeping the Dashboard in Sync
+
+The home dashboard (`~/home-dashboard/dashboard.html`) has a **Booked Flights** panel on the Travel tab with its own `BOOKED_TRIPS` array (line ~2789). It is a separate data store and does not auto-update from the itinerary.
+
+**After any trip add/edit here, ask:** "Want me to update the dashboard's Booked Flights panel to match?"
+
+Dashboard leg format (for reference):
+```js
+{ flight: "UA 2764", route: "SFO→BUR", dep: "4:21 PM", arr: "5:36 PM", date: "Dec 25" }
+```
+
+Trip fields: `destination`, `wikiTitle` (Wikipedia article name for photo fetch), `start`, `end`, `legs[]`, `activities[]`. TBD trips take `tbd: true, featured: true`.
+
+---
+
 ## Deployment
 
 - Repo: `github.com/trvanlin/itinerary` (public)
