@@ -3144,7 +3144,7 @@ function buildStatsHTML() {
       years[yr] = (years[yr]||0) + (f.distance_mi||0);
     });
   });
-  const yearsSorted = Object.entries(years).sort((a,b)=>a[0].localeCompare(b[0]));
+  const yearsSorted = Object.entries(years).sort((a,b)=>b[0].localeCompare(a[0]));
   const maxYear = Math.max(1,...yearsSorted.map(([,v])=>v));
 
   // State tile grid [col, row] 1-indexed
