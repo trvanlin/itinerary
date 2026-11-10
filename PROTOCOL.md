@@ -149,3 +149,4 @@ Trip fields: `destination`, `wikiTitle` (Wikipedia article name for photo fetch)
 - Branch: `main` → GitHub Pages auto-deploys on push
 - Push method: GitHub Desktop (git credentials not available in Claude terminal sessions)
 - Multiple commits per session is fine — push once at the end
+
