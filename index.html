@@ -154,7 +154,9 @@
     }
     .card-name { font-size: 17px; font-weight: 700; line-height: 1.2; }
     .card-sub   { font-size: 13px; color: var(--text2); margin-top: 1px; }
-    .card-dates { font-size: 13px; color: var(--text2); margin-bottom: 10px; margin-top: 2px; }
+    .card-dest  { font-size: 12px; color: var(--text3); margin-top: 1px; }
+    .card-dates { font-size: 13px; color: var(--text2); margin-top: 3px; }
+    .card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
     .card-badge {
       font-size: 12px;
       font-weight: 600;
@@ -460,6 +462,9 @@
       padding: 10px 24px;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 95px;
+      z-index: 85;
     }
     .type-btn {
       padding: 4px 14px;
@@ -483,7 +488,6 @@
       letter-spacing: 0.3px;
       padding: 2px 7px;
       border-radius: 4px;
-      margin-top: 5px;
     }
 
     /* Empty state */
@@ -1664,12 +1668,15 @@ function renderTripCard(trip) {
           <div>
             <div class="card-name">${trip.name}${trip.icon ? ` ${trip.icon}` : ''}</div>
             ${trip.subtitle ? `<div class="card-sub">${trip.subtitle}</div>` : ''}
+            ${trip.destination ? `<div class="card-dest">${trip.destination}</div>` : ''}
             <div class="card-dates">${formatDateDOW(trip.dates.start)} – ${formatDateDOW(trip.dates.end)}</div>
-            ${trip.type ? `<div class="card-type-pill" style="color:${TYPE_COLOR[trip.type]||'var(--text3)'};background:color-mix(in srgb,${TYPE_COLOR[trip.type]||'var(--text3)'} 12%,transparent)">${trip.type === 'work' ? 'Work' : 'Personal'}</div>` : ''}
           </div>
-          <div class="card-badge">${badge}</div>
+          <div class="card-right">
+            <div class="card-badge">${badge}</div>
+            ${trip.type ? `<div class="card-type-pill" style="color:${TYPE_COLOR[trip.type]||'var(--text3)'};background:color-mix(in srgb,${TYPE_COLOR[trip.type]||'var(--text3)'} 12%,transparent)">${trip.type === 'work' ? 'Work' : 'Personal'}</div>` : ''}
+            ${pills ? `<div class="card-pills">${pills}</div>` : ''}
+          </div>
         </div>
-        ${pills ? `<div class="card-pills">${pills}</div>` : ''}
       </div>
     </div>`;
 }

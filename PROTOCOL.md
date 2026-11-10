@@ -64,6 +64,8 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 - `"work"` → Packers gold `#FFB612`
 - `"personal"` → Packers green `#2d9e5a`
 
+**Destination** — always set to the hotel city (`"Tempe, AZ"`, `"Chantilly, VA"`). Displayed on card below subtitle. For trips with multiple hotel cities, use the primary meeting location.
+
 **Accent colors** — used only in the detail hero; card stripe uses type color
 - Work trips default to `#FFB612`; can vary if needed
 - Personal trips: pick per occasion (SFO–BUR Christmas = `#dc2626`)
