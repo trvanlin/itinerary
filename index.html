@@ -2047,9 +2047,11 @@ function formatDateShort(str) {
 
 function formatDateDOW(str) {
   const d = new Date(str + 'T12:00:00');
-  const dow  = d.toLocaleDateString('en-US', { weekday: 'short' });
-  const date = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  return `${dow} ${date}`;
+  const dow = d.toLocaleDateString('en-US', { weekday: 'short' });
+  const m   = d.getMonth() + 1;
+  const day = d.getDate();
+  const yr  = String(d.getFullYear()).slice(-2);
+  return `${dow} ${m}/${day}/${yr}`;
 }
 
 function formatDOW(str) {
