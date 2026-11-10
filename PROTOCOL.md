@@ -123,7 +123,7 @@ TripIt exports trips as PDFs (`File > Print/Export` in TripIt app). PDF format: 
 6. Return from different airport (e.g., BUR vs LAX): use outbound destination for trip name, correct departure code on return segment
 7. Partial hotel data (1 night captured, trip is 5 days): note gaps in `notes` field
 
-**Known routes (mi):** SFO–PHX 650 · SFO–LAX 337 · BUR–SFO 326 · SFO–IAD 2412 · SFO–EWR 2558 · SFO–ORD 1841 · ORD–PWM 897 · SFO–DEN 965 · DEN–SFO 965 · PWM–DEN 1776 · DTW–IAD 382 · SFO–DTW 2073
+**Known routes (mi):** SFO–PHX 650 · SFO–LAX 337 · BUR–SFO 326 · SFO–IAD 2412 · SFO–EWR 2558 · SFO–ORD 1841 · ORD–PWM 897 · SFO–DEN 965 · DEN–SFO 965 · PWM–DEN 1776 · DTW–IAD 382 · SFO–DTW 2073 · SFO–MCO 2441 · SJC–LGB 323 · SFO–GSO 2455
 
 ---
 
