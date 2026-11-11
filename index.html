@@ -130,6 +130,21 @@
       margin: 0 auto;
       padding: 20px 16px 80px;
     }
+    .year-header {
+      position: sticky;
+      top: 143px;
+      z-index: 80;
+      background: var(--bg);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text2);
+      padding: 16px 0 8px;
+      margin-top: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .year-header:first-child { margin-top: 0; }
     .trip-card {
       display: flex;
       background: var(--bg2);
@@ -5021,9 +5036,21 @@ function renderHome() {
 
   const base = byTab[currentTab];
   const list = currentFilter === 'all' ? base : base.filter(t => t.type === currentFilter);
-  document.getElementById('app').innerHTML = list.length
-    ? `<div class="trip-list">${list.map(renderTripCard).join('')}</div>`
-    : `<div class="empty-tab">${currentTab === 'upcoming' ? 'No current trips.' : 'No past trips yet.'}</div>`;
+
+  let content;
+  if (!list.length) {
+    content = `<div class="empty-tab">${currentTab === 'upcoming' ? 'No current trips.' : 'No past trips yet.'}</div>`;
+  } else if (currentTab === 'archive') {
+    const byYear = {};
+    list.forEach(t => { const yr = t.dates.start.substring(0, 4); (byYear[yr] = byYear[yr] || []).push(t); });
+    const inner = Object.keys(byYear).sort((a, b) => b - a).map(yr =>
+      `<div class="year-header">${yr}</div>${byYear[yr].map(renderTripCard).join('')}`
+    ).join('');
+    content = `<div class="trip-list">${inner}</div>`;
+  } else {
+    content = `<div class="trip-list">${list.map(renderTripCard).join('')}</div>`;
+  }
+  document.getElementById('app').innerHTML = content;
 }
 
 function showTrip(id) {
