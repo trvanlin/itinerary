@@ -3250,7 +3250,7 @@
         "to": { "code": "SFO", "city": "San Francisco", "time": "9:55 AM" },
         "duration": "2h 55m",
         "distance_mi": 965,
-        "aircraft": "Boeing 777",
+        "aircraft": "Boeing 777-200ER",
         "class": "Economy",
         "seat": "23A",
         "confirmation": "HFZ6ZH"
@@ -3287,7 +3287,7 @@
         "to": { "code": "DUB", "city": "Dublin", "time": "4:45 PM" },
         "duration": "1h 30m",
         "distance_mi": 279,
-        "aircraft": "Airbus A319",
+        "aircraft": "Airbus A321",
         "class": "Business"
       },
       {
@@ -3304,13 +3304,14 @@
       {
         "type": "flight",
         "airline": "British Airways",
-        "flightNumber": "BA 279",
-        "from": { "code": "LHR", "city": "London Heathrow", "time": "12:50 PM" },
-        "to": { "code": "SJC", "city": "San Jose", "time": "3:45 PM" },
-        "duration": "10h 55m",
-        "distance_mi": 5353,
-        "aircraft": "Boeing 787-9",
-        "class": "Business"
+        "flightNumber": "BA 287",
+        "from": { "code": "LHR", "city": "London Heathrow", "terminal": "5", "gate": "C55", "time": "3:05 PM" },
+        "to": { "code": "SFO", "city": "San Francisco", "terminal": "I", "time": "5:40 PM" },
+        "duration": "10h 35m",
+        "distance_mi": 5354,
+        "aircraft": "Airbus A380",
+        "class": "Business",
+        "notes": "Arrived 40m early; involuntary reroute from original BA 279 LHR–SJC"
       }
     ]
   },
@@ -4017,6 +4018,170 @@
         "class": "Economy",
         "seat": "12A–12D",
         "confirmation": "WMGLQN"
+      }
+    ]
+  },
+  {
+    "id": "sfo-sna-apr2017",
+    "name": "SFO–SNA",
+    "subtitle": "Disneyland Apr 2017",
+    "destination": "Anaheim, CA",
+    "accent": "#9b59b6",
+    "type": "personal",
+    "icon": "🏰",
+    "travelers": [],
+    "dates": { "start": "2017-04-07", "end": "2017-04-10" },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "987",
+        "from": { "code": "SFO", "city": "San Francisco" },
+        "to": { "code": "SNA", "city": "Orange County" },
+        "distance_mi": 400,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "1225",
+        "from": { "code": "SNA", "city": "Orange County" },
+        "to": { "code": "SFO", "city": "San Francisco" },
+        "distance_mi": 400,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      }
+    ]
+  },
+  {
+    "id": "sfo-sea-jul2017",
+    "name": "SFO–SEA",
+    "subtitle": "Alaska Cruise Jul 2017",
+    "destination": "Seattle, WA",
+    "accent": "#0ea5e9",
+    "type": "personal",
+    "icon": "🚢",
+    "travelers": [],
+    "dates": { "start": "2017-07-01", "end": "2017-07-09" },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "United",
+        "flightNumber": "1688",
+        "from": { "code": "SFO", "city": "San Francisco" },
+        "to": { "code": "SEA", "city": "Seattle" },
+        "distance_mi": 679,
+        "aircraft": "Airbus A320",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "United",
+        "flightNumber": "698",
+        "from": { "code": "SEA", "city": "Seattle" },
+        "to": { "code": "SFO", "city": "San Francisco" },
+        "distance_mi": 679,
+        "aircraft": "Boeing 737-800",
+        "class": "Economy"
+      }
+    ]
+  },
+  {
+    "id": "sfo-bur-sep2017",
+    "name": "SFO–BUR",
+    "subtitle": "Burbank Sep 2017",
+    "destination": "Burbank, CA",
+    "accent": "#2d9e5a",
+    "type": "personal",
+    "travelers": [],
+    "dates": { "start": "2017-09-01", "end": "2017-09-04" },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "6377",
+        "from": { "code": "SFO", "city": "San Francisco" },
+        "to": { "code": "BUR", "city": "Burbank" },
+        "distance_mi": 326,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "6360",
+        "from": { "code": "BUR", "city": "Burbank" },
+        "to": { "code": "SFO", "city": "San Francisco" },
+        "distance_mi": 326,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      }
+    ]
+  },
+  {
+    "id": "sjc-bur-dec2017",
+    "name": "SJC–BUR",
+    "subtitle": "Christmas 2017",
+    "destination": "Burbank, CA",
+    "accent": "#dc2626",
+    "type": "personal",
+    "icon": "🎄",
+    "travelers": [],
+    "dates": { "start": "2017-12-20", "end": "2017-12-25" },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "1548",
+        "from": { "code": "SJC", "city": "San Jose" },
+        "to": { "code": "BUR", "city": "Burbank" },
+        "distance_mi": 291,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "6936",
+        "from": { "code": "BUR", "city": "Burbank" },
+        "to": { "code": "SJC", "city": "San Jose" },
+        "distance_mi": 291,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      }
+    ]
+  },
+  {
+    "id": "sfo-las-dec2017",
+    "name": "SFO–LAS",
+    "subtitle": "Las Vegas Dec 2017",
+    "destination": "Las Vegas, NV",
+    "accent": "#9b59b6",
+    "type": "personal",
+    "icon": "🎰",
+    "travelers": [],
+    "dates": { "start": "2017-12-25", "end": "2017-12-29" },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "582",
+        "from": { "code": "SFO", "city": "San Francisco" },
+        "to": { "code": "LAS", "city": "Las Vegas" },
+        "distance_mi": 570,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "6601",
+        "from": { "code": "LAS", "city": "Las Vegas" },
+        "to": { "code": "SFO", "city": "San Francisco" },
+        "distance_mi": 570,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
       }
     ]
   },
