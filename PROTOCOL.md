@@ -123,7 +123,7 @@ TripIt exports trips as PDFs (`File > Print/Export` in TripIt app). PDF format: 
 6. Return from different airport (e.g., BUR vs LAX): use outbound destination for trip name, correct departure code on return segment
 7. Partial hotel data (1 night captured, trip is 5 days): note gaps in `notes` field
 
-**Known routes (mi):** SFO–PHX 650 · SFO–LAX 337 · BUR–SFO 326 · SFO–IAD 2412 · SFO–EWR 2558 · SFO–ORD 1841 · ORD–PWM 897 · SFO–DEN 965 · DEN–SFO 965 · PWM–DEN 1776 · DTW–IAD 382 · SFO–DTW 2073 · SFO–MCO 2441 · SJC–LGB 323 · SFO–GSO 2455 · DCA–SFO 2436 · SJC–LAX 307 · SJC–LHR 5353 · LHR–DUB 279 · OAK–LAS 407 · SJC–BUR 291 · SFO–LAS 570 · LAX–OAK 337 · SAN–SJC 428 · SFO–CLT 2297 · CLT–HHH 212 · SFO–SAN 447 · MCO–IAD 751 · SFO–OGG 2398 · OGG–SJC 2334 · SFO–SNA 400 · SFO–SEA 679
+**Known routes (mi):** SFO–PHX 650 · SFO–LAX 337 · BUR–SFO 326 · SFO–IAD 2412 · SFO–EWR 2558 · SFO–ORD 1841 · ORD–PWM 897 · SFO–DEN 965 · DEN–SFO 965 · PWM–DEN 1776 · DTW–IAD 382 · SFO–DTW 2073 · SFO–MCO 2441 · SJC–LGB 323 · SFO–GSO 2455 · DCA–SFO 2436 · SJC–LAX 307 · SJC–LHR 5353 · LHR–DUB 279 · OAK–LAS 407 · SJC–BUR 291 · SFO–LAS 570 · LAX–OAK 337 · SAN–SJC 428 · SFO–CLT 2297 · CLT–HHH 212 · SFO–SAN 447 · MCO–IAD 751 · SFO–OGG 2398 · OGG–SJC 2334 · SFO–SNA 400 · SFO–SEA 679 · SFO–MSY 1926 · SJC–LAS 406 · SFO–CPH 5367
 
 ---
 

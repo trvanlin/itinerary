@@ -39,8 +39,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(13,17,23,0.92);
-      backdrop-filter: blur(12px);
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
       padding: 14px 24px;
       display: flex;
@@ -680,15 +679,30 @@
     "destination": "Burbank, CA",
     "accent": "#dc2626",
     "travelers": [],
-    "dates": { "start": "2026-12-25", "end": "2026-12-29" },
+    "dates": {
+      "start": "2026-12-25",
+      "end": "2026-12-29"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-12-25",
         "airline": "United",
         "flightNumber": "UA 2764",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "", "time": "4:21 PM" },
-        "to":   { "code": "BUR", "city": "Burbank",        "terminal": "", "gate": "", "time": "5:36 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "4:21 PM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "terminal": "",
+          "gate": "",
+          "time": "5:36 PM"
+        },
         "duration": "1h 15m",
         "distance_mi": 337,
         "class": "Economy Plus",
@@ -703,7 +717,7 @@
         "name": "Courtyard by Marriott Santa Clarita Valencia",
         "address": "28523 Westinghouse Place, Valencia, CA 91355",
         "phone": "+1-661-257-3220",
-        "checkIn":  "2026-12-25",
+        "checkIn": "2026-12-25",
         "checkOut": "2026-12-30",
         "nights": 5,
         "roomType": "1 Bedroom Suite, 2 Queen Beds, Pool View, Sofa bed",
@@ -715,8 +729,17 @@
         "date": "2026-12-25",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup":  { "location": "Burbank Bob Hope Airport (BUR)", "address": "2501 N Hollywood Way, Burbank, CA 91505", "time": "5:30 PM" },
-        "dropoff": { "location": "Burbank Bob Hope Airport (BUR)", "address": "2501 N Hollywood Way, Burbank, CA 91505", "date": "2026-12-29", "time": "3:30 PM" },
+        "pickup": {
+          "location": "Burbank Bob Hope Airport (BUR)",
+          "address": "2501 N Hollywood Way, Burbank, CA 91505",
+          "time": "5:30 PM"
+        },
+        "dropoff": {
+          "location": "Burbank Bob Hope Airport (BUR)",
+          "address": "2501 N Hollywood Way, Burbank, CA 91505",
+          "date": "2026-12-29",
+          "time": "3:30 PM"
+        },
         "confirmation": "80744762",
         "notes": "After hours: park on Level 2, keys in return drop box."
       },
@@ -725,8 +748,20 @@
         "date": "2026-12-29",
         "airline": "United",
         "flightNumber": "UA 1453",
-        "from": { "code": "BUR", "city": "Burbank",        "terminal": "", "gate": "", "time": "1:58 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "", "time": "3:35 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "terminal": "",
+          "gate": "",
+          "time": "1:58 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "3:35 PM"
+        },
         "duration": "1h 37m",
         "distance_mi": 326,
         "aircraft": "Boeing 737MAX 8",
@@ -747,7 +782,10 @@
     "destination": "Greensboro, NC",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-12-14", "end": "2026-12-16" },
+    "dates": {
+      "start": "2026-12-14",
+      "end": "2026-12-16"
+    },
     "segments": [
       {
         "type": "hotel",
@@ -755,7 +793,7 @@
         "name": "Marriott Greensboro Downtown",
         "address": "304 N Greene St, Greensboro, NC 27401",
         "phone": "",
-        "checkIn":  "2026-12-14",
+        "checkIn": "2026-12-14",
         "checkOut": "2026-12-16",
         "nights": 2,
         "roomType": "Guest Room, 1 King",
@@ -773,15 +811,30 @@
     "destination": "Scottsdale, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2025-12-15", "end": "2025-12-17" },
+    "dates": {
+      "start": "2025-12-15",
+      "end": "2025-12-17"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2025-12-15",
         "airline": "United",
         "flightNumber": "UA 2374",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "", "time": "8:17 AM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "", "time": "11:18 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "",
+          "time": "8:17 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "11:18 AM"
+        },
         "duration": "2h 1m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-900",
@@ -796,8 +849,17 @@
         "date": "2025-12-15",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "12:00 PM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2025-12-17", "time": "6:00 PM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "12:00 PM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2025-12-17",
+          "time": "6:00 PM"
+        },
         "confirmation": "1491473193AISLE",
         "notes": ""
       },
@@ -807,7 +869,7 @@
         "name": "Scottsdale Marriott Old Town",
         "address": "7325 E 3rd Ave, Scottsdale, AZ 85251",
         "phone": "",
-        "checkIn":  "2025-12-15",
+        "checkIn": "2025-12-15",
         "checkOut": "2025-12-17",
         "nights": 2,
         "roomType": "",
@@ -819,8 +881,20 @@
         "date": "2025-12-17",
         "airline": "United",
         "flightNumber": "UA 455",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "", "time": "6:18 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "", "time": "7:27 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "6:18 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "7:27 PM"
+        },
         "duration": "2h 9m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -841,15 +915,30 @@
     "destination": "Chantilly, VA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-01-19", "end": "2026-01-22" },
+    "dates": {
+      "start": "2026-01-19",
+      "end": "2026-01-22"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-01-19",
         "airline": "United",
         "flightNumber": "UA 1849",
-        "from": { "code": "SFO", "city": "San Francisco",   "terminal": "3", "gate": "E3", "time": "8:25 AM" },
-        "to":   { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "",    "time": "4:45 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "E3",
+          "time": "8:25 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "",
+          "time": "4:45 PM"
+        },
         "duration": "5h 20m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737MAX 9",
@@ -864,8 +953,17 @@
         "date": "2026-01-19",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Washington Dulles (IAD)", "address": "", "time": "5:00 PM" },
-        "dropoff": { "location": "Washington Dulles (IAD)", "address": "", "date": "2026-01-22", "time": "6:00 PM" },
+        "pickup": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "time": "5:00 PM"
+        },
+        "dropoff": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "date": "2026-01-22",
+          "time": "6:00 PM"
+        },
         "confirmation": "68460324EXSEL",
         "notes": ""
       },
@@ -875,7 +973,7 @@
         "name": "Westfields Marriott Washington Dulles",
         "address": "14750 Conference Center Dr, Chantilly, VA 20151",
         "phone": "703-818-0300",
-        "checkIn":  "2026-01-19",
+        "checkIn": "2026-01-19",
         "checkOut": "2026-01-22",
         "nights": 3,
         "roomType": "",
@@ -887,8 +985,20 @@
         "date": "2026-01-22",
         "airline": "United",
         "flightNumber": "UA 1757",
-        "from": { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "D24", "time": "6:15 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco",     "terminal": "", "gate": "",    "time": "9:35 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "D24",
+          "time": "6:15 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "9:35 PM"
+        },
         "duration": "6h 20m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737MAX 9",
@@ -909,15 +1019,30 @@
     "destination": "Morristown, NJ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-02-24", "end": "2026-02-27" },
+    "dates": {
+      "start": "2026-02-24",
+      "end": "2026-02-27"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-02-24",
         "airline": "United",
         "flightNumber": "UA 2011",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F14", "time": "1:20 PM" },
-        "to":   { "code": "EWR", "city": "Newark",        "terminal": "C", "gate": "81",   "time": "9:48 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F14",
+          "time": "1:20 PM"
+        },
+        "to": {
+          "code": "EWR",
+          "city": "Newark",
+          "terminal": "C",
+          "gate": "81",
+          "time": "9:48 PM"
+        },
         "duration": "5h 28m",
         "distance_mi": 2558,
         "aircraft": "Boeing 757-200",
@@ -933,7 +1058,7 @@
         "name": "The Westin Governor Morris",
         "address": "2 Whippany Rd, Morristown, NJ 07960",
         "phone": "973-539-7300",
-        "checkIn":  "2026-02-24",
+        "checkIn": "2026-02-24",
         "checkOut": "2026-02-27",
         "nights": 3,
         "roomType": "",
@@ -945,8 +1070,20 @@
         "date": "2026-02-27",
         "airline": "United",
         "flightNumber": "UA 1343",
-        "from": { "code": "EWR", "city": "Newark",        "terminal": "C", "gate": "81", "time": "12:00 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "",     "time": "3:30 PM" },
+        "from": {
+          "code": "EWR",
+          "city": "Newark",
+          "terminal": "C",
+          "gate": "81",
+          "time": "12:00 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "3:30 PM"
+        },
         "duration": "6h 30m",
         "distance_mi": 2558,
         "aircraft": "Boeing 757-200",
@@ -967,15 +1104,30 @@
     "destination": "Tempe, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-03-17", "end": "2026-03-19" },
+    "dates": {
+      "start": "2026-03-17",
+      "end": "2026-03-19"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-03-17",
         "airline": "United",
         "flightNumber": "UA 1147",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F12", "time": "12:06 PM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "",     "time": "2:09 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F12",
+          "time": "12:06 PM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "2:09 PM"
+        },
         "duration": "2h 3m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -990,8 +1142,17 @@
         "date": "2026-03-17",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "3:00 PM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2026-03-19", "time": "7:00 PM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "3:00 PM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2026-03-19",
+          "time": "7:00 PM"
+        },
         "confirmation": "1495678157EXSEL",
         "notes": ""
       },
@@ -1001,7 +1162,7 @@
         "name": "Marriott Phoenix Resort Tempe at The Buttes",
         "address": "2000 W. Westcourt Way, Tempe, AZ 85282",
         "phone": "602-225-9000",
-        "checkIn":  "2026-03-17",
+        "checkIn": "2026-03-17",
         "checkOut": "2026-03-19",
         "nights": 2,
         "roomType": "",
@@ -1013,8 +1174,20 @@
         "date": "2026-03-19",
         "airline": "United",
         "flightNumber": "UA 1401",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "3", "gate": "E1", "time": "7:33 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "",     "time": "9:50 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E1",
+          "time": "7:33 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "9:50 PM"
+        },
         "duration": "2h 17m",
         "distance_mi": 650,
         "aircraft": "Boeing 737MAX 8",
@@ -1035,15 +1208,30 @@
     "destination": "Chantilly, VA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-04-06", "end": "2026-04-08" },
+    "dates": {
+      "start": "2026-04-06",
+      "end": "2026-04-08"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-04-06",
         "airline": "Delta",
         "flightNumber": "DL 772",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "1", "gate": "C6", "time": "5:50 AM" },
-        "to":   { "code": "DTW", "city": "Detroit",       "terminal": "", "gate": "",    "time": "1:14 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "1",
+          "gate": "C6",
+          "time": "5:50 AM"
+        },
+        "to": {
+          "code": "DTW",
+          "city": "Detroit",
+          "terminal": "",
+          "gate": "",
+          "time": "1:14 PM"
+        },
         "duration": "4h 24m",
         "distance_mi": 2073,
         "aircraft": "Boeing 737-900",
@@ -1058,8 +1246,20 @@
         "date": "2026-04-06",
         "airline": "Delta",
         "flightNumber": "DL 3868",
-        "from": { "code": "DTW", "city": "Detroit",          "terminal": "McNamara", "gate": "C8", "time": "3:24 PM" },
-        "to":   { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "",            "time": "4:52 PM" },
+        "from": {
+          "code": "DTW",
+          "city": "Detroit",
+          "terminal": "McNamara",
+          "gate": "C8",
+          "time": "3:24 PM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "",
+          "time": "4:52 PM"
+        },
         "duration": "1h 28m",
         "distance_mi": 382,
         "aircraft": "CRJ-900",
@@ -1074,8 +1274,17 @@
         "date": "2026-04-06",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Washington Dulles (IAD)", "address": "", "time": "5:00 PM" },
-        "dropoff": { "location": "Washington Dulles (IAD)", "address": "", "date": "2026-04-08", "time": "5:00 PM" },
+        "pickup": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "time": "5:00 PM"
+        },
+        "dropoff": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "date": "2026-04-08",
+          "time": "5:00 PM"
+        },
         "confirmation": "2101365436EXSEL",
         "notes": ""
       },
@@ -1085,7 +1294,7 @@
         "name": "Westfields Marriott Washington Dulles",
         "address": "14750 Conference Center Dr, Chantilly, VA 20151",
         "phone": "703-818-0300",
-        "checkIn":  "2026-04-06",
+        "checkIn": "2026-04-06",
         "checkOut": "2026-04-08",
         "nights": 2,
         "roomType": "",
@@ -1097,8 +1306,20 @@
         "date": "2026-04-08",
         "airline": "United",
         "flightNumber": "UA 1757",
-        "from": { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "D32", "time": "5:55 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco",     "terminal": "", "gate": "",     "time": "8:50 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "D32",
+          "time": "5:55 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "8:50 PM"
+        },
         "duration": "5h 55m",
         "distance_mi": 2412,
         "aircraft": "Boeing 787-9",
@@ -1119,15 +1340,30 @@
     "destination": "Chantilly, VA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-06-01", "end": "2026-06-03" },
+    "dates": {
+      "start": "2026-06-01",
+      "end": "2026-06-03"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-06-01",
         "airline": "United",
         "flightNumber": "UA 1849",
-        "from": { "code": "SFO", "city": "San Francisco",   "terminal": "3", "gate": "F11", "time": "8:10 AM" },
-        "to":   { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "",    "time": "4:25 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F11",
+          "time": "8:10 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "",
+          "time": "4:25 PM"
+        },
         "duration": "5h 15m",
         "distance_mi": 2412,
         "aircraft": "Boeing 787-9",
@@ -1142,8 +1378,17 @@
         "date": "2026-06-01",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Washington Dulles (IAD)", "address": "", "time": "5:00 PM" },
-        "dropoff": { "location": "Washington Dulles (IAD)", "address": "", "date": "2026-06-03", "time": "5:00 PM" },
+        "pickup": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "time": "5:00 PM"
+        },
+        "dropoff": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "date": "2026-06-03",
+          "time": "5:00 PM"
+        },
         "confirmation": "2111969055EXSEL",
         "notes": ""
       },
@@ -1153,7 +1398,7 @@
         "name": "Westfields Marriott Washington Dulles",
         "address": "14750 Conference Center Dr, Chantilly, VA 20151",
         "phone": "703-818-0300",
-        "checkIn":  "2026-06-01",
+        "checkIn": "2026-06-01",
         "checkOut": "2026-06-03",
         "nights": 2,
         "roomType": "",
@@ -1165,8 +1410,20 @@
         "date": "2026-06-03",
         "airline": "United",
         "flightNumber": "UA 1757",
-        "from": { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "D29", "time": "5:55 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco",     "terminal": "", "gate": "",     "time": "8:37 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "D29",
+          "time": "5:55 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "8:37 PM"
+        },
         "duration": "5h 42m",
         "distance_mi": 2412,
         "aircraft": "Boeing 787-9",
@@ -1187,15 +1444,30 @@
     "destination": "Tempe, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-07-27", "end": "2026-07-30" },
+    "dates": {
+      "start": "2026-07-27",
+      "end": "2026-07-30"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-07-27",
         "airline": "United",
         "flightNumber": "UA 500",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "2", "gate": "D9", "time": "10:05 AM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "",    "time": "12:14 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "2",
+          "gate": "D9",
+          "time": "10:05 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "12:14 PM"
+        },
         "duration": "2h 9m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -1210,8 +1482,17 @@
         "date": "2026-07-27",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "1:00 PM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2026-07-30", "time": "7:00 PM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "1:00 PM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2026-07-30",
+          "time": "7:00 PM"
+        },
         "confirmation": "2123151816EXSEL",
         "notes": ""
       },
@@ -1221,7 +1502,7 @@
         "name": "Marriott Phoenix Resort Tempe at The Buttes",
         "address": "2000 W. Westcourt Way, Tempe, AZ 85282",
         "phone": "602-225-9000",
-        "checkIn":  "2026-07-27",
+        "checkIn": "2026-07-27",
         "checkOut": "2026-07-30",
         "nights": 3,
         "roomType": "",
@@ -1233,8 +1514,20 @@
         "date": "2026-07-30",
         "airline": "United",
         "flightNumber": "UA 2837",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "3", "gate": "E7", "time": "7:47 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "",     "time": "9:50 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E7",
+          "time": "7:47 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "9:50 PM"
+        },
         "duration": "2h 3m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -1255,15 +1548,30 @@
     "destination": "Los Angeles, CA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-08-26", "end": "2026-08-30" },
+    "dates": {
+      "start": "2026-08-26",
+      "end": "2026-08-30"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-08-26",
         "airline": "United",
         "flightNumber": "UA 1506",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "", "time": "12:29 PM" },
-        "to":   { "code": "LAX", "city": "Los Angeles",   "terminal": "", "gate": "",  "time": "2:08 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "",
+          "time": "12:29 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "",
+          "gate": "",
+          "time": "2:08 PM"
+        },
         "duration": "1h 39m",
         "distance_mi": 337,
         "aircraft": "Boeing 737MAX 9",
@@ -1278,8 +1586,17 @@
         "date": "2026-08-26",
         "company": "Hertz",
         "class": "Intermediate",
-        "pickup":  { "location": "Los Angeles (LAX)", "address": "", "time": "3:00 PM" },
-        "dropoff": { "location": "Burbank Bob Hope Airport (BUR)", "address": "2501 N Hollywood Way, Burbank, CA 91505", "date": "2026-08-27", "time": "6:00 PM" },
+        "pickup": {
+          "location": "Los Angeles (LAX)",
+          "address": "",
+          "time": "3:00 PM"
+        },
+        "dropoff": {
+          "location": "Burbank Bob Hope Airport (BUR)",
+          "address": "2501 N Hollywood Way, Burbank, CA 91505",
+          "date": "2026-08-27",
+          "time": "6:00 PM"
+        },
         "confirmation": "L658E874405",
         "notes": ""
       },
@@ -1289,7 +1606,7 @@
         "name": "Renaissance Los Angeles Airport Hotel",
         "address": "9620 Airport Blvd, Los Angeles, CA 90045",
         "phone": "310-337-2800",
-        "checkIn":  "2026-08-26",
+        "checkIn": "2026-08-26",
         "checkOut": "2026-08-27",
         "nights": 1,
         "roomType": "",
@@ -1301,8 +1618,20 @@
         "date": "2026-08-30",
         "airline": "United",
         "flightNumber": "UA 1453",
-        "from": { "code": "BUR", "city": "Burbank",        "terminal": "", "gate": "", "time": "1:50 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "",  "time": "3:25 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "terminal": "",
+          "gate": "",
+          "time": "1:50 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "3:25 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 326,
         "aircraft": "Boeing 737MAX 8",
@@ -1323,15 +1652,30 @@
     "destination": "Brunswick, ME",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-09-21", "end": "2026-09-24" },
+    "dates": {
+      "start": "2026-09-21",
+      "end": "2026-09-24"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-09-21",
         "airline": "United",
         "flightNumber": "UA 2000",
-        "from": { "code": "SFO", "city": "San Francisco",  "terminal": "3", "gate": "E9", "time": "5:00 AM" },
-        "to":   { "code": "ORD", "city": "Chicago O'Hare", "terminal": "", "gate": "",    "time": "11:25 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "E9",
+          "time": "5:00 AM"
+        },
+        "to": {
+          "code": "ORD",
+          "city": "Chicago O'Hare",
+          "terminal": "",
+          "gate": "",
+          "time": "11:25 AM"
+        },
         "duration": "4h 25m",
         "distance_mi": 1841,
         "aircraft": "Airbus A321neo",
@@ -1346,8 +1690,20 @@
         "date": "2026-09-21",
         "airline": "United",
         "flightNumber": "UA 3518",
-        "from": { "code": "ORD", "city": "Chicago O'Hare", "terminal": "1", "gate": "C8", "time": "2:10 PM" },
-        "to":   { "code": "PWM", "city": "Portland, ME",    "terminal": "", "gate": "",    "time": "5:54 PM" },
+        "from": {
+          "code": "ORD",
+          "city": "Chicago O'Hare",
+          "terminal": "1",
+          "gate": "C8",
+          "time": "2:10 PM"
+        },
+        "to": {
+          "code": "PWM",
+          "city": "Portland, ME",
+          "terminal": "",
+          "gate": "",
+          "time": "5:54 PM"
+        },
         "duration": "2h 44m",
         "distance_mi": 897,
         "aircraft": "Embraer 175",
@@ -1362,8 +1718,17 @@
         "date": "2026-09-21",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Portland Jetport (PWM)", "address": "", "time": "6:00 PM" },
-        "dropoff": { "location": "Portland Jetport (PWM)", "address": "", "date": "2026-09-24", "time": "3:00 PM" },
+        "pickup": {
+          "location": "Portland Jetport (PWM)",
+          "address": "",
+          "time": "6:00 PM"
+        },
+        "dropoff": {
+          "location": "Portland Jetport (PWM)",
+          "address": "",
+          "date": "2026-09-24",
+          "time": "3:00 PM"
+        },
         "confirmation": "397604818EXCNT",
         "notes": ""
       },
@@ -1373,7 +1738,7 @@
         "name": "The Brunswick Hotel",
         "address": "4 Noble Street, Brunswick, ME 04011",
         "phone": "207-837-6565",
-        "checkIn":  "2026-09-21",
+        "checkIn": "2026-09-21",
         "checkOut": "2026-09-24",
         "nights": 3,
         "roomType": "",
@@ -1385,8 +1750,20 @@
         "date": "2026-09-24",
         "airline": "United",
         "flightNumber": "UA 287",
-        "from": { "code": "PWM", "city": "Portland, ME", "terminal": "", "gate": "3",  "time": "3:45 PM" },
-        "to":   { "code": "DEN", "city": "Denver",        "terminal": "", "gate": "",   "time": "6:18 PM" },
+        "from": {
+          "code": "PWM",
+          "city": "Portland, ME",
+          "terminal": "",
+          "gate": "3",
+          "time": "3:45 PM"
+        },
+        "to": {
+          "code": "DEN",
+          "city": "Denver",
+          "terminal": "",
+          "gate": "",
+          "time": "6:18 PM"
+        },
         "duration": "4h 33m",
         "distance_mi": 1776,
         "aircraft": "Boeing 737-800",
@@ -1401,8 +1778,20 @@
         "date": "2026-09-24",
         "airline": "United",
         "flightNumber": "UA 2123",
-        "from": { "code": "DEN", "city": "Denver",         "terminal": "", "gate": "B10", "time": "9:05 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco",  "terminal": "", "gate": "",    "time": "10:51 PM" },
+        "from": {
+          "code": "DEN",
+          "city": "Denver",
+          "terminal": "",
+          "gate": "B10",
+          "time": "9:05 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "10:51 PM"
+        },
         "duration": "2h 46m",
         "distance_mi": 965,
         "aircraft": "Airbus A321neo",
@@ -1423,15 +1812,30 @@
     "destination": "Tempe, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2026-10-19", "end": "2026-10-22" },
+    "dates": {
+      "start": "2026-10-19",
+      "end": "2026-10-22"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2026-10-19",
         "airline": "United",
         "flightNumber": "UA 2374",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "E11", "time": "8:15 AM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "",      "time": "10:18 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "E11",
+          "time": "8:15 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "10:18 AM"
+        },
         "duration": "2h 3m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-900",
@@ -1446,8 +1850,17 @@
         "date": "2026-10-19",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "11:00 AM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2026-10-22", "time": "7:00 PM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "11:00 AM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2026-10-22",
+          "time": "7:00 PM"
+        },
         "confirmation": "2137045959EXSEL",
         "notes": ""
       },
@@ -1457,7 +1870,7 @@
         "name": "Marriott Phoenix Resort Tempe at The Buttes",
         "address": "2000 W. Westcourt Way, Tempe, AZ 85282",
         "phone": "602-225-9000",
-        "checkIn":  "2026-10-19",
+        "checkIn": "2026-10-19",
         "checkOut": "2026-10-22",
         "nights": 3,
         "roomType": "",
@@ -1469,8 +1882,20 @@
         "date": "2026-10-22",
         "airline": "United",
         "flightNumber": "UA 693",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "3", "gate": "E5", "time": "7:40 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "",     "time": "9:44 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E5",
+          "time": "7:40 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "9:44 PM"
+        },
         "duration": "2h 4m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -1491,15 +1916,30 @@
     "destination": "Chantilly, VA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2025-12-09", "end": "2025-12-12" },
+    "dates": {
+      "start": "2025-12-09",
+      "end": "2025-12-12"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2025-12-09",
         "airline": "United",
         "flightNumber": "UA 1849",
-        "from": { "code": "SFO", "city": "San Francisco",   "terminal": "3", "gate": "F15", "time": "8:25 AM" },
-        "to":   { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "",     "time": "4:25 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F15",
+          "time": "8:25 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "",
+          "time": "4:25 PM"
+        },
         "duration": "5h 0m",
         "distance_mi": 2412,
         "aircraft": "Boeing 777",
@@ -1514,8 +1954,17 @@
         "date": "2025-12-09",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Washington Dulles (IAD)", "address": "", "time": "5:00 PM" },
-        "dropoff": { "location": "Washington Dulles (IAD)", "address": "", "date": "2025-12-12", "time": "6:00 PM" },
+        "pickup": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "time": "5:00 PM"
+        },
+        "dropoff": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "date": "2025-12-12",
+          "time": "6:00 PM"
+        },
         "confirmation": "1491247136AISLE",
         "notes": ""
       },
@@ -1525,7 +1974,7 @@
         "name": "Westfields Marriott Washington Dulles",
         "address": "14750 Conference Center Dr, Chantilly, VA 20151",
         "phone": "703-818-0300",
-        "checkIn":  "2025-12-09",
+        "checkIn": "2025-12-09",
         "checkOut": "2025-12-12",
         "nights": 3,
         "roomType": "",
@@ -1537,8 +1986,20 @@
         "date": "2025-12-12",
         "airline": "United",
         "flightNumber": "UA 1129",
-        "from": { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "D3", "time": "6:39 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco",    "terminal": "", "gate": "",    "time": "9:49 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "D3",
+          "time": "6:39 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "9:49 PM"
+        },
         "duration": "6h 10m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737MAX 9",
@@ -1559,15 +2020,30 @@
     "destination": "Long Beach, CA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2025-10-26", "end": "2025-10-27" },
+    "dates": {
+      "start": "2025-10-26",
+      "end": "2025-10-27"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2025-10-26",
         "airline": "Southwest",
         "flightNumber": "WN 179",
-        "from": { "code": "SJC", "city": "San Jose",    "terminal": "B", "gate": "", "time": "3:20 PM" },
-        "to":   { "code": "LGB", "city": "Long Beach",  "terminal": "", "gate": "",  "time": "4:40 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "terminal": "B",
+          "gate": "",
+          "time": "3:20 PM"
+        },
+        "to": {
+          "code": "LGB",
+          "city": "Long Beach",
+          "terminal": "",
+          "gate": "",
+          "time": "4:40 PM"
+        },
         "duration": "1h 20m",
         "distance_mi": 323,
         "aircraft": "Boeing 737-700",
@@ -1581,8 +2057,17 @@
         "date": "2025-10-26",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Long Beach Airport (LGB)", "address": "", "time": "5:00 PM" },
-        "dropoff": { "location": "Long Beach Airport (LGB)", "address": "", "date": "2025-10-27", "time": "8:00 PM" },
+        "pickup": {
+          "location": "Long Beach Airport (LGB)",
+          "address": "",
+          "time": "5:00 PM"
+        },
+        "dropoff": {
+          "location": "Long Beach Airport (LGB)",
+          "address": "",
+          "date": "2025-10-27",
+          "time": "8:00 PM"
+        },
         "confirmation": "1387713082BOOTH",
         "notes": ""
       },
@@ -1592,7 +2077,7 @@
         "name": "Long Beach Marriott",
         "address": "4700 Airport Plaza Dr, Long Beach, CA 90815",
         "phone": "562-425-5210",
-        "checkIn":  "2025-10-26",
+        "checkIn": "2025-10-26",
         "checkOut": "2025-10-27",
         "nights": 1,
         "roomType": "",
@@ -1604,8 +2089,20 @@
         "date": "2025-10-27",
         "airline": "Southwest",
         "flightNumber": "WN 3585",
-        "from": { "code": "LGB", "city": "Long Beach", "terminal": "", "gate": "", "time": "8:05 PM" },
-        "to":   { "code": "SJC", "city": "San Jose",   "terminal": "", "gate": "", "time": "9:15 PM" },
+        "from": {
+          "code": "LGB",
+          "city": "Long Beach",
+          "terminal": "",
+          "gate": "",
+          "time": "8:05 PM"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose",
+          "terminal": "",
+          "gate": "",
+          "time": "9:15 PM"
+        },
         "duration": "1h 10m",
         "distance_mi": 323,
         "aircraft": "Boeing 737-800",
@@ -1625,15 +2122,30 @@
     "destination": "Fairfax, VA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2025-05-19", "end": "2025-05-21" },
+    "dates": {
+      "start": "2025-05-19",
+      "end": "2025-05-21"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2025-05-19",
         "airline": "United",
         "flightNumber": "UA 717",
-        "from": { "code": "SFO", "city": "San Francisco",   "terminal": "INTL", "gate": "G4", "time": "8:25 AM" },
-        "to":   { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "",       "time": "4:30 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "INTL",
+          "gate": "G4",
+          "time": "8:25 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "",
+          "time": "4:30 PM"
+        },
         "duration": "5h 5m",
         "distance_mi": 2412,
         "aircraft": "Boeing 787-9",
@@ -1648,8 +2160,17 @@
         "date": "2025-05-19",
         "company": "Enterprise",
         "class": "Intermediate",
-        "pickup":  { "location": "Washington Dulles (IAD)", "address": "", "time": "5:00 PM" },
-        "dropoff": { "location": "Washington Dulles (IAD)", "address": "", "date": "2025-05-21", "time": "8:00 AM" },
+        "pickup": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "time": "5:00 PM"
+        },
+        "dropoff": {
+          "location": "Washington Dulles (IAD)",
+          "address": "",
+          "date": "2025-05-21",
+          "time": "8:00 AM"
+        },
         "confirmation": "1377285351COUNT",
         "notes": ""
       },
@@ -1659,7 +2180,7 @@
         "name": "Fairfax Marriott at Fair Oaks",
         "address": "11787 Route 50, Fairfax, VA 22033",
         "phone": "703-352-2525",
-        "checkIn":  "2025-05-19",
+        "checkIn": "2025-05-19",
         "checkOut": "2025-05-21",
         "nights": 2,
         "roomType": "",
@@ -1671,8 +2192,20 @@
         "date": "2025-05-21",
         "airline": "United",
         "flightNumber": "UA 1702",
-        "from": { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "C8", "time": "8:30 AM" },
-        "to":   { "code": "SFO", "city": "San Francisco",    "terminal": "", "gate": "",    "time": "11:27 AM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "C8",
+          "time": "8:30 AM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "11:27 AM"
+        },
         "duration": "5h 57m",
         "distance_mi": 2412,
         "aircraft": "Boeing 777",
@@ -1693,15 +2226,30 @@
     "destination": "Scottsdale, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2025-05-08", "end": "2025-05-09" },
+    "dates": {
+      "start": "2025-05-08",
+      "end": "2025-05-09"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2025-05-08",
         "airline": "Southwest",
         "flightNumber": "WN 3850",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "2", "gate": "D7", "time": "12:10 PM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "",     "time": "2:05 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "2",
+          "gate": "D7",
+          "time": "12:10 PM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "2:05 PM"
+        },
         "duration": "1h 55m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -1716,7 +2264,7 @@
         "name": "Scottsdale Marriott Old Town",
         "address": "7325 E 3rd Ave, Scottsdale, AZ 85251",
         "phone": "480-945-1550",
-        "checkIn":  "2025-05-08",
+        "checkIn": "2025-05-08",
         "checkOut": "2025-05-09",
         "nights": 1,
         "roomType": "",
@@ -1728,8 +2276,17 @@
         "date": "2025-05-08",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "3:00 PM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2025-05-09", "time": "5:00 PM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "3:00 PM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2025-05-09",
+          "time": "5:00 PM"
+        },
         "confirmation": "1481381075AISLE",
         "notes": ""
       },
@@ -1738,8 +2295,20 @@
         "date": "2025-05-09",
         "airline": "Southwest",
         "flightNumber": "WN 3520",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "4", "gate": "C9", "time": "5:40 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "", "gate": "",     "time": "7:40 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "4",
+          "gate": "C9",
+          "time": "5:40 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "7:40 PM"
+        },
         "duration": "2h 0m",
         "distance_mi": 650,
         "aircraft": "Boeing 737MAX 8",
@@ -1759,15 +2328,30 @@
     "destination": "Orlando, FL",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2025-03-31", "end": "2025-04-04" },
+    "dates": {
+      "start": "2025-03-31",
+      "end": "2025-04-04"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2025-03-31",
         "airline": "United",
         "flightNumber": "UA 2018",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F14", "time": "7:30 AM" },
-        "to":   { "code": "MCO", "city": "Orlando",       "terminal": "",   "gate": "",    "time": "3:52 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F14",
+          "time": "7:30 AM"
+        },
+        "to": {
+          "code": "MCO",
+          "city": "Orlando",
+          "terminal": "",
+          "gate": "",
+          "time": "3:52 PM"
+        },
         "duration": "5h 22m",
         "distance_mi": 2441,
         "aircraft": "Boeing 737MAX 9",
@@ -1783,7 +2367,7 @@
         "name": "The Celeste Hotel, Tribute Portfolio",
         "address": "4105 N Alafaya Trail, Orlando, FL 32826",
         "phone": "407-207-4700",
-        "checkIn":  "2025-03-31",
+        "checkIn": "2025-03-31",
         "checkOut": "2025-04-04",
         "nights": 4,
         "roomType": "",
@@ -1795,8 +2379,20 @@
         "date": "2025-04-04",
         "airline": "United",
         "flightNumber": "UA 626",
-        "from": { "code": "MCO", "city": "Orlando",       "terminal": "B", "gate": "43", "time": "8:25 AM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "",  "gate": "",   "time": "11:36 AM" },
+        "from": {
+          "code": "MCO",
+          "city": "Orlando",
+          "terminal": "B",
+          "gate": "43",
+          "time": "8:25 AM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "11:36 AM"
+        },
         "duration": "6h 11m",
         "distance_mi": 2441,
         "aircraft": "Boeing 737MAX 9",
@@ -1817,15 +2413,30 @@
     "destination": "Scottsdale, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2025-01-15", "end": "2025-01-17" },
+    "dates": {
+      "start": "2025-01-15",
+      "end": "2025-01-17"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2025-01-15",
         "airline": "Southwest",
         "flightNumber": "WN 2573",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "1", "gate": "", "time": "6:35 AM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "",  "time": "9:25 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "1",
+          "gate": "",
+          "time": "6:35 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "9:25 AM"
+        },
         "duration": "1h 50m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-700",
@@ -1839,8 +2450,17 @@
         "date": "2025-01-15",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "9:25 AM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2025-01-17", "time": "9:00 AM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "9:25 AM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2025-01-17",
+          "time": "9:00 AM"
+        },
         "confirmation": "1475310475AISLE",
         "notes": ""
       },
@@ -1850,7 +2470,7 @@
         "name": "Courtyard Scottsdale Old Town",
         "address": "3311 N Scottsdale Rd, Scottsdale, AZ 85251",
         "phone": "480-429-7785",
-        "checkIn":  "2025-01-15",
+        "checkIn": "2025-01-15",
         "checkOut": "2025-01-17",
         "nights": 2,
         "roomType": "",
@@ -1862,8 +2482,20 @@
         "date": "2025-01-17",
         "airline": "Southwest",
         "flightNumber": "WN 5039",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "4", "gate": "", "time": "9:00 AM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "",  "gate": "", "time": "10:15 AM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "4",
+          "gate": "",
+          "time": "9:00 AM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "10:15 AM"
+        },
         "duration": "2h 15m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -1883,15 +2515,30 @@
     "destination": "Herndon, VA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2024-11-11", "end": "2024-11-13" },
+    "dates": {
+      "start": "2024-11-11",
+      "end": "2024-11-13"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2024-11-11",
         "airline": "United",
         "flightNumber": "UA 1322",
-        "from": { "code": "SFO", "city": "San Francisco",   "terminal": "3", "gate": "E3",  "time": "6:45 AM" },
-        "to":   { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "",    "time": "2:54 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "E3",
+          "time": "6:45 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "",
+          "time": "2:54 PM"
+        },
         "duration": "5h 9m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737MAX 9",
@@ -1907,7 +2554,7 @@
         "name": "Courtyard Dulles Airport Herndon",
         "address": "13715 Sayward Boulevard, Herndon, VA 20171",
         "phone": "571-643-0950",
-        "checkIn":  "2024-11-11",
+        "checkIn": "2024-11-11",
         "checkOut": "2024-11-13",
         "nights": 2,
         "roomType": "",
@@ -1919,8 +2566,20 @@
         "date": "2024-11-13",
         "airline": "United",
         "flightNumber": "UA 769",
-        "from": { "code": "IAD", "city": "Washington Dulles", "terminal": "", "gate": "D26", "time": "6:00 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco",    "terminal": "", "gate": "",     "time": "8:50 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "terminal": "",
+          "gate": "D26",
+          "time": "6:00 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "8:50 PM"
+        },
         "duration": "5h 50m",
         "distance_mi": 2412,
         "aircraft": "Boeing 777-300ER",
@@ -1941,15 +2600,30 @@
     "destination": "Scottsdale, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2024-09-16", "end": "2024-09-20" },
+    "dates": {
+      "start": "2024-09-16",
+      "end": "2024-09-20"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2024-09-16",
         "airline": "United",
         "flightNumber": "UA 2035",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "", "time": "7:10 AM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "", "gate": "",  "time": "9:10 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "",
+          "time": "7:10 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "9:10 AM"
+        },
         "duration": "2h 0m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -1964,8 +2638,17 @@
         "date": "2024-09-16",
         "company": "Enterprise",
         "class": "Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "9:10 AM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2024-09-20", "time": "10:15 AM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "9:10 AM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2024-09-20",
+          "time": "10:15 AM"
+        },
         "confirmation": "1568805132COUNT",
         "notes": ""
       },
@@ -1975,7 +2658,7 @@
         "name": "Courtyard Scottsdale Old Town",
         "address": "3311 N Scottsdale Rd, Scottsdale, AZ 85251",
         "phone": "480-429-7785",
-        "checkIn":  "2024-09-16",
+        "checkIn": "2024-09-16",
         "checkOut": "2024-09-20",
         "nights": 4,
         "roomType": "",
@@ -1987,8 +2670,20 @@
         "date": "2024-09-20",
         "airline": "United",
         "flightNumber": "UA 1417",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "3", "gate": "E9", "time": "10:15 AM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "",  "gate": "",   "time": "12:20 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E9",
+          "time": "10:15 AM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "12:20 PM"
+        },
         "duration": "2h 5m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -2009,15 +2704,30 @@
     "destination": "Los Angeles, CA",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2024-08-28", "end": "2024-08-29" },
+    "dates": {
+      "start": "2024-08-28",
+      "end": "2024-08-29"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2024-08-28",
         "airline": "United",
         "flightNumber": "UA 1413",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "2", "gate": "D14", "time": "4:25 PM" },
-        "to":   { "code": "LAX", "city": "Los Angeles",   "terminal": "",  "gate": "",    "time": "5:58 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "2",
+          "gate": "D14",
+          "time": "4:25 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "",
+          "gate": "",
+          "time": "5:58 PM"
+        },
         "duration": "1h 33m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -2032,8 +2742,17 @@
         "date": "2024-08-28",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Los Angeles International (LAX)", "address": "", "time": "5:58 PM" },
-        "dropoff": { "location": "Los Angeles International (LAX)", "address": "", "date": "2024-08-29", "time": "8:25 PM" },
+        "pickup": {
+          "location": "Los Angeles International (LAX)",
+          "address": "",
+          "time": "5:58 PM"
+        },
+        "dropoff": {
+          "location": "Los Angeles International (LAX)",
+          "address": "",
+          "date": "2024-08-29",
+          "time": "8:25 PM"
+        },
         "confirmation": "1568008870AISLE",
         "notes": ""
       },
@@ -2043,7 +2762,7 @@
         "name": "Renaissance Los Angeles Airport Hotel",
         "address": "9620 Airport Blvd, Los Angeles, CA 90045",
         "phone": "310-337-2800",
-        "checkIn":  "2024-08-28",
+        "checkIn": "2024-08-28",
         "checkOut": "2024-08-29",
         "nights": 1,
         "roomType": "",
@@ -2055,8 +2774,20 @@
         "date": "2024-08-29",
         "airline": "United",
         "flightNumber": "UA 552",
-        "from": { "code": "LAX", "city": "Los Angeles",   "terminal": "7", "gate": "75A", "time": "8:25 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "",  "gate": "",    "time": "9:49 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "75A",
+          "time": "8:25 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "9:49 PM"
+        },
         "duration": "1h 24m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -2077,15 +2808,30 @@
     "destination": "Scottsdale, AZ",
     "accent": "#FFB612",
     "travelers": [],
-    "dates": { "start": "2024-08-11", "end": "2024-08-12" },
+    "dates": {
+      "start": "2024-08-11",
+      "end": "2024-08-12"
+    },
     "segments": [
       {
         "type": "flight",
         "date": "2024-08-11",
         "airline": "United",
         "flightNumber": "UA 1561",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "E13", "time": "4:40 PM" },
-        "to":   { "code": "PHX", "city": "Phoenix",       "terminal": "",  "gate": "",    "time": "6:47 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "E13",
+          "time": "4:40 PM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "",
+          "gate": "",
+          "time": "6:47 PM"
+        },
         "duration": "2h 7m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-900",
@@ -2099,8 +2845,17 @@
         "date": "2024-08-11",
         "company": "National",
         "class": "Executive Area · Intermediate",
-        "pickup":  { "location": "Phoenix Sky Harbor (PHX)", "address": "", "time": "6:47 PM" },
-        "dropoff": { "location": "Phoenix Sky Harbor (PHX)", "address": "", "date": "2024-08-12", "time": "7:53 PM" },
+        "pickup": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "time": "6:47 PM"
+        },
+        "dropoff": {
+          "location": "Phoenix Sky Harbor (PHX)",
+          "address": "",
+          "date": "2024-08-12",
+          "time": "7:53 PM"
+        },
         "confirmation": "1468890689AISLE",
         "notes": ""
       },
@@ -2110,7 +2865,7 @@
         "name": "Scottsdale Marriott Old Town",
         "address": "7325 E 3rd Ave, Scottsdale, AZ 85251",
         "phone": "480-945-1550",
-        "checkIn":  "2024-08-11",
+        "checkIn": "2024-08-11",
         "checkOut": "2024-08-12",
         "nights": 1,
         "roomType": "",
@@ -2122,8 +2877,20 @@
         "date": "2024-08-12",
         "airline": "United",
         "flightNumber": "UA 1603",
-        "from": { "code": "PHX", "city": "Phoenix",       "terminal": "3", "gate": "E10", "time": "7:53 PM" },
-        "to":   { "code": "SFO", "city": "San Francisco", "terminal": "",  "gate": "",    "time": "9:55 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E10",
+          "time": "7:53 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "",
+          "gate": "",
+          "time": "9:55 PM"
+        },
         "duration": "2h 2m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-900",
@@ -2144,14 +2911,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2022-11-08", "end": "2022-11-10" },
+    "dates": {
+      "start": "2022-11-08",
+      "end": "2022-11-10"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 487",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "10:45 AM" },
-        "to": { "code": "IAD", "city": "Washington Dulles", "time": "6:45 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "10:45 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "time": "6:45 PM"
+        },
         "duration": "5h",
         "distance_mi": 2412,
         "aircraft": "Boeing 737MAX 9",
@@ -2163,8 +2942,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "IAD", "time": "6:45 PM" },
-        "dropoff": { "location": "IAD", "date": "2022-11-10", "time": "2:40 PM" },
+        "pickup": {
+          "location": "IAD",
+          "time": "6:45 PM"
+        },
+        "dropoff": {
+          "location": "IAD",
+          "date": "2022-11-10",
+          "time": "2:40 PM"
+        },
         "confirmation": "1090995574AISLE"
       },
       {
@@ -2181,8 +2967,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 215",
-        "from": { "code": "IAD", "city": "Washington Dulles", "gate": "C9", "time": "2:40 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "5:45 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "gate": "C9",
+          "time": "2:40 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "5:45 PM"
+        },
         "duration": "6h 5m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737-900",
@@ -2201,14 +2996,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2023-01-25", "end": "2023-01-26" },
+    "dates": {
+      "start": "2023-01-25",
+      "end": "2023-01-26"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2034",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F4", "time": "10:35 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "11:59 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F4",
+          "time": "10:35 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "11:59 PM"
+        },
         "duration": "1h 24m",
         "distance_mi": 337,
         "aircraft": "Airbus A320",
@@ -2230,8 +3038,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1671",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "70A", "time": "6:46 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:16 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "70A",
+          "time": "6:46 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:16 PM"
+        },
         "duration": "1h 30m",
         "distance_mi": 337,
         "aircraft": "Boeing 737MAX 9",
@@ -2250,14 +3068,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2023-02-09", "end": "2023-02-11" },
+    "dates": {
+      "start": "2023-02-09",
+      "end": "2023-02-11"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1200",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F14", "time": "7:40 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "9:11 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F14",
+          "time": "7:40 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "9:11 PM"
+        },
         "duration": "1h 31m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-900",
@@ -2279,8 +3110,16 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 5326",
-        "from": { "code": "BUR", "city": "Burbank", "time": "6:37 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:04 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "6:37 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:04 PM"
+        },
         "duration": "1h 27m",
         "distance_mi": 326,
         "aircraft": "Embraer 175",
@@ -2299,14 +3138,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2023-02-21", "end": "2023-02-23" },
+    "dates": {
+      "start": "2023-02-21",
+      "end": "2023-02-23"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2027",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "10:36 AM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "1:32 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "10:36 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "1:32 PM"
+        },
         "duration": "1h 56m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -2328,8 +3179,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1152",
-        "from": { "code": "PHX", "city": "Phoenix", "terminal": "3", "gate": "E5", "time": "2:29 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "3:35 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E5",
+          "time": "2:29 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "3:35 PM"
+        },
         "duration": "2h 6m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -2348,14 +3209,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2023-08-23", "end": "2023-08-24" },
+    "dates": {
+      "start": "2023-08-23",
+      "end": "2023-08-24"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2096",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F1", "time": "7:45 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "9:29 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F1",
+          "time": "7:45 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "9:29 PM"
+        },
         "duration": "1h 44m",
         "distance_mi": 337,
         "aircraft": "Airbus A320",
@@ -2367,8 +3241,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "LAX", "time": "9:29 PM" },
-        "dropoff": { "location": "LAX", "date": "2023-08-24", "time": "7:55 PM" },
+        "pickup": {
+          "location": "LAX",
+          "time": "9:29 PM"
+        },
+        "dropoff": {
+          "location": "LAX",
+          "date": "2023-08-24",
+          "time": "7:55 PM"
+        },
         "confirmation": "1551485362AISLE"
       },
       {
@@ -2385,8 +3266,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1488",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "85", "time": "7:55 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "9:22 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "85",
+          "time": "7:55 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "9:22 PM"
+        },
         "duration": "1h 27m",
         "distance_mi": 337,
         "aircraft": "Boeing 737MAX 9",
@@ -2405,14 +3296,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2023-09-05", "end": "2023-09-07" },
+    "dates": {
+      "start": "2023-09-05",
+      "end": "2023-09-07"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 683",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F2", "time": "7:20 PM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "9:22 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F2",
+          "time": "7:20 PM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "9:22 PM"
+        },
         "duration": "2h 2m",
         "distance_mi": 650,
         "aircraft": "Boeing 737MAX 9",
@@ -2424,8 +3328,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "PHX", "time": "9:22 PM" },
-        "dropoff": { "location": "PHX", "date": "2023-09-07", "time": "7:10 PM" },
+        "pickup": {
+          "location": "PHX",
+          "time": "9:22 PM"
+        },
+        "dropoff": {
+          "location": "PHX",
+          "date": "2023-09-07",
+          "time": "7:10 PM"
+        },
         "confirmation": "1453141460AISLE"
       },
       {
@@ -2442,8 +3353,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2607",
-        "from": { "code": "PHX", "city": "Phoenix", "terminal": "3", "gate": "E5", "time": "7:10 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "9:15 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E5",
+          "time": "7:10 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "9:15 PM"
+        },
         "duration": "2h 5m",
         "distance_mi": 650,
         "aircraft": "Boeing 737MAX 8",
@@ -2462,14 +3383,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2024-02-20", "end": "2024-02-22" },
+    "dates": {
+      "start": "2024-02-20",
+      "end": "2024-02-22"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "WN 1396",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "1", "gate": "B12", "time": "10:10 AM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "1:00 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "1",
+          "gate": "B12",
+          "time": "10:10 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "1:00 PM"
+        },
         "duration": "1h 50m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-700",
@@ -2480,8 +3414,15 @@
         "type": "car",
         "company": "Hertz",
         "class": "Intermediate",
-        "pickup": { "location": "PHX", "time": "1:00 PM" },
-        "dropoff": { "location": "PHX", "date": "2024-02-22", "time": "7:50 PM" },
+        "pickup": {
+          "location": "PHX",
+          "time": "1:00 PM"
+        },
+        "dropoff": {
+          "location": "PHX",
+          "date": "2024-02-22",
+          "time": "7:50 PM"
+        },
         "confirmation": "K76247387B5"
       },
       {
@@ -2498,8 +3439,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "WN 3572",
-        "from": { "code": "PHX", "city": "Phoenix", "time": "7:50 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:50 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "7:50 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:50 PM"
+        },
         "duration": "2h",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -2517,14 +3466,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2024-03-19", "end": "2024-03-20" },
+    "dates": {
+      "start": "2024-03-19",
+      "end": "2024-03-20"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1505",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "2", "gate": "D11", "time": "10:47 AM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "12:51 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "2",
+          "gate": "D11",
+          "time": "10:47 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "12:51 PM"
+        },
         "duration": "2h 4m",
         "distance_mi": 650,
         "aircraft": "Boeing 737MAX 9",
@@ -2536,8 +3498,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "PHX", "time": "12:51 PM" },
-        "dropoff": { "location": "PHX", "date": "2024-03-20", "time": "7:46 PM" },
+        "pickup": {
+          "location": "PHX",
+          "time": "12:51 PM"
+        },
+        "dropoff": {
+          "location": "PHX",
+          "date": "2024-03-20",
+          "time": "7:46 PM"
+        },
         "confirmation": "1461129636AISLE"
       },
       {
@@ -2554,8 +3523,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 436",
-        "from": { "code": "PHX", "city": "Phoenix", "terminal": "3", "gate": "E10", "time": "7:46 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "10:00 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E10",
+          "time": "7:46 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "10:00 PM"
+        },
         "duration": "2h 14m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -2574,14 +3553,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2024-04-15", "end": "2024-04-18" },
+    "dates": {
+      "start": "2024-04-15",
+      "end": "2024-04-18"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Alaska Airlines",
         "flightNumber": "AS 434",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "2", "gate": "D5", "time": "7:00 AM" },
-        "to": { "code": "IAD", "city": "Washington Dulles", "time": "3:16 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "2",
+          "gate": "D5",
+          "time": "7:00 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "time": "3:16 PM"
+        },
         "duration": "5h 16m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737-800",
@@ -2603,8 +3595,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 395",
-        "from": { "code": "DCA", "city": "Washington Reagan", "terminal": "2", "time": "6:05 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "9:19 PM" },
+        "from": {
+          "code": "DCA",
+          "city": "Washington Reagan",
+          "terminal": "2",
+          "time": "6:05 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "9:19 PM"
+        },
         "duration": "6h 14m",
         "distance_mi": 2436,
         "aircraft": "Boeing 737MAX 8",
@@ -2623,14 +3624,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2024-05-27", "end": "2024-05-28" },
+    "dates": {
+      "start": "2024-05-27",
+      "end": "2024-05-28"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1322",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F11", "time": "8:15 AM" },
-        "to": { "code": "IAD", "city": "Washington Dulles", "time": "4:20 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F11",
+          "time": "8:15 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "time": "4:20 PM"
+        },
         "duration": "5h 5m",
         "distance_mi": 2412,
         "aircraft": "Boeing 777",
@@ -2652,8 +3666,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2315",
-        "from": { "code": "IAD", "city": "Washington Dulles", "gate": "D3", "time": "6:15 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:57 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "gate": "D3",
+          "time": "6:15 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:57 PM"
+        },
         "duration": "5h 42m",
         "distance_mi": 2412,
         "aircraft": "Boeing 777",
@@ -2672,14 +3695,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2017-12-11", "end": "2017-12-12" },
+    "dates": {
+      "start": "2017-12-11",
+      "end": "2017-12-12"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 222",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "66", "time": "8:15 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "9:56 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "66",
+          "time": "8:15 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "9:56 PM"
+        },
         "duration": "1h 41m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -2691,8 +3727,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "LAX", "time": "9:56 PM" },
-        "dropoff": { "location": "LAX", "date": "2017-12-12", "time": "7:05 PM" },
+        "pickup": {
+          "location": "LAX",
+          "time": "9:56 PM"
+        },
+        "dropoff": {
+          "location": "LAX",
+          "date": "2017-12-12",
+          "time": "7:05 PM"
+        },
         "confirmation": "1154661448AISLE"
       },
       {
@@ -2709,8 +3752,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 283",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "71B", "time": "7:05 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:36 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "71B",
+          "time": "7:05 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:36 PM"
+        },
         "duration": "1h 31m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-900",
@@ -2729,14 +3782,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2018-01-16", "end": "2018-01-17" },
+    "dates": {
+      "start": "2018-01-16",
+      "end": "2018-01-17"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 788",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "61", "time": "4:35 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "6:15 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "61",
+          "time": "4:35 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "6:15 PM"
+        },
         "duration": "1h 40m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -2758,8 +3824,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 283",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "75A", "time": "7:25 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:59 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "75A",
+          "time": "7:25 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:59 PM"
+        },
         "duration": "1h 34m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -2778,14 +3854,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2018-02-12", "end": "2018-02-13" },
+    "dates": {
+      "start": "2018-02-12",
+      "end": "2018-02-13"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1597",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "8:18 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "10:00 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "8:18 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "10:00 PM"
+        },
         "duration": "1h 42m",
         "distance_mi": 337,
         "aircraft": "Airbus A320",
@@ -2807,8 +3895,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1765",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "75B", "time": "5:36 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "7:09 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "75B",
+          "time": "5:36 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "7:09 PM"
+        },
         "duration": "1h 33m",
         "distance_mi": 337,
         "aircraft": "Airbus A320",
@@ -2827,14 +3925,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2018-03-12", "end": "2018-03-13" },
+    "dates": {
+      "start": "2018-03-12",
+      "end": "2018-03-13"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1597",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "8:13 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "9:55 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "8:13 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "9:55 PM"
+        },
         "duration": "1h 42m",
         "distance_mi": 337,
         "aircraft": "Airbus A320",
@@ -2856,14 +3966,124 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1576",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "time": "5:40 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "7:13 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "time": "5:40 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "7:13 PM"
+        },
         "duration": "1h 33m",
         "distance_mi": 337,
         "aircraft": "Airbus A320",
         "class": "Economy",
         "seat": "21A",
         "confirmation": "OK80GN"
+      }
+    ]
+  },
+  {
+    "id": "sfo-msy-apr2018",
+    "name": "SFO–MSY",
+    "subtitle": "New Orleans 2018",
+    "destination": "New Orleans, LA",
+    "accent": "#9b59b6",
+    "type": "personal",
+    "icon": "🎷",
+    "travelers": [],
+    "dates": {
+      "start": "2018-04-04",
+      "end": "2018-04-08"
+    },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "United",
+        "flightNumber": "UA 1904",
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "MSY",
+          "city": "New Orleans"
+        },
+        "duration": "4h 8m",
+        "distance_mi": 1926,
+        "aircraft": "Airbus A319",
+        "class": "Economy",
+        "seat": "12A"
+      },
+      {
+        "type": "flight",
+        "airline": "United",
+        "flightNumber": "UA 965",
+        "from": {
+          "code": "MSY",
+          "city": "New Orleans"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "duration": "4h 56m",
+        "distance_mi": 1926,
+        "aircraft": "Airbus A319",
+        "class": "Economy",
+        "seat": "12A"
+      }
+    ]
+  },
+  {
+    "id": "sjc-bur-apr2018",
+    "name": "SJC–BUR",
+    "subtitle": "L.A. Weekend Apr 2018",
+    "destination": "Burbank, CA",
+    "accent": "#2d9e5a",
+    "type": "personal",
+    "travelers": [],
+    "dates": {
+      "start": "2018-04-27",
+      "end": "2018-04-29"
+    },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "5830",
+        "from": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "duration": "1h",
+        "distance_mi": 291,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "4241",
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "duration": "1h 3m",
+        "distance_mi": 291,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
       }
     ]
   },
@@ -2876,14 +4096,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2018-05-15", "end": "2018-05-15" },
+    "dates": {
+      "start": "2018-05-15",
+      "end": "2018-05-15"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "American Airlines",
         "flightNumber": "AA 6044",
-        "from": { "code": "SJC", "city": "San Jose", "terminal": "A", "time": "8:50 AM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "10:39 AM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "terminal": "A",
+          "time": "8:50 AM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "10:39 AM"
+        },
         "duration": "1h 49m",
         "distance_mi": 307,
         "aircraft": "Embraer 175",
@@ -2895,22 +4127,186 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "LAX", "time": "10:39 AM" },
-        "dropoff": { "location": "LAX", "date": "2018-05-15", "time": "4:52 PM" },
+        "pickup": {
+          "location": "LAX",
+          "time": "10:39 AM"
+        },
+        "dropoff": {
+          "location": "LAX",
+          "date": "2018-05-15",
+          "time": "4:52 PM"
+        },
         "confirmation": "1163372955EXSEL"
       },
       {
         "type": "flight",
         "airline": "American Airlines",
         "flightNumber": "AA 6047",
-        "from": { "code": "LAX", "city": "Los Angeles", "time": "4:52 PM" },
-        "to": { "code": "SJC", "city": "San Jose", "time": "6:16 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "4:52 PM"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "6:16 PM"
+        },
         "duration": "1h 24m",
         "distance_mi": 307,
         "aircraft": "Embraer 175",
         "class": "Economy",
         "seat": "22F",
         "confirmation": "QURNRW"
+      }
+    ]
+  },
+  {
+    "id": "sfo-cph-jul2018",
+    "name": "SFO–CPH",
+    "subtitle": "Scandinavia 2018",
+    "destination": "Copenhagen, Denmark",
+    "accent": "#2980b9",
+    "type": "personal",
+    "icon": "🌍",
+    "travelers": [],
+    "dates": {
+      "start": "2018-07-16",
+      "end": "2018-07-25"
+    },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "SAS",
+        "flightNumber": "SK 936",
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "CPH",
+          "city": "Copenhagen"
+        },
+        "duration": "10h 44m",
+        "distance_mi": 5367,
+        "aircraft": "Airbus A340-300",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "SAS",
+        "flightNumber": "SK 935",
+        "from": {
+          "code": "CPH",
+          "city": "Copenhagen"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "duration": "11h 4m",
+        "distance_mi": 5367,
+        "aircraft": "Airbus A340-300",
+        "class": "Economy"
+      }
+    ]
+  },
+  {
+    "id": "sjc-bur-aug2018",
+    "name": "SJC–BUR",
+    "subtitle": "L.A. Weekend Aug 2018",
+    "destination": "Burbank, CA",
+    "accent": "#2d9e5a",
+    "type": "personal",
+    "travelers": [],
+    "dates": {
+      "start": "2018-08-09",
+      "end": "2018-08-12"
+    },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "1680",
+        "from": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "duration": "1h 1m",
+        "distance_mi": 291,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "5627",
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "duration": "58m",
+        "distance_mi": 291,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      }
+    ]
+  },
+  {
+    "id": "sjc-las-sep2018",
+    "name": "SJC–LAS",
+    "subtitle": "Las Vegas 2018",
+    "destination": "Las Vegas, NV",
+    "accent": "#f39c12",
+    "type": "personal",
+    "icon": "🎰",
+    "travelers": [],
+    "dates": {
+      "start": "2018-09-14",
+      "end": "2018-09-17"
+    },
+    "segments": [
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "5673",
+        "from": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas"
+        },
+        "duration": "1h 11m",
+        "distance_mi": 406,
+        "aircraft": "Boeing 737-700",
+        "class": "Economy"
+      },
+      {
+        "type": "flight",
+        "airline": "Southwest",
+        "flightNumber": "912",
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "duration": "1h 23m",
+        "distance_mi": 406,
+        "aircraft": "Boeing 737-800",
+        "class": "Economy"
       }
     ]
   },
@@ -2923,14 +4319,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2019-06-26", "end": "2019-06-27" },
+    "dates": {
+      "start": "2019-06-26",
+      "end": "2019-06-27"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1200",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "68", "time": "8:00 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "9:50 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "68",
+          "time": "8:00 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "9:50 PM"
+        },
         "duration": "1h 50m",
         "distance_mi": 337,
         "aircraft": "Airbus A320",
@@ -2952,8 +4361,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 632",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "72B", "time": "5:00 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "6:30 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "72B",
+          "time": "5:00 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "6:30 PM"
+        },
         "duration": "1h 30m",
         "distance_mi": 337,
         "aircraft": "Airbus A319",
@@ -2972,14 +4391,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2019-10-01", "end": "2019-10-02" },
+    "dates": {
+      "start": "2019-10-01",
+      "end": "2019-10-02"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1294",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "9:30 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "11:04 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "9:30 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "11:04 PM"
+        },
         "duration": "1h 34m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -3001,8 +4432,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 447",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "70B", "time": "12:15 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "1:44 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "70B",
+          "time": "12:15 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "1:44 PM"
+        },
         "duration": "1h 29m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-900",
@@ -3020,14 +4461,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2019-10-29", "end": "2019-10-30" },
+    "dates": {
+      "start": "2019-10-29",
+      "end": "2019-10-30"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1200",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "E12", "time": "8:00 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "9:32 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "E12",
+          "time": "8:00 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "9:32 PM"
+        },
         "duration": "1h 32m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-900",
@@ -3049,8 +4503,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2186",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "gate": "76A", "time": "10:45 AM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "12:27 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "gate": "76A",
+          "time": "10:45 AM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "12:27 PM"
+        },
         "duration": "1h 42m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -3069,14 +4533,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2019-11-11", "end": "2019-11-13" },
+    "dates": {
+      "start": "2019-11-11",
+      "end": "2019-11-13"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1829",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "F3A", "time": "8:55 PM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "11:54 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "F3A",
+          "time": "8:55 PM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "11:54 PM"
+        },
         "duration": "1h 59m",
         "distance_mi": 650,
         "aircraft": "Airbus A319",
@@ -3088,8 +4565,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "PHX", "time": "11:54 PM" },
-        "dropoff": { "location": "PHX", "date": "2019-11-13", "time": "4:51 PM" },
+        "pickup": {
+          "location": "PHX",
+          "time": "11:54 PM"
+        },
+        "dropoff": {
+          "location": "PHX",
+          "date": "2019-11-13",
+          "time": "4:51 PM"
+        },
         "confirmation": "1061328838AISLE"
       },
       {
@@ -3106,8 +4590,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1485",
-        "from": { "code": "PHX", "city": "Phoenix", "terminal": "2", "time": "4:51 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "6:00 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "2",
+          "time": "4:51 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "6:00 PM"
+        },
         "duration": "2h 9m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -3126,14 +4619,27 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2022-08-01", "end": "2022-08-04" },
+    "dates": {
+      "start": "2022-08-01",
+      "end": "2022-08-04"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 521",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "gate": "E12", "time": "10:35 AM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "12:37 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "gate": "E12",
+          "time": "10:35 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "12:37 PM"
+        },
         "duration": "2h 2m",
         "distance_mi": 650,
         "aircraft": "Airbus A319",
@@ -3145,8 +4651,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "PHX", "time": "12:37 PM" },
-        "dropoff": { "location": "PHX", "date": "2022-08-04", "time": "1:34 PM" },
+        "pickup": {
+          "location": "PHX",
+          "time": "12:37 PM"
+        },
+        "dropoff": {
+          "location": "PHX",
+          "date": "2022-08-04",
+          "time": "1:34 PM"
+        },
         "confirmation": "1088167610AISLE"
       },
       {
@@ -3163,8 +4676,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1556",
-        "from": { "code": "PHX", "city": "Phoenix", "terminal": "3", "gate": "E3", "time": "1:34 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "3:34 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "3",
+          "gate": "E3",
+          "time": "1:34 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "3:34 PM"
+        },
         "duration": "2h",
         "distance_mi": 650,
         "aircraft": "Boeing 737-800",
@@ -3183,14 +4706,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2017-01-09", "end": "2017-01-12" },
+    "dates": {
+      "start": "2017-01-09",
+      "end": "2017-01-12"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 516",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "9:20 AM" },
-        "to": { "code": "IAD", "city": "Washington Dulles", "time": "5:26 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "9:20 AM"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "time": "5:26 PM"
+        },
         "duration": "5h 6m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737-900",
@@ -3212,8 +4747,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 525",
-        "from": { "code": "IAD", "city": "Washington Dulles", "gate": "C19", "time": "12:35 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "3:40 PM" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington Dulles",
+          "gate": "C19",
+          "time": "12:35 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "3:40 PM"
+        },
         "duration": "6h 5m",
         "distance_mi": 2412,
         "aircraft": "Boeing 737-900",
@@ -3232,14 +4776,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2017-02-01", "end": "2017-02-03" },
+    "dates": {
+      "start": "2017-02-01",
+      "end": "2017-02-03"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 431",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "9:50 AM" },
-        "to": { "code": "DEN", "city": "Denver", "time": "1:25 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "9:50 AM"
+        },
+        "to": {
+          "code": "DEN",
+          "city": "Denver",
+          "time": "1:25 PM"
+        },
         "duration": "2h 35m",
         "distance_mi": 965,
         "aircraft": "Boeing 737-800",
@@ -3261,8 +4817,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 277",
-        "from": { "code": "DEN", "city": "Denver", "gate": "B36", "time": "8:00 AM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "9:55 AM" },
+        "from": {
+          "code": "DEN",
+          "city": "Denver",
+          "gate": "B36",
+          "time": "8:00 AM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "9:55 AM"
+        },
         "duration": "2h 55m",
         "distance_mi": 965,
         "aircraft": "Boeing 777-200ER",
@@ -3281,14 +4846,26 @@
     "type": "personal",
     "icon": "🍀",
     "travelers": [],
-    "dates": { "start": "2017-02-08", "end": "2017-02-13" },
+    "dates": {
+      "start": "2017-02-08",
+      "end": "2017-02-13"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "British Airways",
         "flightNumber": "BA 278",
-        "from": { "code": "SJC", "city": "San Jose", "terminal": "B", "time": "7:00 PM" },
-        "to": { "code": "LHR", "city": "London Heathrow", "time": "1:05 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "terminal": "B",
+          "time": "7:00 PM"
+        },
+        "to": {
+          "code": "LHR",
+          "city": "London Heathrow",
+          "time": "1:05 PM"
+        },
         "duration": "10h 5m",
         "distance_mi": 5353,
         "aircraft": "Boeing 787-9",
@@ -3298,8 +4875,16 @@
         "type": "flight",
         "airline": "British Airways",
         "flightNumber": "BA 826",
-        "from": { "code": "LHR", "city": "London Heathrow", "time": "3:15 PM" },
-        "to": { "code": "DUB", "city": "Dublin", "time": "4:45 PM" },
+        "from": {
+          "code": "LHR",
+          "city": "London Heathrow",
+          "time": "3:15 PM"
+        },
+        "to": {
+          "code": "DUB",
+          "city": "Dublin",
+          "time": "4:45 PM"
+        },
         "duration": "1h 30m",
         "distance_mi": 279,
         "aircraft": "Airbus A321",
@@ -3309,8 +4894,16 @@
         "type": "flight",
         "airline": "British Airways",
         "flightNumber": "BA 845",
-        "from": { "code": "DUB", "city": "Dublin", "time": "10:20 AM" },
-        "to": { "code": "LHR", "city": "London Heathrow", "time": "11:50 AM" },
+        "from": {
+          "code": "DUB",
+          "city": "Dublin",
+          "time": "10:20 AM"
+        },
+        "to": {
+          "code": "LHR",
+          "city": "London Heathrow",
+          "time": "11:50 AM"
+        },
         "duration": "1h 30m",
         "distance_mi": 279,
         "aircraft": "Airbus A320",
@@ -3320,8 +4913,19 @@
         "type": "flight",
         "airline": "British Airways",
         "flightNumber": "BA 287",
-        "from": { "code": "LHR", "city": "London Heathrow", "terminal": "5", "gate": "C55", "time": "3:05 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "terminal": "I", "time": "5:40 PM" },
+        "from": {
+          "code": "LHR",
+          "city": "London Heathrow",
+          "terminal": "5",
+          "gate": "C55",
+          "time": "3:05 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "I",
+          "time": "5:40 PM"
+        },
         "duration": "10h 35m",
         "distance_mi": 5354,
         "aircraft": "Airbus A380",
@@ -3339,14 +4943,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2017-09-12", "end": "2017-09-14" },
+    "dates": {
+      "start": "2017-09-12",
+      "end": "2017-09-14"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1140",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "11:38 AM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "1:39 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "11:38 AM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "1:39 PM"
+        },
         "duration": "2h 1m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-900",
@@ -3358,8 +4974,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "PHX", "time": "1:39 PM" },
-        "dropoff": { "location": "PHX", "date": "2017-09-14", "time": "5:05 PM" },
+        "pickup": {
+          "location": "PHX",
+          "time": "1:39 PM"
+        },
+        "dropoff": {
+          "location": "PHX",
+          "date": "2017-09-14",
+          "time": "5:05 PM"
+        },
         "confirmation": "1030001250AISLE"
       },
       {
@@ -3376,8 +4999,18 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1839",
-        "from": { "code": "PHX", "city": "Phoenix", "terminal": "2", "gate": "5", "time": "5:05 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "7:09 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "2",
+          "gate": "5",
+          "time": "5:05 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "7:09 PM"
+        },
         "duration": "2h 4m",
         "distance_mi": 650,
         "aircraft": "Airbus A320",
@@ -3396,14 +5029,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2017-09-19", "end": "2017-09-20" },
+    "dates": {
+      "start": "2017-09-19",
+      "end": "2017-09-20"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 978",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "2:47 PM" },
-        "to": { "code": "LAX", "city": "Los Angeles", "time": "4:25 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "2:47 PM"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "4:25 PM"
+        },
         "duration": "1h 38m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-800",
@@ -3415,8 +5060,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "LAX", "time": "4:25 PM" },
-        "dropoff": { "location": "LAX", "date": "2017-09-20", "time": "5:35 PM" },
+        "pickup": {
+          "location": "LAX",
+          "time": "4:25 PM"
+        },
+        "dropoff": {
+          "location": "LAX",
+          "date": "2017-09-20",
+          "time": "5:35 PM"
+        },
         "confirmation": "1148927251AISLE"
       },
       {
@@ -3433,8 +5085,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 481",
-        "from": { "code": "LAX", "city": "Los Angeles", "terminal": "7", "time": "5:35 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "7:04 PM" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "terminal": "7",
+          "time": "5:35 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "7:04 PM"
+        },
         "duration": "1h 29m",
         "distance_mi": 337,
         "aircraft": "Boeing 737-900",
@@ -3453,14 +5114,26 @@
     "type": "work",
     "icon": "💼",
     "travelers": [],
-    "dates": { "start": "2017-11-27", "end": "2017-11-29" },
+    "dates": {
+      "start": "2017-11-27",
+      "end": "2017-11-29"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1168",
-        "from": { "code": "SFO", "city": "San Francisco", "terminal": "3", "time": "1:28 PM" },
-        "to": { "code": "PHX", "city": "Phoenix", "time": "4:27 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "terminal": "3",
+          "time": "1:28 PM"
+        },
+        "to": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "time": "4:27 PM"
+        },
         "duration": "1h 59m",
         "distance_mi": 650,
         "aircraft": "Boeing 737-900",
@@ -3472,8 +5145,15 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "PHX", "time": "4:27 PM" },
-        "dropoff": { "location": "PHX", "date": "2017-11-29", "time": "7:45 PM" },
+        "pickup": {
+          "location": "PHX",
+          "time": "4:27 PM"
+        },
+        "dropoff": {
+          "location": "PHX",
+          "date": "2017-11-29",
+          "time": "7:45 PM"
+        },
         "confirmation": "1032696853AISLE"
       },
       {
@@ -3490,8 +5170,17 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 5442",
-        "from": { "code": "PHX", "city": "Phoenix", "terminal": "2", "time": "7:45 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:52 PM" },
+        "from": {
+          "code": "PHX",
+          "city": "Phoenix",
+          "terminal": "2",
+          "time": "7:45 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:52 PM"
+        },
         "duration": "2h 7m",
         "distance_mi": 650,
         "aircraft": "Embraer 175",
@@ -3510,14 +5199,25 @@
     "type": "personal",
     "icon": "🎰",
     "travelers": [],
-    "dates": { "start": "2025-07-02", "end": "2025-07-05" },
+    "dates": {
+      "start": "2025-07-02",
+      "end": "2025-07-05"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1882",
-        "from": { "code": "OAK", "city": "Oakland", "time": "3:25 PM" },
-        "to": { "code": "LAS", "city": "Las Vegas", "time": "5:00 PM" },
+        "from": {
+          "code": "OAK",
+          "city": "Oakland",
+          "time": "3:25 PM"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "5:00 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 407,
         "class": "Economy",
@@ -3527,8 +5227,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2971",
-        "from": { "code": "LAS", "city": "Las Vegas", "time": "2:35 PM" },
-        "to": { "code": "OAK", "city": "Oakland", "time": "4:10 PM" },
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "2:35 PM"
+        },
+        "to": {
+          "code": "OAK",
+          "city": "Oakland",
+          "time": "4:10 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 407,
         "class": "Economy",
@@ -3545,14 +5253,25 @@
     "type": "personal",
     "icon": "☀️",
     "travelers": [],
-    "dates": { "start": "2023-05-05", "end": "2023-05-08" },
+    "dates": {
+      "start": "2023-05-05",
+      "end": "2023-05-08"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "3350",
-        "from": { "code": "SJC", "city": "San Jose", "time": "11:55 AM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "1:00 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "11:55 AM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "1:00 PM"
+        },
         "duration": "1h 5m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3562,8 +5281,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2124",
-        "from": { "code": "BUR", "city": "Burbank", "time": "12:00 PM" },
-        "to": { "code": "SJC", "city": "San Jose", "time": "1:10 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "12:00 PM"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "1:10 PM"
+        },
         "duration": "1h 10m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3579,14 +5306,25 @@
     "accent": "#2980b9",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2023-05-19", "end": "2023-05-22" },
+    "dates": {
+      "start": "2023-05-19",
+      "end": "2023-05-22"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2125",
-        "from": { "code": "SJC", "city": "San Jose", "time": "1:50 PM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "2:55 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "1:50 PM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "2:55 PM"
+        },
         "duration": "1h 5m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3596,8 +5334,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2124",
-        "from": { "code": "BUR", "city": "Burbank", "time": "12:00 PM" },
-        "to": { "code": "SJC", "city": "San Jose", "time": "1:10 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "12:00 PM"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "1:10 PM"
+        },
         "duration": "1h 10m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3614,14 +5360,25 @@
     "type": "personal",
     "icon": "🎰",
     "travelers": [],
-    "dates": { "start": "2023-11-19", "end": "2023-11-21" },
+    "dates": {
+      "start": "2023-11-19",
+      "end": "2023-11-21"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2218",
-        "from": { "code": "SFO", "city": "San Francisco", "time": "10:15 AM" },
-        "to": { "code": "LAS", "city": "Las Vegas", "time": "11:45 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "10:15 AM"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "11:45 AM"
+        },
         "duration": "1h 30m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3631,8 +5388,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2485",
-        "from": { "code": "LAS", "city": "Las Vegas", "time": "5:20 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "6:55 PM" },
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "5:20 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "6:55 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3648,14 +5413,25 @@
     "accent": "#dc2626",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2023-12-08", "end": "2023-12-10" },
+    "dates": {
+      "start": "2023-12-08",
+      "end": "2023-12-10"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2205",
-        "from": { "code": "SFO", "city": "San Francisco", "time": "5:25 PM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "6:35 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "5:25 PM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "6:35 PM"
+        },
         "duration": "1h 10m",
         "distance_mi": 326,
         "class": "Economy",
@@ -3665,8 +5441,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1801",
-        "from": { "code": "BUR", "city": "Burbank", "time": "3:30 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "4:50 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "3:30 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "4:50 PM"
+        },
         "duration": "1h 20m",
         "distance_mi": 326,
         "class": "Economy",
@@ -3683,14 +5467,25 @@
     "type": "personal",
     "icon": "🎰",
     "travelers": [],
-    "dates": { "start": "2024-05-09", "end": "2024-05-11" },
+    "dates": {
+      "start": "2024-05-09",
+      "end": "2024-05-11"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1908",
-        "from": { "code": "SFO", "city": "San Francisco", "time": "1:30 PM" },
-        "to": { "code": "LAS", "city": "Las Vegas", "time": "3:10 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "1:30 PM"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "3:10 PM"
+        },
         "duration": "1h 40m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3700,8 +5495,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "5082",
-        "from": { "code": "LAS", "city": "Las Vegas", "time": "6:20 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "7:55 PM" },
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "6:20 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "7:55 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3717,14 +5520,25 @@
     "accent": "#e74c3c",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2024-05-17", "end": "2024-05-19" },
+    "dates": {
+      "start": "2024-05-17",
+      "end": "2024-05-19"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "835",
-        "from": { "code": "SJC", "city": "San Jose", "time": "3:10 PM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "4:15 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "3:10 PM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "4:15 PM"
+        },
         "duration": "1h 5m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3733,8 +5547,16 @@
       {
         "type": "flight",
         "airline": "Southwest",
-        "from": { "code": "LAX", "city": "Los Angeles", "time": "TBD" },
-        "to": { "code": "OAK", "city": "Oakland", "time": "TBD" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles",
+          "time": "TBD"
+        },
+        "to": {
+          "code": "OAK",
+          "city": "Oakland",
+          "time": "TBD"
+        },
         "distance_mi": 337,
         "class": "Economy",
         "confirmation": "2IGPXC",
@@ -3750,14 +5572,25 @@
     "accent": "#e74c3c",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2024-05-31", "end": "2024-06-02" },
+    "dates": {
+      "start": "2024-05-31",
+      "end": "2024-06-02"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "835",
-        "from": { "code": "SJC", "city": "San Jose", "time": "3:10 PM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "4:15 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "3:10 PM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "4:15 PM"
+        },
         "duration": "1h 5m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3767,8 +5600,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2187",
-        "from": { "code": "BUR", "city": "Burbank", "time": "10:50 AM" },
-        "to": { "code": "SJC", "city": "San Jose", "time": "12:00 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "10:50 AM"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "12:00 PM"
+        },
         "duration": "1h 10m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3784,14 +5625,25 @@
     "accent": "#e74c3c",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2024-08-08", "end": "2024-08-11" },
+    "dates": {
+      "start": "2024-08-08",
+      "end": "2024-08-11"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "3382",
-        "from": { "code": "SJC", "city": "San Jose", "time": "4:05 PM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "5:15 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "4:05 PM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "5:15 PM"
+        },
         "duration": "1h 10m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3801,8 +5653,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "726",
-        "from": { "code": "BUR", "city": "Burbank", "time": "9:35 AM" },
-        "to": { "code": "SJC", "city": "San Jose", "time": "10:50 AM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "9:35 AM"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "10:50 AM"
+        },
         "duration": "1h 15m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3819,14 +5679,25 @@
     "type": "personal",
     "icon": "🎰",
     "travelers": [],
-    "dates": { "start": "2024-10-05", "end": "2024-10-07" },
+    "dates": {
+      "start": "2024-10-05",
+      "end": "2024-10-07"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2466",
-        "from": { "code": "SFO", "city": "San Francisco", "time": "3:25 PM" },
-        "to": { "code": "LAS", "city": "Las Vegas", "time": "5:00 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "3:25 PM"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "5:00 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3836,8 +5707,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2557",
-        "from": { "code": "LAS", "city": "Las Vegas", "time": "6:05 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "7:40 PM" },
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "6:05 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "7:40 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3854,14 +5733,25 @@
     "type": "personal",
     "icon": "🎰",
     "travelers": [],
-    "dates": { "start": "2024-12-06", "end": "2024-12-08" },
+    "dates": {
+      "start": "2024-12-06",
+      "end": "2024-12-08"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "5159",
-        "from": { "code": "SFO", "city": "San Francisco", "time": "12:45 PM" },
-        "to": { "code": "LAS", "city": "Las Vegas", "time": "2:20 PM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "12:45 PM"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "2:20 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3871,8 +5761,16 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1319",
-        "from": { "code": "LAS", "city": "Las Vegas", "time": "6:35 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:10 PM" },
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas",
+          "time": "6:35 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:10 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 570,
         "class": "Economy",
@@ -3888,14 +5786,25 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2023-01-06", "end": "2023-01-08" },
+    "dates": {
+      "start": "2023-01-06",
+      "end": "2023-01-08"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2362",
-        "from": { "code": "SJC", "city": "San Jose", "time": "8:35 PM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "9:40 PM" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "8:35 PM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "9:40 PM"
+        },
         "duration": "1h 05m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3912,8 +5821,16 @@
       {
         "type": "flight",
         "airline": "Southwest",
-        "from": { "code": "BUR", "city": "Burbank", "time": "8:15 PM" },
-        "to": { "code": "SJC", "city": "San Jose", "time": "9:20 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "8:15 PM"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose",
+          "time": "9:20 PM"
+        },
         "duration": "1h 05m",
         "distance_mi": 291,
         "class": "Economy",
@@ -3929,14 +5846,25 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2024-11-16", "end": "2024-11-17" },
+    "dates": {
+      "start": "2024-11-16",
+      "end": "2024-11-17"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Alaska",
         "flightNumber": "3333",
-        "from": { "code": "SFO", "city": "San Francisco", "time": "9:10 AM" },
-        "to": { "code": "BUR", "city": "Burbank", "time": "10:24 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "9:10 AM"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "10:24 AM"
+        },
         "duration": "1h 14m",
         "distance_mi": 326,
         "class": "First",
@@ -3948,8 +5876,16 @@
         "type": "flight",
         "airline": "Alaska",
         "flightNumber": "3334",
-        "from": { "code": "BUR", "city": "Burbank", "time": "1:00 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "2:35 PM" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank",
+          "time": "1:00 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "2:35 PM"
+        },
         "duration": "1h 35m",
         "distance_mi": 326,
         "class": "First",
@@ -3968,14 +5904,25 @@
     "type": "personal",
     "icon": "🏖",
     "travelers": [],
-    "dates": { "start": "2026-06-20", "end": "2026-06-27" },
+    "dates": {
+      "start": "2026-06-20",
+      "end": "2026-06-27"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "American",
         "flightNumber": "1580",
-        "from": { "code": "SFO", "city": "San Francisco", "time": "11:49 PM" },
-        "to": { "code": "CLT", "city": "Charlotte", "time": "8:03 AM" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "11:49 PM"
+        },
+        "to": {
+          "code": "CLT",
+          "city": "Charlotte",
+          "time": "8:03 AM"
+        },
         "duration": "5h 14m",
         "distance_mi": 2297,
         "class": "Economy",
@@ -3987,8 +5934,16 @@
         "type": "flight",
         "airline": "American",
         "flightNumber": "3563",
-        "from": { "code": "CLT", "city": "Charlotte", "time": "9:44 AM" },
-        "to": { "code": "HHH", "city": "Hilton Head", "time": "11:10 AM" },
+        "from": {
+          "code": "CLT",
+          "city": "Charlotte",
+          "time": "9:44 AM"
+        },
+        "to": {
+          "code": "HHH",
+          "city": "Hilton Head",
+          "time": "11:10 AM"
+        },
         "duration": "1h 26m",
         "distance_mi": 212,
         "class": "Economy",
@@ -4007,15 +5962,29 @@
         "type": "car",
         "company": "National",
         "class": "Executive Area · Midsize",
-        "pickup": { "location": "HHH Airport", "time": "11:10 AM" },
-        "dropoff": { "location": "HHH Airport", "date": "2026-06-27" }
+        "pickup": {
+          "location": "HHH Airport",
+          "time": "11:10 AM"
+        },
+        "dropoff": {
+          "location": "HHH Airport",
+          "date": "2026-06-27"
+        }
       },
       {
         "type": "flight",
         "airline": "American",
         "flightNumber": "3562",
-        "from": { "code": "HHH", "city": "Hilton Head", "time": "2:56 PM" },
-        "to": { "code": "CLT", "city": "Charlotte", "time": "4:17 PM" },
+        "from": {
+          "code": "HHH",
+          "city": "Hilton Head",
+          "time": "2:56 PM"
+        },
+        "to": {
+          "code": "CLT",
+          "city": "Charlotte",
+          "time": "4:17 PM"
+        },
         "duration": "1h 21m",
         "distance_mi": 212,
         "class": "Economy",
@@ -4026,8 +5995,16 @@
         "type": "flight",
         "airline": "American",
         "flightNumber": "2556",
-        "from": { "code": "CLT", "city": "Charlotte", "time": "5:29 PM" },
-        "to": { "code": "SFO", "city": "San Francisco", "time": "8:00 PM" },
+        "from": {
+          "code": "CLT",
+          "city": "Charlotte",
+          "time": "5:29 PM"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco",
+          "time": "8:00 PM"
+        },
         "duration": "5h 31m",
         "distance_mi": 2297,
         "class": "Economy",
@@ -4045,14 +6022,23 @@
     "type": "personal",
     "icon": "🏰",
     "travelers": [],
-    "dates": { "start": "2017-04-07", "end": "2017-04-10" },
+    "dates": {
+      "start": "2017-04-07",
+      "end": "2017-04-10"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "987",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "SNA", "city": "Orange County" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "SNA",
+          "city": "Orange County"
+        },
         "distance_mi": 400,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4061,8 +6047,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1225",
-        "from": { "code": "SNA", "city": "Orange County" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "SNA",
+          "city": "Orange County"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 400,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4078,14 +6070,23 @@
     "type": "personal",
     "icon": "🚢",
     "travelers": [],
-    "dates": { "start": "2017-07-01", "end": "2017-07-09" },
+    "dates": {
+      "start": "2017-07-01",
+      "end": "2017-07-09"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "1688",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "SEA", "city": "Seattle" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "SEA",
+          "city": "Seattle"
+        },
         "distance_mi": 679,
         "aircraft": "Airbus A320",
         "class": "Economy"
@@ -4094,8 +6095,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "698",
-        "from": { "code": "SEA", "city": "Seattle" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "SEA",
+          "city": "Seattle"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 679,
         "aircraft": "Boeing 737-800",
         "class": "Economy"
@@ -4110,14 +6117,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2017-09-01", "end": "2017-09-04" },
+    "dates": {
+      "start": "2017-09-01",
+      "end": "2017-09-04"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "6377",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "distance_mi": 326,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4126,8 +6142,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "6360",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 326,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4143,14 +6165,23 @@
     "type": "personal",
     "icon": "🎄",
     "travelers": [],
-    "dates": { "start": "2017-12-20", "end": "2017-12-25" },
+    "dates": {
+      "start": "2017-12-20",
+      "end": "2017-12-25"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1548",
-        "from": { "code": "SJC", "city": "San Jose" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "distance_mi": 291,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4159,8 +6190,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "6936",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SJC", "city": "San Jose" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
         "distance_mi": 291,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4176,14 +6213,23 @@
     "type": "personal",
     "icon": "🎰",
     "travelers": [],
-    "dates": { "start": "2017-12-25", "end": "2017-12-29" },
+    "dates": {
+      "start": "2017-12-25",
+      "end": "2017-12-29"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "582",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "LAS", "city": "Las Vegas" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas"
+        },
         "distance_mi": 570,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4192,8 +6238,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "6601",
-        "from": { "code": "LAS", "city": "Las Vegas" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 570,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4208,14 +6260,23 @@
     "accent": "#FFB612",
     "type": "work",
     "travelers": [],
-    "dates": { "start": "2016-02-15", "end": "2016-02-19" },
+    "dates": {
+      "start": "2016-02-15",
+      "end": "2016-02-19"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "234",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "MCO", "city": "Orlando" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "MCO",
+          "city": "Orlando"
+        },
         "distance_mi": 2441,
         "aircraft": "Boeing 757-300",
         "class": "Economy"
@@ -4224,8 +6285,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "1849",
-        "from": { "code": "MCO", "city": "Orlando" },
-        "to": { "code": "IAD", "city": "Washington DC" },
+        "from": {
+          "code": "MCO",
+          "city": "Orlando"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington DC"
+        },
         "distance_mi": 751,
         "aircraft": "Boeing 737-800",
         "class": "Economy"
@@ -4234,8 +6301,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "424",
-        "from": { "code": "IAD", "city": "Washington DC" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington DC"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 2412,
         "aircraft": "Boeing 737-800",
         "class": "Economy"
@@ -4250,14 +6323,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2016-02-26", "end": "2016-02-28" },
+    "dates": {
+      "start": "2016-02-26",
+      "end": "2016-02-28"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1791",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "distance_mi": 326,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4266,8 +6348,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1792",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 326,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4282,14 +6370,23 @@
     "accent": "#FFB612",
     "type": "work",
     "travelers": [],
-    "dates": { "start": "2016-04-12", "end": "2016-04-14" },
+    "dates": {
+      "start": "2016-04-12",
+      "end": "2016-04-14"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "720",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "DEN", "city": "Denver" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "DEN",
+          "city": "Denver"
+        },
         "distance_mi": 965,
         "aircraft": "Boeing 737-900ER",
         "class": "Economy"
@@ -4298,8 +6395,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "268",
-        "from": { "code": "DEN", "city": "Denver" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "DEN",
+          "city": "Denver"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 965,
         "aircraft": "Boeing 737-800",
         "class": "Economy"
@@ -4315,14 +6418,23 @@
     "type": "personal",
     "icon": "🌺",
     "travelers": [],
-    "dates": { "start": "2016-04-20", "end": "2016-04-25" },
+    "dates": {
+      "start": "2016-04-20",
+      "end": "2016-04-25"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Hawaiian",
         "flightNumber": "41",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "OGG", "city": "Kahului" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "OGG",
+          "city": "Kahului"
+        },
         "distance_mi": 2398,
         "aircraft": "Airbus A330-200",
         "class": "Economy"
@@ -4331,8 +6443,14 @@
         "type": "flight",
         "airline": "Hawaiian",
         "flightNumber": "46",
-        "from": { "code": "OGG", "city": "Kahului" },
-        "to": { "code": "SJC", "city": "San Jose" },
+        "from": {
+          "code": "OGG",
+          "city": "Kahului"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
         "distance_mi": 2334,
         "aircraft": "Boeing 767-300",
         "class": "Economy"
@@ -4347,14 +6465,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2016-06-10", "end": "2016-06-12" },
+    "dates": {
+      "start": "2016-06-10",
+      "end": "2016-06-12"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2571",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "LAX", "city": "Los Angeles" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "LAX",
+          "city": "Los Angeles"
+        },
         "distance_mi": 337,
         "aircraft": "Boeing 737-300",
         "class": "Economy"
@@ -4363,8 +6490,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1072",
-        "from": { "code": "LAX", "city": "Los Angeles" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 337,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4379,14 +6512,23 @@
     "accent": "#FFB612",
     "type": "work",
     "travelers": [],
-    "dates": { "start": "2016-06-20", "end": "2016-06-24" },
+    "dates": {
+      "start": "2016-06-20",
+      "end": "2016-06-24"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "234",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "MCO", "city": "Orlando" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "MCO",
+          "city": "Orlando"
+        },
         "distance_mi": 2441,
         "aircraft": "Boeing 757-300",
         "class": "Economy"
@@ -4395,8 +6537,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "1849",
-        "from": { "code": "MCO", "city": "Orlando" },
-        "to": { "code": "IAD", "city": "Washington DC" },
+        "from": {
+          "code": "MCO",
+          "city": "Orlando"
+        },
+        "to": {
+          "code": "IAD",
+          "city": "Washington DC"
+        },
         "distance_mi": 751,
         "aircraft": "Airbus A320",
         "class": "Economy"
@@ -4405,8 +6553,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "525",
-        "from": { "code": "IAD", "city": "Washington DC" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "IAD",
+          "city": "Washington DC"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 2412,
         "aircraft": "Boeing 737-800",
         "class": "Economy"
@@ -4422,14 +6576,23 @@
     "type": "personal",
     "icon": "🎰",
     "travelers": [],
-    "dates": { "start": "2016-10-19", "end": "2016-10-22" },
+    "dates": {
+      "start": "2016-10-19",
+      "end": "2016-10-22"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "588",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "LAS", "city": "Las Vegas" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas"
+        },
         "distance_mi": 570,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4438,8 +6601,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "889",
-        "from": { "code": "LAS", "city": "Las Vegas" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "LAS",
+          "city": "Las Vegas"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 570,
         "aircraft": "Boeing 737-300",
         "class": "Economy"
@@ -4454,14 +6623,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2016-10-28", "end": "2016-10-30" },
+    "dates": {
+      "start": "2016-10-28",
+      "end": "2016-10-30"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "2548",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "SAN", "city": "San Diego" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "SAN",
+          "city": "San Diego"
+        },
         "distance_mi": 447,
         "aircraft": "Boeing 737-300",
         "class": "Economy"
@@ -4470,8 +6648,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1979",
-        "from": { "code": "SAN", "city": "San Diego" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "SAN",
+          "city": "San Diego"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 447,
         "aircraft": "Boeing 737-300",
         "class": "Economy"
@@ -4486,14 +6670,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2016-11-04", "end": "2016-11-04" },
+    "dates": {
+      "start": "2016-11-04",
+      "end": "2016-11-04"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "538",
-        "from": { "code": "LAX", "city": "Los Angeles" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "LAX",
+          "city": "Los Angeles"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 337,
         "aircraft": "Airbus A320",
         "class": "Economy",
@@ -4509,14 +6702,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2016-12-14", "end": "2016-12-16" },
+    "dates": {
+      "start": "2016-12-14",
+      "end": "2016-12-16"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "3497",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "SAN", "city": "San Diego" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "SAN",
+          "city": "San Diego"
+        },
         "distance_mi": 447,
         "aircraft": "Boeing 737-300",
         "class": "Economy"
@@ -4525,8 +6727,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "841",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 326,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4542,14 +6750,23 @@
     "type": "personal",
     "icon": "🎄",
     "travelers": [],
-    "dates": { "start": "2016-12-25", "end": "2016-12-29" },
+    "dates": {
+      "start": "2016-12-25",
+      "end": "2016-12-29"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "1939",
-        "from": { "code": "SJC", "city": "San Jose" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "distance_mi": 291,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4558,8 +6775,14 @@
         "type": "flight",
         "airline": "Southwest",
         "flightNumber": "4248",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SJC", "city": "San Jose" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SJC",
+          "city": "San Jose"
+        },
         "distance_mi": 291,
         "aircraft": "Boeing 737-700",
         "class": "Economy"
@@ -4574,14 +6797,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2015-10-08", "end": "2015-10-11" },
+    "dates": {
+      "start": "2015-10-08",
+      "end": "2015-10-11"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "6269",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "distance_mi": 326,
         "aircraft": "Bombardier CRJ700",
         "class": "Economy"
@@ -4590,8 +6822,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "6532",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "distance_mi": 326,
         "aircraft": "Bombardier CRJ200",
         "class": "Economy"
@@ -4606,14 +6844,23 @@
     "accent": "#2d9e5a",
     "type": "personal",
     "travelers": [],
-    "dates": { "start": "2015-10-24", "end": "2015-10-24" },
+    "dates": {
+      "start": "2015-10-24",
+      "end": "2015-10-24"
+    },
     "segments": [
       {
         "type": "flight",
         "airline": "United",
         "flightNumber": "1519",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "LAS", "city": "Las Vegas" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "LAS",
+          "city": "Las Vegas"
+        },
         "distance_mi": 570,
         "aircraft": "Boeing 737-900ER",
         "class": "Economy"
@@ -4953,7 +7200,7 @@ function renderTripCard(trip) {
 
   const counts = {};
   trip.segments.forEach(s => { if (s.type !== 'note') counts[s.type] = (counts[s.type]||0)+1; });
-  const AIRLINE_ABBR = { Southwest: 'SW', United: 'UA', Alaska: 'AS', Delta: 'DL', American: 'AA', JetBlue: 'B6', Frontier: 'F9', Spirit: 'NK', Hawaiian: 'HA' };
+  const AIRLINE_ABBR = { Southwest: 'SW', United: 'UA', Alaska: 'AS', Delta: 'DL', American: 'AA', JetBlue: 'B6', Frontier: 'F9', Spirit: 'NK', Hawaiian: 'HA', SAS: 'SK' };
   const airlines = [...new Set(trip.segments.filter(s => s.type === 'flight' && s.airline).map(s => AIRLINE_ABBR[s.airline] || s.airline))];
   const pills = Object.entries(counts)
     .map(([t,n]) => {
@@ -5076,7 +7323,13 @@ function buildStatsHTML() {
     if (HOME_AIRPORTS.includes(b)) return `${b}–${a}`;
     return [a,b].sort().join('–');
   }
-  function shortAC(s) { return s.replace(/^Boeing /,'').replace(/ Passenger$/,''); }
+  function acFamily(s) {
+    if (!s) return null;
+    if (/^Boeing 737/.test(s)) return 'Boeing 737';
+    if (/^Boeing 777/.test(s)) return 'Boeing 777';
+    if (/^Airbus A340/.test(s)) return 'Airbus A340';
+    return s;
+  }
 
   const completed = TRIPS.filter(t => isArchived(t));
 
@@ -5099,7 +7352,8 @@ function buildStatsHTML() {
     if (!airlines[a]) airlines[a] = {count:0, miles:0};
     airlines[a].count++; airlines[a].miles += f.distance_mi||0;
   }));
-  const airlineColors = { United:'#3b82f6', Southwest:'#f59e0b' };
+  const airlineColors = { United:'#1a56db', Southwest:'#f97316' };
+  const otherAirlineColor = '#6b7280';
   const airlinesSorted = Object.entries(airlines).sort((a,b)=>b[1].miles-a[1].miles);
   const maxAirMiles = Math.max(1,...airlinesSorted.map(([,v])=>v.miles));
 
@@ -5114,16 +7368,20 @@ function buildStatsHTML() {
   const routesSorted = Object.values(routes).sort((a,b)=>b.count-a.count).slice(0,8);
   const maxRoute = Math.max(1,...routesSorted.map(r=>r.count));
 
-  // Aircraft (completed)
-  const aircraft = {};
+  // Fleet (grouped by family, stacked by airline)
+  const fleet = {};
   completed.forEach(t => t.segments.filter(x=>x.type==='flight').forEach(f => {
-    if (f.aircraft) {
-      const a = shortAC(f.aircraft);
-      aircraft[a] = (aircraft[a]||0)+1;
+    if (f.aircraft && f.airline) {
+      const fam = acFamily(f.aircraft);
+      if (!fam) return;
+      if (!fleet[fam]) fleet[fam] = {};
+      fleet[fam][f.airline] = (fleet[fam][f.airline]||0)+1;
     }
   }));
-  const aircraftSorted = Object.entries(aircraft).sort((a,b)=>b[1]-a[1]);
-  const maxAC = Math.max(1,...aircraftSorted.map(([,v])=>v));
+  const fleetSorted = Object.entries(fleet)
+    .map(([fam,byAl]) => ({ fam, byAl, total: Object.values(byAl).reduce((s,v)=>s+v,0) }))
+    .sort((a,b) => b.total - a.total);
+  const maxFleet = Math.max(1,...fleetSorted.map(d=>d.total));
 
   // Miles by year (completed)
   const years = {};
@@ -5135,6 +7393,8 @@ function buildStatsHTML() {
   });
   const yearsSorted = Object.entries(years).sort((a,b)=>b[0].localeCompare(a[0]));
   const maxYear = Math.max(1,...yearsSorted.map(([,v])=>v));
+  const totalYearMiles = yearsSorted.reduce((s,[,m])=>s+m,0);
+  const avgYearMiles = Math.round(totalYearMiles / (yearsSorted.length||1));
 
   // State tile grid [col, row] 1-indexed
   const STATE_POS = {
@@ -5151,6 +7411,19 @@ function buildStatsHTML() {
   const stateGridHTML = Object.entries(STATE_POS).map(([st,[col,row]]) =>
     `<div class="state-tile ${visitedSet.has(st)?'visited':'unvisited'}" style="grid-column:${col};grid-row:${row}">${st}</div>`
   ).join('');
+
+  function stackedBarRow(label, byAirline, total, maxVal) {
+    const pct = Math.round((total/maxVal)*100);
+    const segs = Object.entries(byAirline)
+      .sort((a,b)=>b[1]-a[1])
+      .map(([al,cnt]) => `<div style="flex:${cnt};background:${airlineColors[al]||otherAirlineColor}"></div>`)
+      .join('');
+    return `<div class="bar-row">
+      <div class="bar-label">${label}</div>
+      <div class="bar-track"><div class="bar-fill" data-width="${pct}" style="display:flex;overflow:hidden;width:0">${segs}</div></div>
+      <div class="bar-value">${total} ${total===1?'flight':'flights'}</div>
+    </div>`;
+  }
 
   function barRow(label, val, maxVal, color, suffix='') {
     const pct = Math.round((val/maxVal)*100);
@@ -5195,7 +7468,7 @@ function buildStatsHTML() {
     </div>
     <div class="stat-card">
       <div class="stat-card-title">Airlines</div>
-      ${airlinesSorted.map(([name,d]) => barRow(name, d.miles, maxAirMiles, airlineColors[name]||'#a78bfa', ' mi')).join('')}
+      ${airlinesSorted.map(([name,d]) => barRow(name, d.miles, maxAirMiles, airlineColors[name]||otherAirlineColor, ' mi')).join('')}
       <div class="stat-sub">${airlinesSorted.map(([n,d]) => `${n}: ${d.count} ${d.count===1?'flight':'flights'}`).join(' · ')}</div>
     </div>
   </div>
@@ -5203,11 +7476,17 @@ function buildStatsHTML() {
   <div class="stat-two-col">
     <div class="stat-card">
       <div class="stat-card-title">Aircraft Fleet</div>
-      ${aircraftSorted.map(([name,cnt]) => barRow(name, cnt, maxAC, '#10b981', cnt===1?' flight':' flights')).join('')}
+      ${fleetSorted.map(({fam,byAl,total}) => stackedBarRow(fam, byAl, total, maxFleet)).join('')}
+      <div class="stat-sub">
+        <span style="color:#1a56db">■ United</span> &nbsp;
+        <span style="color:#f97316">■ Southwest</span> &nbsp;
+        <span style="color:#6b7280">■ Other</span>
+      </div>
     </div>
     <div class="stat-card">
       <div class="stat-card-title">Miles by Year</div>
       ${yearsSorted.map(([yr,mi]) => barRow(yr, mi, maxYear, '#FFB612', ' mi')).join('')}
+      <div class="stat-sub">${totalYearMiles.toLocaleString()} mi total · ${avgYearMiles.toLocaleString()} mi avg/year</div>
     </div>
   </div>
 
