@@ -152,11 +152,11 @@
       margin-bottom: 10px;
       cursor: pointer;
       overflow: hidden;
-      transition: border-color 0.15s, transform 0.1s;
+      transition: border-color 0.15s, box-shadow 0.15s;
       -webkit-tap-highlight-color: transparent;
     }
-    .trip-card:hover { border-color: var(--card-type, var(--card-accent, var(--border))); transform: translateY(-1px); }
-    .trip-card:active { transform: translateY(0); opacity: 0.85; }
+    .trip-card:hover { border-color: var(--card-type, var(--card-accent, var(--border))); box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+    .trip-card:active { opacity: 0.85; }
     .card-stripe { width: 4px; background: var(--card-type, var(--card-accent, var(--flight))); flex-shrink: 0; }
     .card-body { flex: 1; padding: 14px 16px; min-width: 0; }
     .card-top {
@@ -7352,8 +7352,8 @@ function buildStatsHTML() {
     if (!airlines[a]) airlines[a] = {count:0, miles:0};
     airlines[a].count++; airlines[a].miles += f.distance_mi||0;
   }));
-  const airlineColors = { United:'#1a56db', Southwest:'#f97316' };
-  const otherAirlineColor = '#6b7280';
+  const airlineColors = { United:'#3b82f6', Southwest:'#f97316' };
+  const otherAirlineColor = '#a78bfa';
   const airlinesSorted = Object.entries(airlines).sort((a,b)=>b[1].miles-a[1].miles);
   const maxAirMiles = Math.max(1,...airlinesSorted.map(([,v])=>v.miles));
 
@@ -7478,9 +7478,9 @@ function buildStatsHTML() {
       <div class="stat-card-title">Aircraft Fleet</div>
       ${fleetSorted.map(({fam,byAl,total}) => stackedBarRow(fam, byAl, total, maxFleet)).join('')}
       <div class="stat-sub">
-        <span style="color:#1a56db">■ United</span> &nbsp;
+        <span style="color:#3b82f6">■ United</span> &nbsp;
         <span style="color:#f97316">■ Southwest</span> &nbsp;
-        <span style="color:#6b7280">■ Other</span>
+        <span style="color:#a78bfa">■ Other</span>
       </div>
     </div>
     <div class="stat-card">
