@@ -609,6 +609,17 @@
       text-align: right;
       font-variant-numeric: tabular-nums;
     }
+    .fleet-group { margin-bottom: 14px; }
+    .fleet-group:last-child { margin-bottom: 0; }
+    .fleet-group-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text2);
+      margin-bottom: 6px;
+      margin-top: 2px;
+    }
     .stat-sub {
       font-size: 11px;
       color: var(--text3);
@@ -7324,7 +7335,7 @@ function renderTrip(trip) {
   let heroBadge;
   if (past) {
     const ago = Math.abs(daysUntil(trip.dates.end));
-    heroBadge = ago === 0 ? 'Just ended' : `${ago}d ago`;
+    heroBadge = ago === 0 ? 'Just ended' : `${formatRelDays(ago)} ago`;
   } else if (d < 0) {
     heroBadge = 'In progress';
   } else if (d === 0) {
@@ -7332,7 +7343,7 @@ function renderTrip(trip) {
   } else if (d === 1) {
     heroBadge = 'Tomorrow';
   } else {
-    heroBadge = `${d} days away`;
+    heroBadge = `${formatRelDays(d)} away`;
   }
 
   const heroHTML = `
@@ -7374,6 +7385,20 @@ function daysUntil(dateStr) {
   return Math.ceil((new Date(dateStr + 'T00:00:00') - today) / 86400000);
 }
 
+function formatRelDays(n) {
+  if (n <= 0) return '0d';
+  if (n < 91) return `${n}d`;
+  const y = Math.floor(n / 365);
+  const rem = n - y * 365;
+  const m = Math.floor(rem / 30);
+  const d = rem - m * 30;
+  const parts = [];
+  if (y) parts.push(`${y}y`);
+  if (m) parts.push(`${m}m`);
+  if (d || !parts.length) parts.push(`${d}d`);
+  return parts.join(' ');
+}
+
 function isArchived(trip) {
   return new Date(trip.dates.end + 'T23:59:59') < new Date();
 }
@@ -7386,7 +7411,7 @@ function renderTripCard(trip) {
   let badge;
   if (past) {
     const ago = Math.abs(daysUntil(trip.dates.end));
-    badge = ago === 0 ? 'Just ended' : `${ago}d ago`;
+    badge = ago === 0 ? 'Just ended' : `${formatRelDays(ago)} ago`;
   } else if (days < 0) {
     badge = 'In progress';
   } else if (days === 0) {
@@ -7394,12 +7419,12 @@ function renderTripCard(trip) {
   } else if (days === 1) {
     badge = 'Tomorrow';
   } else {
-    badge = `${days} days`;
+    badge = `${formatRelDays(days)} away`;
   }
 
   const counts = {};
   trip.segments.forEach(s => { if (s.type !== 'note') counts[s.type] = (counts[s.type]||0)+1; });
-  const AIRLINE_ABBR = { Southwest: 'SW', United: 'UA', Alaska: 'AS', Delta: 'DL', American: 'AA', JetBlue: 'B6', Frontier: 'F9', Spirit: 'NK', Hawaiian: 'HA', SAS: 'SK' };
+  const AIRLINE_ABBR = { Southwest: 'SW', United: 'UA', Alaska: 'AS', 'Alaska Airlines': 'AS', Delta: 'DL', American: 'AA', 'American Airlines': 'AA', JetBlue: 'B6', Frontier: 'F9', Spirit: 'NK', Hawaiian: 'HA', SAS: 'SK' };
   const airlines = [...new Set(trip.segments.filter(s => s.type === 'flight' && s.airline).map(s => AIRLINE_ABBR[s.airline] || s.airline))];
   const pills = Object.entries(counts)
     .map(([t,n]) => {
@@ -7525,9 +7550,32 @@ function buildStatsHTML() {
   function acFamily(s) {
     if (!s) return null;
     if (/^Boeing 737/.test(s)) return 'Boeing 737';
+    if (/^Boeing 757/.test(s)) return 'Boeing 757';
+    if (/^Boeing 767/.test(s)) return 'Boeing 767';
     if (/^Boeing 777/.test(s)) return 'Boeing 777';
+    if (/^Boeing 787/.test(s)) return 'Boeing 787';
+    if (/^Airbus A319/.test(s)) return 'Airbus A319';
+    if (/^Airbus A320/.test(s)) return 'Airbus A320';
+    if (/^Airbus A321/.test(s)) return 'Airbus A321';
+    if (/^Airbus A330/.test(s)) return 'Airbus A330';
     if (/^Airbus A340/.test(s)) return 'Airbus A340';
+    if (/^Airbus A380/.test(s)) return 'Airbus A380';
+    if (/CRJ.?200/.test(s)) return 'CRJ-200';
+    if (/CRJ.?700/.test(s)) return 'CRJ-700';
+    if (/CRJ.?900/.test(s)) return 'CRJ-900';
     return s;
+  }
+
+  function acMaker(fam) {
+    if (fam.startsWith('Boeing')) return 'Boeing';
+    if (fam.startsWith('Airbus')) return 'Airbus';
+    return 'Regional';
+  }
+
+  function acDisplayLabel(fam, maker) {
+    if (maker === 'Boeing') return fam.replace('Boeing ', '');
+    if (maker === 'Airbus') return fam.replace('Airbus ', '');
+    return fam;
   }
 
   const completed = TRIPS.filter(t => isArchived(t));
@@ -7547,7 +7595,8 @@ function buildStatsHTML() {
   // Airlines (completed trips)
   const airlines = {};
   completed.forEach(t => t.segments.filter(x=>x.type==='flight').forEach(f => {
-    const a = f.airline || 'Other';
+    const raw = f.airline || 'Other';
+    const a = raw === 'Alaska Airlines' ? 'Alaska' : raw === 'American Airlines' ? 'American' : raw;
     if (!airlines[a]) airlines[a] = {count:0, miles:0};
     airlines[a].count++; airlines[a].miles += f.distance_mi||0;
   }));
@@ -7574,7 +7623,8 @@ function buildStatsHTML() {
       const fam = acFamily(f.aircraft);
       if (!fam) return;
       if (!fleet[fam]) fleet[fam] = {};
-      fleet[fam][f.airline] = (fleet[fam][f.airline]||0)+1;
+      const al = f.airline === 'Alaska Airlines' ? 'Alaska' : f.airline === 'American Airlines' ? 'American' : f.airline;
+      fleet[fam][al] = (fleet[fam][al]||0)+1;
     }
   }));
   const fleetSorted = Object.entries(fleet)
@@ -7675,7 +7725,13 @@ function buildStatsHTML() {
   <div class="stat-two-col">
     <div class="stat-card">
       <div class="stat-card-title">Aircraft Fleet</div>
-      ${fleetSorted.map(({fam,byAl,total}) => stackedBarRow(fam, byAl, total, maxFleet)).join('')}
+      ${['Boeing','Airbus','Regional'].map(maker => {
+        const items = fleetSorted.filter(d => acMaker(d.fam) === maker);
+        if (!items.length) return '';
+        const groupMax = Math.max(1, ...items.map(d => d.total));
+        const label = maker === 'Regional' ? 'Regional Jets' : maker;
+        return `<div class="fleet-group"><div class="fleet-group-label">${label}</div>${items.map(({fam,byAl,total}) => stackedBarRow(acDisplayLabel(fam, maker), byAl, total, groupMax)).join('')}</div>`;
+      }).join('')}
       <div class="stat-sub">
         <span style="color:#3b82f6">■ United</span> &nbsp;
         <span style="color:#f97316">■ Southwest</span> &nbsp;
