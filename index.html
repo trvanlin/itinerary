@@ -465,21 +465,32 @@
       border-left: 2px solid var(--seg-color, var(--border));
     }
 
-    /* ── Type filter ── */
+    /* ── Filters ── */
     :root {
       --type-work:     #FFB612;
       --type-personal: #2d9e5a;
     }
-    .type-filter {
+    .filter-bar {
       display: flex;
-      gap: 8px;
-      padding: 10px 24px;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 8px 24px;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 95px;
-      z-index: 85;
+      z-index: 91;
     }
+    .filter-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border);
+      margin: 0 6px;
+      flex-shrink: 0;
+      opacity: 0.5;
+    }
+    .filter-year-group { display: flex; gap: 6px; align-items: center; }
     .type-btn {
       padding: 4px 14px;
       border-radius: 20px;
@@ -494,29 +505,18 @@
     .type-btn.active[data-type="all"]      { color: var(--text); background: var(--bg3); border-color: var(--text3); }
     .type-btn.active[data-type="work"]     { color: var(--type-work);     background: color-mix(in srgb, var(--type-work)     12%, transparent); border-color: var(--type-work); }
     .type-btn.active[data-type="personal"] { color: var(--type-personal); background: color-mix(in srgb, var(--type-personal) 12%, transparent); border-color: var(--type-personal); }
-
-    .year-filter {
-      display: flex;
-      gap: 8px;
-      padding: 8px 24px;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 141px;
-      z-index: 84;
-    }
     .year-btn {
-      padding: 3px 12px;
+      padding: 3px 10px;
       border-radius: 20px;
       border: 1px solid var(--border);
       background: none;
-      color: var(--text2);
-      font-size: 12px;
+      color: var(--text3);
+      font-size: 11px;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.15s;
     }
-    .year-btn.active { color: var(--text); background: var(--bg3); border-color: var(--text3); }
+    .year-btn.active { color: var(--text2); background: var(--bg3); border-color: var(--text3); }
     .card-type-pill {
       display: inline-block;
       font-size: 11px;
@@ -8712,13 +8712,15 @@
   <button class="tab-btn" id="tabStats" onclick="switchTab('stats')">Stats</button>
 </div>
 
-<div class="type-filter" id="typeFilter">
-  <button class="type-btn active" data-type="all"      onclick="switchFilter('all')">All</button>
-  <button class="type-btn"        data-type="work"     onclick="switchFilter('work')">Work</button>
-  <button class="type-btn"        data-type="personal" onclick="switchFilter('personal')">Personal</button>
+<div class="filter-bar" id="filterBar">
+  <div id="typeGroup">
+    <button class="type-btn active" data-type="all"      onclick="switchFilter('all')">All</button>
+    <button class="type-btn"        data-type="work"     onclick="switchFilter('work')">Work</button>
+    <button class="type-btn"        data-type="personal" onclick="switchFilter('personal')">Personal</button>
+  </div>
+  <div class="filter-divider" id="filterDivider"></div>
+  <div class="filter-year-group" id="yearGroup"></div>
 </div>
-
-<div class="year-filter" id="yearFilter"></div>
 
 <div id="app"></div>
 
@@ -9083,17 +9085,15 @@ function switchTab(tab) {
   document.getElementById('tabUpcoming').classList.toggle('active', tab === 'upcoming');
   document.getElementById('tabArchive').classList.toggle('active', tab === 'archive');
   document.getElementById('tabStats').classList.toggle('active', tab === 'stats');
-  const tf = document.getElementById('typeFilter');
-  const yf = document.getElementById('yearFilter');
+  const tg = document.getElementById('typeGroup');
+  const fd = document.getElementById('filterDivider');
+  const yg = document.getElementById('yearGroup');
   if (tab === 'upcoming') {
-    tf.style.display = ''; tf.style.top = '95px';
-    yf.style.display = 'none';
+    tg.style.display = ''; fd.style.display = 'none'; yg.style.display = 'none';
   } else if (tab === 'archive') {
-    tf.style.display = ''; tf.style.top = '95px';
-    yf.style.display = ''; yf.style.top = '141px';
+    tg.style.display = ''; fd.style.display = ''; yg.style.display = '';
   } else {
-    tf.style.display = 'none';
-    yf.style.display = ''; yf.style.top = '95px';
+    tg.style.display = 'none'; fd.style.display = 'none'; yg.style.display = '';
   }
   if (tab === 'stats') {
     document.getElementById('app').innerHTML = buildStatsHTML();
@@ -9113,7 +9113,7 @@ function switchFilter(f) {
 
 function switchYearFilter(yr) {
   currentYearFilter = yr;
-  document.querySelectorAll('#yearFilter .year-btn').forEach(btn => {
+  document.querySelectorAll('#yearGroup .year-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.year === yr);
   });
   if (currentTab === 'stats') {
@@ -9128,7 +9128,7 @@ function populateYearFilter() {
   const years = [...new Set(
     TRIPS.filter(t => isArchived(t)).map(t => t.dates.start.substring(0, 4))
   )].sort((a, b) => b - a);
-  document.getElementById('yearFilter').innerHTML =
+  document.getElementById('yearGroup').innerHTML =
     ['all', ...years].map(yr =>
       `<button class="year-btn${currentYearFilter === yr ? ' active' : ''}" data-year="${yr}" onclick="switchYearFilter('${yr}')">${yr === 'all' ? 'All' : yr}</button>`
     ).join('');
@@ -9139,14 +9139,16 @@ function showHome() {
   document.getElementById('logoEl').style.display = '';
   document.getElementById('headerTripName').style.display = 'none';
   document.getElementById('tabBar').style.display = '';
-  const _tf = document.getElementById('typeFilter');
-  const _yf = document.getElementById('yearFilter');
+  document.getElementById('filterBar').style.display = '';
+  const _tg = document.getElementById('typeGroup');
+  const _fd = document.getElementById('filterDivider');
+  const _yg = document.getElementById('yearGroup');
   if (currentTab === 'upcoming') {
-    _tf.style.display = ''; _tf.style.top = '95px'; _yf.style.display = 'none';
+    _tg.style.display = ''; _fd.style.display = 'none'; _yg.style.display = 'none';
   } else if (currentTab === 'archive') {
-    _tf.style.display = ''; _tf.style.top = '95px'; _yf.style.display = ''; _yf.style.top = '141px';
+    _tg.style.display = ''; _fd.style.display = ''; _yg.style.display = '';
   } else {
-    _tf.style.display = 'none'; _yf.style.display = ''; _yf.style.top = '95px';
+    _tg.style.display = 'none'; _fd.style.display = 'none'; _yg.style.display = '';
   }
   document.title = 'Itinerary';
   if (currentTab === 'stats') {
@@ -9195,7 +9197,7 @@ function showTrip(id) {
   document.getElementById('headerTripName').textContent = trip.name + (trip.subtitle ? ' · ' + trip.subtitle : '');
   document.getElementById('headerTripName').style.display = 'block';
   document.getElementById('tabBar').style.display = 'none';
-  document.getElementById('typeFilter').style.display = 'none';
+  document.getElementById('filterBar').style.display = 'none';
   document.getElementById('app').innerHTML = renderTrip(trip);
   document.title = `${trip.name} · Itinerary`;
   window.scrollTo(0, 0);
