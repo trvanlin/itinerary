@@ -24,8 +24,10 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
   "name": "SFO–BUR",
   "subtitle": "Christmas 2026",
   "destination": "Burbank, CA",
+  "type": "personal",
   "accent": "#dc2626",
-  "travelers": ["Thor", "Ali", "Madie", "Skylar"],
+  "icon": "🎄",
+  "travelers": [],
   "dates": { "start": "2026-12-25", "end": "2026-12-30" },
   "segments": [ ... ]
 }
@@ -51,7 +53,7 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 **Subtitles:** descriptor or event name — `Christmas 2026`, `Contracts Council`, `Bora In-Person`. For TripIt imports, use a shortened version of the PDF label.
 
-**Icon:** optional, one emoji per trip max — rendered after the name on the card and in the detail hero. Pick something that fits the vibe, not just the destination.
+**Icon:** optional emoji on the card and detail hero. Special trips should always have one; personal and work trips may or may not. Up to two emojis is fine (e.g. `🌺💍` for a honeymoon in Hawaii).
 
 **Seat format:** range only — no names
 ```
@@ -60,15 +62,17 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 **Travelers:** field kept as empty array `[]` — names are not stored in trip data
 
-**Trip type** — required field on every trip; drives filter and card pill
+**Trip type** — required field on every trip; drives filter pill and card stripe color
 - `"work"` → Packers gold `#FFB612`
 - `"personal"` → Packers green `#2d9e5a`
+- `"special"` → cyan `#06b6d4` — notable personal experiences: Hawaii, international/OCONUS, Disneyland, Alaska cruise, Depeche Mode concerts, milestone celebrations. NOT Christmas/Easter/regular personal trips or Vegas (personal). When in doubt: if it's the kind of trip you'd frame a photo from, it's probably special.
 
 **Destination** — always set to the hotel city (`"Tempe, AZ"`, `"Chantilly, VA"`). Displayed on card below subtitle. For trips with multiple hotel cities, use the primary meeting location.
 
-**Accent colors** — used only in the detail hero; card stripe uses type color
-- Work trips default to `#FFB612`; can vary if needed
-- Personal trips: pick per occasion (SFO–BUR Christmas = `#dc2626`)
+**Accent colors** — used only in the detail hero; card stripe always uses type color
+- `work` → `#FFB612`
+- `special` → always `#06b6d4` (no thematic colors — consistent cyan throughout)
+- `personal` → pick per occasion (`#dc2626` Christmas, `#2d9e5a` default green, etc.)
 
 **Tab labels** — `Current Trips` (upcoming/active) and `Past Trips` (archived). Internal JS values remain `upcoming` / `archive`.
 
@@ -110,6 +114,22 @@ All trip data lives in the `<script id="trip-data">` block at the top of `index.
 
 ---
 
+## Stats Tab
+
+The Stats tab is a live analytics view built from the archived trip data.
+
+**Filters:** type pills (Work / Personal / Special) + year pills, same bar as Past Trips. Type pills are **multi-select** — you can combine Personal + Special to see all leisure travel. "All" resets. Year remains single-select.
+
+**Tiles** (Miles Flown / Flights Taken / Trips Completed / States Visited): when any filter is active, each tile shows `X% of total` in small text below the big number.
+
+**Trips by Type card:** full-width stacked bar + count/miles/% rows. Visible only when no type filter is active (all three types showing).
+
+**Route stats count individual flight legs**, not round trips or trips. SFO↔OGG showing "3 flights" is correct if you flew that corridor 3 times as individual legs — a return via SJC instead of SFO creates a separate OGG–SJC route entry.
+
+**Flighty Passport globe:** base64-embedded day/night images with 🌙/☀️ toggle. Date-stamped bottom-right. Update the stamp string and re-embed the images when refreshing (~annually).
+
+---
+
 ## TripIt Import Workflow
 
 TripIt exports trips as PDFs (`File > Print/Export` in TripIt app). PDF format: trip header with dates, then segments (flights, hotel, car) each with confirmation, seat, aircraft, distance, duration.
@@ -117,7 +137,7 @@ TripIt exports trips as PDFs (`File > Print/Export` in TripIt app). PDF format: 
 **Import checklist:**
 1. Trip name: `SFO–XXX` route-style (outbound destination airport code)
 2. Subtitle: shortened PDF label (e.g., "2026.01.22, Contracts Council" → `"Contracts Council"`)
-3. `type: "work"` for all BCD-booked corporate travel
+3. `type: "work"` for all BCD-booked corporate travel; check destination for `"special"` on personal imports (Hawaii, international, Disneyland, etc.)
 4. Add `aircraft` and `distance_mi` to each flight segment from PDF; estimate distance if missing (great circle)
 5. Connection flights: one segment per leg (same day, sequential times)
 6. Return from different airport (e.g., BUR vs LAX): use outbound destination for trip name, correct departure code on return segment
