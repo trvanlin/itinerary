@@ -646,6 +646,14 @@
       margin-top: 10px;
       line-height: 1.5;
     }
+    .type-breakdown-bar { display:flex; height:10px; border-radius:5px; overflow:hidden; margin-bottom:14px; }
+    .type-breakdown-rows { display:flex; flex-direction:column; gap:7px; }
+    .type-breakdown-row { display:flex; align-items:center; gap:10px; font-size:0.84rem; }
+    .type-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+    .type-breakdown-name { flex:1; color:var(--text); font-weight:500; }
+    .type-breakdown-count { color:var(--text3); min-width:60px; }
+    .type-breakdown-mi { color:var(--text3); min-width:72px; text-align:right; }
+    .type-breakdown-pct { font-weight:700; min-width:36px; text-align:right; font-size:0.9rem; }
     .passport-map {
       max-width: 55%;
       margin: 0 auto 14px;
@@ -9163,7 +9171,7 @@ function switchTab(tab) {
   } else if (tab === 'archive') {
     tg.style.display = ''; fd.style.display = ''; yg.style.display = '';
   } else {
-    tg.style.display = 'none'; fd.style.display = 'none'; yg.style.display = '';
+    tg.style.display = ''; fd.style.display = ''; yg.style.display = '';
   }
   if (tab === 'stats') {
     document.getElementById('app').innerHTML = buildStatsHTML();
@@ -9178,7 +9186,12 @@ function switchFilter(f) {
   document.querySelectorAll('.type-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.type === f);
   });
-  renderHome();
+  if (currentTab === 'stats') {
+    document.getElementById('app').innerHTML = buildStatsHTML();
+    requestAnimationFrame(() => requestAnimationFrame(animateBars));
+  } else {
+    renderHome();
+  }
 }
 
 function switchYearFilter(yr) {
@@ -9218,7 +9231,7 @@ function showHome() {
   } else if (currentTab === 'archive') {
     _tg.style.display = ''; _fd.style.display = ''; _yg.style.display = '';
   } else {
-    _tg.style.display = 'none'; _fd.style.display = 'none'; _yg.style.display = '';
+    _tg.style.display = ''; _fd.style.display = ''; _yg.style.display = '';
   }
   document.title = 'Itinerary';
   if (currentTab === 'stats') {
@@ -9332,7 +9345,9 @@ function buildStatsHTML() {
     return fam;
   }
 
-  const completed = TRIPS.filter(t => isArchived(t) && (currentYearFilter === 'all' || t.dates.start.startsWith(currentYearFilter)));
+  const completed = TRIPS.filter(t => isArchived(t)
+    && (currentYearFilter === 'all' || t.dates.start.startsWith(currentYearFilter))
+    && (currentFilter === 'all' || t.type === currentFilter));
 
   const milesFlown = completed.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').reduce((ss,f)=>ss+(f.distance_mi||0),0), 0);
   const flightsFlown = completed.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').length, 0);
@@ -9421,6 +9436,16 @@ function buildStatsHTML() {
 
   const visitedList = [...visitedSet].sort();
 
+  // Trip type breakdown (used when currentFilter === 'all')
+  const byType = { work:{count:0,miles:0}, personal:{count:0,miles:0}, special:{count:0,miles:0} };
+  completed.forEach(t => {
+    const tp = byType[t.type] ? t.type : 'personal';
+    byType[tp].count++;
+    byType[tp].miles += t.segments.filter(x=>x.type==='flight').reduce((s,f)=>s+(f.distance_mi||0),0);
+  });
+  const TYPE_COLORS_STAT = { work:'#FFB612', personal:'#2d9e5a', special:'#06b6d4' };
+  const TYPE_LABELS_STAT = { work:'Work', personal:'Personal', special:'Special' };
+
   return `<div class="stats-view">
 
   <div class="stat-tiles">
@@ -9445,6 +9470,26 @@ function buildStatsHTML() {
       <div class="stat-tile-label">States Visited</div>
     </div>
   </div>
+
+  ${currentFilter === 'all' ? `<div class="stat-card">
+    <div class="stat-card-title">Trips by Type</div>
+    <div class="type-breakdown-bar">
+      ${['work','personal','special'].map(tp => byType[tp].count === 0 ? '' :
+        `<div style="flex:${byType[tp].count};background:${TYPE_COLORS_STAT[tp]}"></div>`
+      ).join('')}
+    </div>
+    <div class="type-breakdown-rows">
+      ${['work','personal','special'].map(tp => byType[tp].count === 0 ? '' : `
+        <div class="type-breakdown-row">
+          <span class="type-dot" style="background:${TYPE_COLORS_STAT[tp]}"></span>
+          <span class="type-breakdown-name">${TYPE_LABELS_STAT[tp]}</span>
+          <span class="type-breakdown-count">${byType[tp].count} trip${byType[tp].count!==1?'s':''}</span>
+          <span class="type-breakdown-mi">${byType[tp].miles.toLocaleString()} mi</span>
+          <span class="type-breakdown-pct" style="color:${TYPE_COLORS_STAT[tp]}">${completed.length ? Math.round(byType[tp].count/completed.length*100) : 0}%</span>
+        </div>`
+      ).join('')}
+    </div>
+  </div>` : ''}
 
   <div class="stat-two-col">
     <div class="stat-card">
