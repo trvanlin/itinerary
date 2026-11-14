@@ -130,10 +130,6 @@
       padding: 20px 16px 80px;
     }
     .year-header {
-      position: sticky;
-      top: 143px;
-      z-index: 80;
-      background: var(--bg);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -469,6 +465,7 @@
     :root {
       --type-work:     #FFB612;
       --type-personal: #2d9e5a;
+      --type-special:  #06b6d4;
     }
     .filter-bar {
       display: flex;
@@ -479,7 +476,7 @@
       background: var(--bg);
       border-bottom: 1px solid var(--border);
       position: sticky;
-      top: 95px;
+      top: 90px;
       z-index: 91;
     }
     .filter-divider {
@@ -505,6 +502,7 @@
     .type-btn.active[data-type="all"]      { color: var(--text); background: var(--bg3); border-color: var(--text3); }
     .type-btn.active[data-type="work"]     { color: var(--type-work);     background: color-mix(in srgb, var(--type-work)     12%, transparent); border-color: var(--type-work); }
     .type-btn.active[data-type="personal"] { color: var(--type-personal); background: color-mix(in srgb, var(--type-personal) 12%, transparent); border-color: var(--type-personal); }
+    .type-btn.active[data-type="special"]  { color: var(--type-special);  background: color-mix(in srgb, var(--type-special)  12%, transparent); border-color: var(--type-special); }
     .year-btn {
       padding: 3px 10px;
       border-radius: 20px;
@@ -695,8 +693,7 @@
      TRIP DATA — edit this block to update trips
      Claude updates this section when you bring new confirmations
      ═══════════════════════════════════════════════ -->
-<script id="trip-data" type="application/json">
-[
+<script id="trip-data" type="application/json">[
   {
     "id": "sfo-bur-oct2015",
     "name": "SFO–BUR",
@@ -935,10 +932,10 @@
   {
     "id": "sfo-ogg-apr2016",
     "name": "SFO–OGG",
-    "subtitle": "Maui Apr 2016",
+    "subtitle": "Maui 2016",
     "destination": "Kahului, HI",
     "accent": "#0ea5e9",
-    "type": "personal",
+    "type": "special",
     "icon": "🌺",
     "travelers": [],
     "dates": {
@@ -1458,7 +1455,7 @@
     "subtitle": "Dublin",
     "destination": "Dublin, Ireland",
     "accent": "#169b62",
-    "type": "personal",
+    "type": "special",
     "icon": "🍀",
     "travelers": [],
     "dates": {
@@ -1555,7 +1552,7 @@
     "subtitle": "Disneyland Apr 2017",
     "destination": "Anaheim, CA",
     "accent": "#9b59b6",
-    "type": "personal",
+    "type": "special",
     "icon": "🏰",
     "travelers": [],
     "dates": {
@@ -1603,7 +1600,7 @@
     "subtitle": "Alaska Cruise Jul 2017",
     "destination": "Seattle, WA",
     "accent": "#0ea5e9",
-    "type": "personal",
+    "type": "special",
     "icon": "🚢",
     "travelers": [],
     "dates": {
@@ -2350,7 +2347,7 @@
     "subtitle": "New Orleans 2018",
     "destination": "New Orleans, LA",
     "accent": "#9b59b6",
-    "type": "personal",
+    "type": "special",
     "icon": "🎷",
     "travelers": [],
     "dates": {
@@ -2522,10 +2519,10 @@
   {
     "id": "sfo-cph-jul2018",
     "name": "SFO–CPH",
-    "subtitle": "Scandinavia 2018",
+    "subtitle": "Denmark 2018",
     "destination": "Copenhagen, Denmark",
     "accent": "#2980b9",
-    "type": "personal",
+    "type": "special",
     "icon": "🌍",
     "travelers": [],
     "dates": {
@@ -2746,7 +2743,7 @@
     "subtitle": "Calgary 2019",
     "destination": "Calgary, Canada",
     "accent": "#c0392b",
-    "type": "personal",
+    "type": "special",
     "icon": "🍁",
     "travelers": [],
     "dates": {
@@ -2915,7 +2912,7 @@
     "subtitle": "Disneyland Oct 2019",
     "destination": "Anaheim, CA",
     "accent": "#9b59b6",
-    "type": "personal",
+    "type": "special",
     "icon": "🏰",
     "travelers": [],
     "dates": {
@@ -3271,7 +3268,7 @@
     "subtitle": "Maui 2021",
     "destination": "Maui, HI",
     "accent": "#0ea5e9",
-    "type": "personal",
+    "type": "special",
     "icon": "🌺",
     "travelers": [],
     "dates": {
@@ -4515,10 +4512,10 @@
   {
     "id": "sfo-cph-jun2023",
     "name": "SFO–CPH",
-    "subtitle": "Copenhagen · Depeche Mode 2023",
+    "subtitle": "DK, NL, and DM",
     "destination": "Copenhagen, Denmark",
     "accent": "#c8102e",
-    "type": "personal",
+    "type": "special",
     "icon": "🎸",
     "travelers": [],
     "dates": {
@@ -4919,7 +4916,7 @@
     "subtitle": "Depeche Mode LA",
     "destination": "Los Angeles, CA",
     "accent": "#6d28d9",
-    "type": "personal",
+    "type": "special",
     "icon": "🎸",
     "travelers": [],
     "dates": {
@@ -5480,7 +5477,7 @@
     "subtitle": "Kauai",
     "destination": "Kauai, HI",
     "accent": "#0ea5e9",
-    "type": "personal",
+    "type": "special",
     "travelers": [],
     "dates": {
       "start": "2024-06-19",
@@ -5523,7 +5520,8 @@
         "class": "Economy Plus",
         "seat": "12D"
       }
-    ]
+    ],
+    "icon": "🌺"
   },
   {
     "id": "sjc-bur-aug2024",
@@ -6693,7 +6691,7 @@
     "id": "sfo-jac-jun2025",
     "name": "SFO–JAC",
     "subtitle": "Yellowstone & Grand Teton",
-    "type": "personal",
+    "type": "special",
     "icon": "🦬",
     "destination": "Jackson Hole, WY",
     "accent": "#c47a2a",
@@ -7328,8 +7326,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1768",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "duration": "1h 19m",
         "distance_mi": 326,
         "aircraft": "Boeing 737MAX 8",
@@ -7340,8 +7344,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2315",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "duration": "1h 23m",
         "distance_mi": 326,
         "aircraft": "Airbus A319",
@@ -7367,8 +7377,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1688",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "duration": "1h 2m",
         "distance_mi": 326,
         "aircraft": "Airbus A319",
@@ -7379,8 +7395,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1470",
-        "from": { "code": "ONT", "city": "Ontario" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "ONT",
+          "city": "Ontario"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "duration": "1h 28m",
         "distance_mi": 390,
         "aircraft": "Boeing 737MAX 9",
@@ -7490,8 +7512,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1259",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "duration": "1h 11m",
         "distance_mi": 326,
         "aircraft": "Airbus A319",
@@ -7502,8 +7530,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1508",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "duration": "1h 19m",
         "distance_mi": 326,
         "aircraft": "Boeing 737-800",
@@ -7634,8 +7668,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1688",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "duration": "1h 42m",
         "distance_mi": 326,
         "aircraft": "Boeing 737MAX 8",
@@ -7645,8 +7685,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 1453",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "duration": "1h 37m",
         "distance_mi": 326,
         "aircraft": "Boeing 737-800",
@@ -7803,8 +7849,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2611",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "duration": "1h 22m",
         "distance_mi": 326,
         "aircraft": "Boeing 737-800",
@@ -7815,8 +7867,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 2386",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "duration": "2h 3m",
         "distance_mi": 326,
         "aircraft": "Airbus A320",
@@ -7935,7 +7993,7 @@
     "subtitle": "Hilton Head 2026",
     "destination": "Hilton Head Island, SC",
     "accent": "#0ea5e9",
-    "type": "personal",
+    "type": "special",
     "icon": "🏖",
     "travelers": [],
     "dates": {
@@ -8068,8 +8126,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 626",
-        "from": { "code": "SFO", "city": "San Francisco" },
-        "to": { "code": "BUR", "city": "Burbank" },
+        "from": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
+        "to": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
         "duration": "1h 45m",
         "distance_mi": 326,
         "aircraft": "Airbus A320",
@@ -8080,8 +8144,14 @@
         "type": "flight",
         "airline": "United",
         "flightNumber": "UA 357",
-        "from": { "code": "BUR", "city": "Burbank" },
-        "to": { "code": "SFO", "city": "San Francisco" },
+        "from": {
+          "code": "BUR",
+          "city": "Burbank"
+        },
+        "to": {
+          "code": "SFO",
+          "city": "San Francisco"
+        },
         "duration": "1h 12m",
         "distance_mi": 326,
         "aircraft": "Airbus A320",
@@ -8694,8 +8764,7 @@
       }
     ]
   }
-]
-</script>
+]</script>
 <!-- ═══════════════════════════════════════════════ -->
 
 <header>
@@ -8717,6 +8786,7 @@
     <button class="type-btn active" data-type="all"      onclick="switchFilter('all')">All</button>
     <button class="type-btn"        data-type="work"     onclick="switchFilter('work')">Work</button>
     <button class="type-btn"        data-type="personal" onclick="switchFilter('personal')">Personal</button>
+    <button class="type-btn"        data-type="special"  onclick="switchFilter('special')">Special</button>
   </div>
   <div class="filter-divider" id="filterDivider"></div>
   <div class="filter-year-group" id="yearGroup"></div>
@@ -9054,7 +9124,7 @@ function renderTripCard(trip) {
     }).join('');
 
   return `
-    <div class="trip-card" style="--card-accent:${accent};--card-type:${TYPE_COLOR[trip.type]||accent}" onclick="showTrip('${trip.id}')">
+    <div class="trip-card" style="--card-accent:${accent};--card-type:${trip.type==='special'?accent:TYPE_COLOR[trip.type]||accent}" onclick="showTrip('${trip.id}')">
       <div class="card-stripe"></div>
       <div class="card-body">
         <div class="card-top">
@@ -9066,7 +9136,7 @@ function renderTripCard(trip) {
           </div>
           <div class="card-right">
             <div class="card-badge">${badge}</div>
-            ${trip.type ? `<div class="card-type-pill" style="color:${TYPE_COLOR[trip.type]||'var(--text3)'};background:color-mix(in srgb,${TYPE_COLOR[trip.type]||'var(--text3)'} 12%,transparent)">${trip.type === 'work' ? 'Work' : 'Personal'}</div>` : ''}
+            ${trip.type ? `<div class="card-type-pill" style="color:${TYPE_COLOR[trip.type]||'var(--text3)'};background:color-mix(in srgb,${TYPE_COLOR[trip.type]||'var(--text3)'} 12%,transparent)">${trip.type === 'work' ? 'Work' : trip.type === 'special' ? 'Special' : 'Personal'}</div>` : ''}
             ${pills ? `<div class="card-pills">${pills}</div>` : ''}
           </div>
         </div>
@@ -9078,7 +9148,7 @@ let currentTab        = 'upcoming';
 let currentFilter     = 'all';
 let currentYearFilter = 'all';
 
-const TYPE_COLOR = { work: 'var(--type-work)', personal: 'var(--type-personal)' };
+const TYPE_COLOR = { work: 'var(--type-work)', personal: 'var(--type-personal)', special: 'var(--type-special)' };
 
 function switchTab(tab) {
   currentTab = tab;
