@@ -575,6 +575,13 @@
       text-transform: uppercase;
       margin-top: 6px;
     }
+    .stat-tile-pct {
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.6;
+      margin-top: 3px;
+      letter-spacing: 0.02em;
+    }
     .stat-two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -9349,6 +9356,19 @@ function buildStatsHTML() {
     && (currentYearFilter === 'all' || t.dates.start.startsWith(currentYearFilter))
     && (currentFilter === 'all' || t.type === currentFilter));
 
+  const isFiltered = currentFilter !== 'all' || currentYearFilter !== 'all';
+  let _allMiles = 0, _allFlights = 0, _allTrips = 0, _allStates = 0;
+  if (isFiltered) {
+    const allC = TRIPS.filter(t => isArchived(t));
+    _allMiles = allC.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').reduce((ss,f)=>ss+(f.distance_mi||0),0), 0);
+    _allFlights = allC.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').length, 0);
+    _allTrips = allC.length;
+    const avSet = new Set();
+    allC.forEach(t => { if (t.destination) { const m = t.destination.match(/,\s*([A-Z]{2})$/); if (m) avSet.add(m[1]); } });
+    _allStates = avSet.size;
+  }
+  function tilePct(val, total) { return total > 0 ? Math.round(val / total * 100) : 0; }
+
   const milesFlown = completed.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').reduce((ss,f)=>ss+(f.distance_mi||0),0), 0);
   const flightsFlown = completed.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').length, 0);
 
@@ -9452,21 +9472,25 @@ function buildStatsHTML() {
     <div class="stat-tile" style="border-top:3px solid #3b82f6">
       <span class="stat-tile-icon">✈</span>
       <div class="stat-tile-value" style="color:#3b82f6">${milesFlown.toLocaleString()}</div>
+      ${isFiltered ? `<div class="stat-tile-pct" style="color:#3b82f6">${tilePct(milesFlown,_allMiles)}% of total</div>` : ''}
       <div class="stat-tile-label">Miles Flown</div>
     </div>
     <div class="stat-tile" style="border-top:3px solid #FFB612">
       <span class="stat-tile-icon">🛫</span>
       <div class="stat-tile-value" style="color:#FFB612">${flightsFlown}</div>
+      ${isFiltered ? `<div class="stat-tile-pct" style="color:#FFB612">${tilePct(flightsFlown,_allFlights)}% of total</div>` : ''}
       <div class="stat-tile-label">Flights Taken</div>
     </div>
     <div class="stat-tile" style="border-top:3px solid #10b981">
       <span class="stat-tile-icon">🗂</span>
       <div class="stat-tile-value" style="color:#10b981">${completed.length}</div>
+      ${isFiltered ? `<div class="stat-tile-pct" style="color:#10b981">${tilePct(completed.length,_allTrips)}% of total</div>` : ''}
       <div class="stat-tile-label">Trips Completed</div>
     </div>
     <div class="stat-tile" style="border-top:3px solid #a78bfa">
       <span class="stat-tile-icon">📍</span>
       <div class="stat-tile-value" style="color:#a78bfa">${visitedList.length}</div>
+      ${isFiltered ? `<div class="stat-tile-pct" style="color:#a78bfa">${tilePct(visitedList.length,_allStates)}% of states</div>` : ''}
       <div class="stat-tile-label">States Visited</div>
     </div>
   </div>
