@@ -662,10 +662,22 @@
     .type-breakdown-mi { color:var(--text3); min-width:72px; text-align:right; }
     .type-breakdown-pct { font-weight:700; min-width:36px; text-align:right; font-size:0.9rem; }
     .passport-map {
+      position: relative;
       max-width: 55%;
       margin: 0 auto 14px;
       border-radius: 8px;
       overflow: hidden;
+    }
+    .passport-map-date {
+      position: absolute;
+      bottom: 7px;
+      right: 10px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.45);
+      pointer-events: none;
+      user-select: none;
     }
     .passport-map-img {
       width: 100%;
@@ -9160,7 +9172,7 @@ function renderTripCard(trip) {
 }
 
 let currentTab        = 'upcoming';
-let currentFilter     = 'all';
+let currentFilter     = new Set(); // empty = All
 let currentYearFilter = 'all';
 
 const TYPE_COLOR = { work: 'var(--type-work)', personal: 'var(--type-personal)', special: 'var(--type-special)' };
@@ -9189,9 +9201,20 @@ function switchTab(tab) {
 }
 
 function switchFilter(f) {
-  currentFilter = f;
-  document.querySelectorAll('.type-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.type === f);
+  if (f === 'all') {
+    currentFilter = new Set();
+  } else if (currentFilter.size === 0) {
+    currentFilter = new Set([f]);
+  } else if (currentFilter.has(f)) {
+    currentFilter.delete(f);
+    if (currentFilter.size === 0) currentFilter = new Set();
+  } else {
+    currentFilter.add(f);
+  }
+  const allActive = currentFilter.size === 0;
+  document.querySelector('[data-type="all"]').classList.toggle('active', allActive);
+  ['work','personal','special'].forEach(tp => {
+    document.querySelector(`[data-type="${tp}"]`).classList.toggle('active', currentFilter.has(tp));
   });
   if (currentTab === 'stats') {
     document.getElementById('app').innerHTML = buildStatsHTML();
@@ -9260,7 +9283,7 @@ function renderHome() {
   document.getElementById('countArchive').textContent  = byTab.archive.length;
 
   const base = byTab[currentTab];
-  let list = currentFilter === 'all' ? base : base.filter(t => t.type === currentFilter);
+  let list = currentFilter.size === 0 ? base : base.filter(t => currentFilter.has(t.type));
   if (currentYearFilter !== 'all') list = list.filter(t => t.dates.start.startsWith(currentYearFilter));
 
   let content;
@@ -9354,9 +9377,9 @@ function buildStatsHTML() {
 
   const completed = TRIPS.filter(t => isArchived(t)
     && (currentYearFilter === 'all' || t.dates.start.startsWith(currentYearFilter))
-    && (currentFilter === 'all' || t.type === currentFilter));
+    && (currentFilter.size === 0 || currentFilter.has(t.type)));
 
-  const isFiltered = currentFilter !== 'all' || currentYearFilter !== 'all';
+  const isFiltered = currentFilter.size > 0 || currentYearFilter !== 'all';
   let _allMiles = 0, _allFlights = 0, _allTrips = 0, _allStates = 0;
   if (isFiltered) {
     const allC = TRIPS.filter(t => isArchived(t));
@@ -9456,7 +9479,7 @@ function buildStatsHTML() {
 
   const visitedList = [...visitedSet].sort();
 
-  // Trip type breakdown (used when currentFilter === 'all')
+  // Trip type breakdown (used when no type filter active)
   const byType = { work:{count:0,miles:0}, personal:{count:0,miles:0}, special:{count:0,miles:0} };
   completed.forEach(t => {
     const tp = byType[t.type] ? t.type : 'personal';
@@ -9495,7 +9518,7 @@ function buildStatsHTML() {
     </div>
   </div>
 
-  ${currentFilter === 'all' ? `<div class="stat-card">
+  ${currentFilter.size === 0 ? `<div class="stat-card">
     <div class="stat-card-title">Trips by Type</div>
     <div class="type-breakdown-bar">
       ${['work','personal','special'].map(tp => byType[tp].count === 0 ? '' :
@@ -9557,6 +9580,7 @@ function buildStatsHTML() {
     </div>
     <div class="passport-map">
       <img id="passport-map-img" src="${PASSPORT_NIGHT_SRC}" class="passport-map-img" alt="Flighty Passport" />
+      <div class="passport-map-date">Nov 2026</div>
     </div>
     <div class="visited-badges">${visitedList.map(s=>`<span class="visited-badge">${s}</span>`).join('')}</div>
   </div>
