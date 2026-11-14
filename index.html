@@ -495,6 +495,28 @@
     .type-btn.active[data-type="work"]     { color: var(--type-work);     background: color-mix(in srgb, var(--type-work)     12%, transparent); border-color: var(--type-work); }
     .type-btn.active[data-type="personal"] { color: var(--type-personal); background: color-mix(in srgb, var(--type-personal) 12%, transparent); border-color: var(--type-personal); }
 
+    .year-filter {
+      display: flex;
+      gap: 8px;
+      padding: 8px 24px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 141px;
+      z-index: 84;
+    }
+    .year-btn {
+      padding: 3px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: none;
+      color: var(--text2);
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .year-btn.active { color: var(--text); background: var(--bg3); border-color: var(--text3); }
     .card-type-pill {
       display: inline-block;
       font-size: 11px;
@@ -627,8 +649,8 @@
       line-height: 1.5;
     }
     .passport-map {
-      position: relative;
-      margin-bottom: 14px;
+      max-width: 55%;
+      margin: 0 auto 14px;
       border-radius: 8px;
       overflow: hidden;
     }
@@ -638,21 +660,18 @@
       border-radius: 8px;
     }
     .map-toggle {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: var(--bg3);
+      border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 4px 10px;
+      padding: 2px 10px;
       cursor: pointer;
-      font-size: 16px;
-      line-height: 1;
-      color: white;
-      backdrop-filter: blur(4px);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text2);
       transition: background 0.2s;
+      flex-shrink: 0;
     }
-    .map-toggle:hover { background: rgba(0,0,0,0.7); }
+    .map-toggle:hover { background: var(--bg2); }
     .visited-badges { display: flex; flex-wrap: wrap; gap: 6px; }
     .visited-badge {
       font-size: 11px;
@@ -8699,6 +8718,8 @@
   <button class="type-btn"        data-type="personal" onclick="switchFilter('personal')">Personal</button>
 </div>
 
+<div class="year-filter" id="yearFilter"></div>
+
 <div id="app"></div>
 
 <script>
@@ -9051,8 +9072,9 @@ function renderTripCard(trip) {
     </div>`;
 }
 
-let currentTab    = 'upcoming';
-let currentFilter = 'all';
+let currentTab        = 'upcoming';
+let currentFilter     = 'all';
+let currentYearFilter = 'all';
 
 const TYPE_COLOR = { work: 'var(--type-work)', personal: 'var(--type-personal)' };
 
@@ -9061,7 +9083,18 @@ function switchTab(tab) {
   document.getElementById('tabUpcoming').classList.toggle('active', tab === 'upcoming');
   document.getElementById('tabArchive').classList.toggle('active', tab === 'archive');
   document.getElementById('tabStats').classList.toggle('active', tab === 'stats');
-  document.getElementById('typeFilter').style.display = tab === 'stats' ? 'none' : '';
+  const tf = document.getElementById('typeFilter');
+  const yf = document.getElementById('yearFilter');
+  if (tab === 'upcoming') {
+    tf.style.display = ''; tf.style.top = '95px';
+    yf.style.display = 'none';
+  } else if (tab === 'archive') {
+    tf.style.display = ''; tf.style.top = '95px';
+    yf.style.display = ''; yf.style.top = '141px';
+  } else {
+    tf.style.display = 'none';
+    yf.style.display = ''; yf.style.top = '95px';
+  }
   if (tab === 'stats') {
     document.getElementById('app').innerHTML = buildStatsHTML();
     requestAnimationFrame(() => requestAnimationFrame(animateBars));
@@ -9078,12 +9111,43 @@ function switchFilter(f) {
   renderHome();
 }
 
+function switchYearFilter(yr) {
+  currentYearFilter = yr;
+  document.querySelectorAll('#yearFilter .year-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.year === yr);
+  });
+  if (currentTab === 'stats') {
+    document.getElementById('app').innerHTML = buildStatsHTML();
+    requestAnimationFrame(() => requestAnimationFrame(animateBars));
+  } else {
+    renderHome();
+  }
+}
+
+function populateYearFilter() {
+  const years = [...new Set(
+    TRIPS.filter(t => isArchived(t)).map(t => t.dates.start.substring(0, 4))
+  )].sort((a, b) => b - a);
+  document.getElementById('yearFilter').innerHTML =
+    ['all', ...years].map(yr =>
+      `<button class="year-btn${currentYearFilter === yr ? ' active' : ''}" data-year="${yr}" onclick="switchYearFilter('${yr}')">${yr === 'all' ? 'All' : yr}</button>`
+    ).join('');
+}
+
 function showHome() {
   document.getElementById('backBtn').style.display = 'none';
   document.getElementById('logoEl').style.display = '';
   document.getElementById('headerTripName').style.display = 'none';
   document.getElementById('tabBar').style.display = '';
-  document.getElementById('typeFilter').style.display = currentTab === 'stats' ? 'none' : '';
+  const _tf = document.getElementById('typeFilter');
+  const _yf = document.getElementById('yearFilter');
+  if (currentTab === 'upcoming') {
+    _tf.style.display = ''; _tf.style.top = '95px'; _yf.style.display = 'none';
+  } else if (currentTab === 'archive') {
+    _tf.style.display = ''; _tf.style.top = '95px'; _yf.style.display = ''; _yf.style.top = '141px';
+  } else {
+    _tf.style.display = 'none'; _yf.style.display = ''; _yf.style.top = '95px';
+  }
   document.title = 'Itinerary';
   if (currentTab === 'stats') {
     document.getElementById('app').innerHTML = buildStatsHTML();
@@ -9104,7 +9168,8 @@ function renderHome() {
   document.getElementById('countArchive').textContent  = byTab.archive.length;
 
   const base = byTab[currentTab];
-  const list = currentFilter === 'all' ? base : base.filter(t => t.type === currentFilter);
+  let list = currentFilter === 'all' ? base : base.filter(t => t.type === currentFilter);
+  if (currentYearFilter !== 'all') list = list.filter(t => t.dates.start.startsWith(currentYearFilter));
 
   let content;
   if (!list.length) {
@@ -9113,7 +9178,7 @@ function renderHome() {
     const byYear = {};
     list.forEach(t => { const yr = t.dates.start.substring(0, 4); (byYear[yr] = byYear[yr] || []).push(t); });
     const inner = Object.keys(byYear).sort((a, b) => b - a).map(yr =>
-      `<div class="year-header">${yr}</div>${byYear[yr].map(renderTripCard).join('')}`
+      `${currentYearFilter === 'all' ? `<div class="year-header">${yr}</div>` : ''}${byYear[yr].map(renderTripCard).join('')}`
     ).join('');
     content = `<div class="trip-list">${inner}</div>`;
   } else {
@@ -9195,14 +9260,14 @@ function buildStatsHTML() {
     return fam;
   }
 
-  const completed = TRIPS.filter(t => isArchived(t));
+  const completed = TRIPS.filter(t => isArchived(t) && (currentYearFilter === 'all' || t.dates.start.startsWith(currentYearFilter)));
 
   const milesFlown = completed.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').reduce((ss,f)=>ss+(f.distance_mi||0),0), 0);
   const flightsFlown = completed.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').length, 0);
 
-  // States from destination fields across all trips
+  // States from destination fields (completed trips, respects year filter)
   const visitedSet = new Set();
-  TRIPS.forEach(t => {
+  completed.forEach(t => {
     if (t.destination) {
       const m = t.destination.match(/,\s*([A-Z]{2})$/);
       if (m) visitedSet.add(m[1]);
@@ -9247,8 +9312,6 @@ function buildStatsHTML() {
   const fleetSorted = Object.entries(fleet)
     .map(([fam,byAl]) => ({ fam, byAl, total: Object.values(byAl).reduce((s,v)=>s+v,0) }))
     .sort((a,b) => b.total - a.total);
-  const maxFleet = Math.max(1,...fleetSorted.map(d=>d.total));
-
   // Miles by year (completed)
   const years = {};
   completed.forEach(t => {
@@ -9339,11 +9402,11 @@ function buildStatsHTML() {
         <span style="color:#a78bfa">■ Other</span>
       </div>
     </div>
-    <div class="stat-card">
+    ${currentYearFilter === 'all' ? `<div class="stat-card">
       <div class="stat-card-title">Miles by Year</div>
       ${yearsSorted.map(([yr,mi]) => barRow(yr, mi, maxYear, '#FFB612', ' mi')).join('')}
       <div class="stat-sub">${totalYearMiles.toLocaleString()} mi total · ${avgYearMiles.toLocaleString()} mi avg/year</div>
-    </div>
+    </div>` : ''}
   </div>
 
   <div class="stat-card">
@@ -9367,6 +9430,7 @@ function animateBars() {
 }
 
 function init() {
+  populateYearFilter();
   if (!TRIPS.length) {
     document.getElementById('app').innerHTML = `<div class="empty-tab">No trips yet.</div>`;
     return;
