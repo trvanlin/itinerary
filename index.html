@@ -698,6 +698,24 @@
     }
     .map-toggle:hover { background: var(--bg2); }
     .visited-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+    .state-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 6px; }
+    .state-tile {
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+      padding: 7px 0;
+      border-radius: 6px;
+      background: var(--bg3);
+      color: var(--text3);
+      border: 1px solid var(--border);
+    }
+    .state-tile.on {
+      background: rgba(255,182,18,0.15);
+      color: #FFB612;
+      border-color: rgba(255,182,18,0.45);
+    }
+    .state-dc-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-size: 12px; color: var(--text3); }
+    .state-dc-row .state-tile { width: 40px; }
     .visited-badge {
       font-size: 11px;
       font-weight: 700;
@@ -9337,6 +9355,9 @@ function togglePassportMap(btn) {
 
 function buildStatsHTML() {
   const HOME_AIRPORTS = ['SFO','SJC','OAK'];
+  // Countries visited that no trip's destination shows (layovers, trips not entered). Counted when no filter is on.
+  const EXTRA_COUNTRIES = ['Netherlands','Germany','Spain','Italy','Canada','Aruba'];
+  const FIFTY_STATES = ['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'];
 
   function routeKey(a, b) { return [a,b].sort().join('|'); }
   function routeDisplay(a, b) {
@@ -9388,9 +9409,9 @@ function buildStatsHTML() {
     _allTrips = allC.length;
     const avSet = new Set();
     allC.forEach(t => { if (t.destination) { const m = t.destination.match(/,\s*([A-Z]{2})$/); if (m) avSet.add(m[1]); } });
-    _allStates = avSet.size;
+    _allStates = FIFTY_STATES.filter(st => avSet.has(st)).length;
     _allNights = hotelNightsOf(allC);
-    _allCountries = countriesOf(allC).size;
+    _allCountries = new Set([...countriesOf(allC), ...EXTRA_COUNTRIES]).size;
   }
   function hotelNightsOf(trips) {
     return trips.reduce((s,t) => s + t.segments.filter(x=>x.type==='hotel').reduce((ss,h)=>ss+(h.nights||0),0), 0);
@@ -9493,11 +9514,14 @@ function buildStatsHTML() {
   }
 
   const visitedList = [...visitedSet].sort();
+  // States are counted out of 50; DC is shown on its own as a bonus.
+  const visitedFifty = FIFTY_STATES.filter(st => visitedSet.has(st));
+  const visitedDC = visitedSet.has('DC');
 
   // Hotel nights and countries (completed trips, respecting the filters).
   // A country counts when it is a trip's destination, so connections don't.
   const nightsStayed = hotelNightsOf(completed);
-  const countryList = [...countriesOf(completed)].sort();
+  const countryList = [...(isFiltered ? countriesOf(completed) : new Set([...countriesOf(completed), ...EXTRA_COUNTRIES]))].sort();
 
   // Trip type breakdown (used when no type filter active)
   const byType = { work:{count:0,miles:0}, personal:{count:0,miles:0}, special:{count:0,miles:0} };
@@ -9538,8 +9562,8 @@ function buildStatsHTML() {
     </div>
     <div class="stat-tile" style="border-top:3px solid #a78bfa">
       <span class="stat-tile-icon">📍</span>
-      <div class="stat-tile-value" style="color:#a78bfa">${visitedList.length}</div>
-      ${isFiltered ? `<div class="stat-tile-pct" style="color:#a78bfa">${tilePct(visitedList.length,_allStates)}% of states</div>` : ''}
+      <div class="stat-tile-value" style="color:#a78bfa">${visitedFifty.length}</div>
+      ${isFiltered ? `<div class="stat-tile-pct" style="color:#a78bfa">${tilePct(visitedFifty.length,_allStates)}% of 50</div>` : ''}
       <div class="stat-tile-label">States Visited</div>
     </div>
     <div class="stat-tile" style="border-top:3px solid #14b8a6">
@@ -9607,14 +9631,15 @@ function buildStatsHTML() {
 
   <div class="stat-card">
     <div class="stat-card-title" style="display:flex;align-items:center;justify-content:space-between">
-      <span>States Visited · ${visitedList.length} of 50 + DC</span>
+      <span>States Visited · ${visitedFifty.length} of 50</span>
       <button class="map-toggle" onclick="togglePassportMap(this)" title="Switch to day view">🌙</button>
     </div>
     <div class="passport-map">
       <img id="passport-map-img" src="${PASSPORT_NIGHT_SRC}" class="passport-map-img" alt="Flighty Passport" />
       <div class="passport-map-date">Nov 2026</div>
     </div>
-    <div class="visited-badges">${visitedList.map(s=>`<span class="visited-badge">${s}</span>`).join('')}</div>
+    <div class="state-tiles">${FIFTY_STATES.map(st=>`<div class="state-tile${visitedSet.has(st)?' on':''}" title="${st}">${st}</div>`).join('')}</div>
+    <div class="state-dc-row"><div class="state-tile${visitedDC?' on':''}">DC</div><span>District of Columbia, a bonus stop</span></div>
   </div>
 
   <div class="stat-card">
