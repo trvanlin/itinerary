@@ -550,7 +550,7 @@
     }
     .stat-tiles {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
     }
     .stat-tile {
@@ -9380,7 +9380,7 @@ function buildStatsHTML() {
     && (currentFilter.size === 0 || currentFilter.has(t.type)));
 
   const isFiltered = currentFilter.size > 0 || currentYearFilter !== 'all';
-  let _allMiles = 0, _allFlights = 0, _allTrips = 0, _allStates = 0;
+  let _allMiles = 0, _allFlights = 0, _allTrips = 0, _allStates = 0, _allNights = 0, _allCountries = 0;
   if (isFiltered) {
     const allC = TRIPS.filter(t => isArchived(t));
     _allMiles = allC.reduce((s,t) => s + t.segments.filter(x=>x.type==='flight').reduce((ss,f)=>ss+(f.distance_mi||0),0), 0);
@@ -9389,6 +9389,21 @@ function buildStatsHTML() {
     const avSet = new Set();
     allC.forEach(t => { if (t.destination) { const m = t.destination.match(/,\s*([A-Z]{2})$/); if (m) avSet.add(m[1]); } });
     _allStates = avSet.size;
+    _allNights = hotelNightsOf(allC);
+    _allCountries = countriesOf(allC).size;
+  }
+  function hotelNightsOf(trips) {
+    return trips.reduce((s,t) => s + t.segments.filter(x=>x.type==='hotel').reduce((ss,h)=>ss+(h.nights||0),0), 0);
+  }
+  function countriesOf(trips) {
+    const set = new Set();
+    trips.forEach(t => {
+      if (!t.destination) return;
+      if (/,\s*[A-Z]{2}$/.test(t.destination)) { set.add('United States'); return; }
+      const parts = t.destination.split(',');
+      if (parts.length > 1) set.add(parts[parts.length-1].trim());
+    });
+    return set;
   }
   function tilePct(val, total) { return total > 0 ? Math.round(val / total * 100) : 0; }
 
@@ -9479,6 +9494,11 @@ function buildStatsHTML() {
 
   const visitedList = [...visitedSet].sort();
 
+  // Hotel nights and countries (completed trips, respecting the filters).
+  // A country counts when it is a trip's destination, so connections don't.
+  const nightsStayed = hotelNightsOf(completed);
+  const countryList = [...countriesOf(completed)].sort();
+
   // Trip type breakdown (used when no type filter active)
   const byType = { work:{count:0,miles:0}, personal:{count:0,miles:0}, special:{count:0,miles:0} };
   completed.forEach(t => {
@@ -9510,11 +9530,23 @@ function buildStatsHTML() {
       ${isFiltered ? `<div class="stat-tile-pct" style="color:#10b981">${tilePct(completed.length,_allTrips)}% of total</div>` : ''}
       <div class="stat-tile-label">Trips Completed</div>
     </div>
+    <div class="stat-tile" style="border-top:3px solid #ec4899">
+      <span class="stat-tile-icon">🏨</span>
+      <div class="stat-tile-value" style="color:#ec4899">${nightsStayed.toLocaleString()}</div>
+      ${isFiltered ? `<div class="stat-tile-pct" style="color:#ec4899">${tilePct(nightsStayed,_allNights)}% of total</div>` : ''}
+      <div class="stat-tile-label">Hotel Nights</div>
+    </div>
     <div class="stat-tile" style="border-top:3px solid #a78bfa">
       <span class="stat-tile-icon">📍</span>
       <div class="stat-tile-value" style="color:#a78bfa">${visitedList.length}</div>
       ${isFiltered ? `<div class="stat-tile-pct" style="color:#a78bfa">${tilePct(visitedList.length,_allStates)}% of states</div>` : ''}
       <div class="stat-tile-label">States Visited</div>
+    </div>
+    <div class="stat-tile" style="border-top:3px solid #14b8a6">
+      <span class="stat-tile-icon">🌍</span>
+      <div class="stat-tile-value" style="color:#14b8a6">${countryList.length}</div>
+      ${isFiltered ? `<div class="stat-tile-pct" style="color:#14b8a6">${tilePct(countryList.length,_allCountries)}% of total</div>` : ''}
+      <div class="stat-tile-label">Countries Visited</div>
     </div>
   </div>
 
@@ -9583,6 +9615,11 @@ function buildStatsHTML() {
       <div class="passport-map-date">Nov 2026</div>
     </div>
     <div class="visited-badges">${visitedList.map(s=>`<span class="visited-badge">${s}</span>`).join('')}</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-card-title"><span>Countries Visited · ${countryList.length}</span></div>
+    <div class="visited-badges">${countryList.map(c=>`<span class="visited-badge">${c}</span>`).join('')}</div>
   </div>
 
 </div>`;
